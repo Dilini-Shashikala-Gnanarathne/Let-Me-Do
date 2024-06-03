@@ -17,8 +17,8 @@ const getAllUsers =(cb)=>{
 }
 
 const getUser =(id,cb)=>{
-    const user =users.find(user => user.id === id);
-    return user;
+    const user =users.find(user => user.id == id);
+    return cb(user);
 }
 
 exports.getAllUsers = getAllUsers;
