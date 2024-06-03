@@ -1,7 +1,6 @@
 import React from 'react'
-import UserForm from './UserForm'
 import UserTable from './UserTable'
-import { useNavigate } from 'react-router-dom'
+
 const users =[
   {
     id: 1,
@@ -19,19 +18,14 @@ const users =[
     gender: 'male'
   }
 ]
-const Users = () => {
-const navigate = useNavigate();
+const Shows = () => {
   return (
     <div>
-      <UserForm />
       <UserTable rows={users}/>
-      <button onClick={e=>navigate('/Shows')}>
-        Table
-      </button>
     </div>
   )
 }
 
 
 
-export default Users
+export default Shows;

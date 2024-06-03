@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 import { TextField, Button, FormControl, InputLabel, Select, MenuItem, Grid, Typography } from '@mui/material';
 
 const CreateAccount = () => {
-  
+  const [id, setId] =useState(0);
+  const[name,setName] = useState('');
+  const[password,setPassword] = useState('');
+  const[email,setEmail]=useState('');
+  const[gender,setGender] = useState()
 
   return (
     <Grid sx={{padding:'20px',width:'500px',position:'center'}}>
@@ -10,14 +14,25 @@ const CreateAccount = () => {
         Create an <span style={{ color: '#0066ff' }}>account</span>
       </Typography>
       <form >
+      <Grid mb={2}>
+          <TextField
+            fullWidth
+            label="Enter ID"
+            variant="outlined"
+            name="id"
+            value={id}
+            onChange={e=>setId(e.target.value)}
+            required
+          />
+        </Grid>
         <Grid mb={2}>
           <TextField
             fullWidth
             label="Enter Full Name"
             variant="outlined"
             name="name"
-            value={''}
-            onChange={e=>{}}
+            value={name}
+            onChange={e=>setName(e.target.value)}
             required
           />
         </Grid>
@@ -28,8 +43,8 @@ const CreateAccount = () => {
             variant="outlined"
             type="email"
             name="email"
-            value={''}
-            onChange={e=>{}}
+            value={email}
+            onChange={e=>setEmail(e.target.value)}
             required
           />
         </Grid>
@@ -40,8 +55,8 @@ const CreateAccount = () => {
             variant="outlined"
             type="password"
             name="password"
-            value={''}
-            onChange={e=>{}}
+            value={password}
+            onChange={e=>setPassword(e.target.value)}
             required
           />
         </Grid>
@@ -52,8 +67,8 @@ const CreateAccount = () => {
               labelId="role-label"
               label="Are you a:"
               name="role"
-              value={''}
-              onChange={e=>{}}
+              value={gender}
+              onChange={e=>setGender(e.target.value)}
             >
               <MenuItem value="viewer">Viewer</MenuItem>
               <MenuItem value="Packing">Packing</MenuItem>
