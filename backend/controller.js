@@ -29,7 +29,28 @@ const addUser = (req, res, next) => {
     });
 }
 
+const updateUser = (req, res, next) => {
+    const {id, name, email, password}=req.body;
+    User.updateOne(id==id),{$set: {name:name, email:email, password:password}
+    .then(response => {
+        res.json({response})
+        })
+       .catch(err => {
+            res.json({err: err});
+        })
+    }
+}
 
+const deleteUser = (req, res, next) => {
+    const id=req.body.id;
+    User.deleteOne({id:id})
+    .then(response => {
+        res.json({response})
+        })
+       .catch(err => {
+            res.json({err: err});
+        })
+    }
 
 
 
