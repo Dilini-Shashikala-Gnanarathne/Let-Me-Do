@@ -7,12 +7,35 @@ app.use(express.urlencoded());
 app.use(express.json());
 app.get('/users', (req,res) => {
     controller.getAllUsers(users=>{
-        res.send(users);  
-})});
-app.get('/user', (req,res) => {
-    const id=req.query.id;
-    controller.getUser(id,user=>{
-        res.send(user);  
-})
+        res.send(users);}
+    )
 });
+app.post('/updateUser', (req,res) => {
+    controller.updateOneUser(req.body,(callbak)=>{
+        res.send(callbak);}
+    )
+});
+
+app.put('/createUser', (req,res) => {
+    controller.addUser(req.body,(callbak)=>{
+        res.send(callbak);}
+    )
+});
+app.delete('/deleteUser', (req,res) => {
+    controller.deleteUser(req.body,(callbak)=>{
+        res.send(callbak);}
+    )
+});
+
+
+
+// app.get('/user', (req,res) => {
+//     const id=req.query.id;
+//     controller.getUser(id,user=>{
+//         res.send(user);  
+// })
+// });
+
+
+
 module.exports =app;
