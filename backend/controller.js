@@ -30,8 +30,8 @@ const addUser = (req, res, next) => {
 }
 
 const updateOneUser = (req, res, next) => {
-    const {id, name, email, password}=req.body;
-    User.updateOne(id==id),{$set: {name:name, email:email, password:password}
+    const {id,  password}=req.body;
+    User.updateOne(id==id),{$set: {password:password}
     .then(response => {
         res.json({response})
         })
@@ -53,7 +53,7 @@ const deleteUser = (req, res, next) => {
     }
 
 exports.getAllUsers = getAllUsers;
-exports.getUser = getUser;
+exports.addUser = addUser;
 exports.deleteUser = deleteUser;
 exports.updateOneUser = updateOneUser;
 

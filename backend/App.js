@@ -6,17 +6,17 @@ app.use(cors());
 app.use(express.urlencoded());
 app.use(express.json());
 app.get('/users', (req,res) => {
-    controller.getAllUsers(users=>{
-        res.send(users);}
+    controller.getAllUsers((req,res)=>{
+        res.send();}
     )
 });
-app.post('/updateUser', (req,res) => {
+app.put('/updateUser', (req,res) => {
     controller.updateOneUser(req.body,(callbak)=>{
         res.send(callbak);}
     )
 });
 
-app.put('/createUser', (req,res) => {
+app.post('/createUser', (req,res) => {
     controller.addUser(req.body,(callbak)=>{
         res.send(callbak);}
     )
