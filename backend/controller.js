@@ -29,7 +29,7 @@ const addUser = (req, res, next) => {
     });
 }
 
-const updateUser = (req, res, next) => {
+const updateOneUser = (req, res, next) => {
     const {id, name, email, password}=req.body;
     User.updateOne(id==id),{$set: {name:name, email:email, password:password}
     .then(response => {
@@ -52,7 +52,10 @@ const deleteUser = (req, res, next) => {
         })
     }
 
-
+exports.getAllUsers = getAllUsers;
+exports.getUser = getUser;
+exports.deleteUser = deleteUser;
+exports.updateOneUser = updateOneUser;
 
 // const users= [
 //     {
