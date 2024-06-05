@@ -21,7 +21,6 @@ const addUser = (req, res, next) => {
     user.save()
    .then(response => {
     res.json({response})
-    console.log(55);
     })
    .catch(err => {
         res.json({err: err});
@@ -30,16 +29,16 @@ const addUser = (req, res, next) => {
 }
 
 const updateOneUser = (req, res, next) => {
-    const {id,  name}=req.body;
-    User.updateOne(id==id),{$set: {name:name}
-    .then(response => {
-        res.json({response})
+    const { id, name } = req.body;
+    User.updateOne({ id: id }, { $set: { name: name } })
+        .then(response => {
+            res.json({ response });
         })
-       .catch(err => {
-            res.json({err: err});
-        })
-    }
+        .catch(err => {
+            res.json({ err: err });
+        });
 }
+
 
 const deleteUser = (req, res, next) => {
     const id=req.body.id;

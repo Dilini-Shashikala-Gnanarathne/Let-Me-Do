@@ -7,7 +7,8 @@ import { useEffect, useState} from 'react'
 const Users = () => {
   const[users , setUsers]=useState([]);
   const [submited, setSubmited] = useState(false);
-
+  const[isEddit, setIsEddit] = useState(false);
+  const[selectedUser, setSelectedUser] = useState({});
   useEffect(() =>{
     getUsers();
   },[]);
@@ -33,6 +34,26 @@ const Users = () => {
     .then(()=>{
       getUsers();
       setSubmited(false);
+      isEddit(false);
+      console.log(556);
+        })
+    .catch(error=>{
+      console.error(error);
+      console.log(111);
+    })
+  }
+
+  const updateUser=(data)=>{
+    setSubmited(true);
+    const payload={
+      id:data.id,
+      name:data.name,
+    }
+    Axios.put('http://localhost:3001/api/usersupdate', payload)
+    .then(()=>{
+      getUsers();
+      setSubmited(false);
+      isEddit(false);
       console.log(556);
         })
     .catch(error=>{
@@ -42,11 +63,23 @@ const Users = () => {
   }
   return (
     <div>
-      <UserForm  addUser={addUser}/>
+      <UserForm  addUser={addUser}
+      updateUser={updateUser}
+      submited={submited} 
+      data={selectedUser}
+      isEddit={isEddit}
+      />
      
     
       <div>
-      <UserTable rows={users}/>
+      <UserTable rows={users}
+      selectedUser={data=>{
+        setSelectedUser(data);
+        setIsEddit(true);
+      }}
+
+      
+      />
     </div>
     </div>
   )

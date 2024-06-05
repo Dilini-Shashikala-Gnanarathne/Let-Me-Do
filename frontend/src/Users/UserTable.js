@@ -2,7 +2,7 @@ import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, 
 import Grid from '@mui/material/Grid'
 import { useState } from 'react'
 
-function UserTable(props) {
+const  UserTable=({rows,selectedUser}) =>{
    
   return (
     <Grid >
@@ -20,7 +20,7 @@ function UserTable(props) {
             </TableHead>
             <TableBody>
                 {
-                    props.rows.length>0 ? props.rows.map
+                    rows.length>0 ? rows.map
                         (row=>(
                         <TableRow key={row.id} sx={{'&:last-child td, &:last-child th':{border:0}}}>
                             <TableCell component='th' scope='row'>{row.id}</TableCell>
@@ -31,7 +31,7 @@ function UserTable(props) {
                             <TableCell >
                                 <Button
                                 sx={{margin :'0px 10px'}}
-                                onClick={()=>{}}
+                                onClick={()=>selectedUser({id:row.id, name:row.name})}
                                 >
                                     Update
                                 </Button>
