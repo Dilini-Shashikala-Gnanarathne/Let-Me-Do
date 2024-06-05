@@ -61,6 +61,17 @@ const Users = () => {
       console.log(111);
     })
   }
+  const deleteUser=(data)=>{
+    Axios.post('http://localhost:3001/api/deleteUser', data)
+    .then(()=>{
+      getUsers();
+      console.log(1);
+        })
+    .catch(error=>{
+      console.error(error);
+      
+    })
+  }
   return (
     <div>
       <UserForm  addUser={addUser}
@@ -77,7 +88,12 @@ const Users = () => {
         setSelectedUser(data);
         setIsEddit(true);
       }}
-
+      deleteUser={data => {
+        if (window.confirm("Are you sure you want to delete?")) {
+          deleteUser(data); 
+          console.log('deleteUser');
+        }
+      }}
       
       />
     </div>
