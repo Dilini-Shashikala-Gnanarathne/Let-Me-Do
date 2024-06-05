@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { TextField, Button, FormControl, InputLabel, Select, MenuItem, Grid, Typography } from '@mui/material';
 
-const CreateAccount = () => {
+const CreateAccount = ({addUser}) => {
   const [id, setId] =useState(0);
   const[name,setName] = useState('');
-  const[password,setPassword] = useState('');
-  const[email,setEmail]=useState('');
-  const[gender,setGender] = useState()
+  // const[password,setPassword] = useState('');
+  // const[email,setEmail]=useState('');
+  // const[gender,setGender] = useState()
 
   return (
     <Grid sx={{padding:'20px',width:'500px',position:'center'}}>
@@ -36,7 +36,7 @@ const CreateAccount = () => {
             required
           />
         </Grid>
-        <Grid mb={2}>
+        {/* <Grid mb={2}>
           <TextField
             fullWidth
             label="Enter Your Email"
@@ -74,13 +74,14 @@ const CreateAccount = () => {
               <MenuItem value="Packing">Packing</MenuItem>
             </Select>
           </FormControl>
-        </Grid>
+        </Grid> */}
         <Grid mt={2}>
           <Button
             type="submit"
             fullWidth
             variant="contained"
             color="primary"
+            onClick={()=>addUser({id,name})}
             sx={{ py: 2, fontSize: '18px', textTransform: 'none' }}
           >
             Enter

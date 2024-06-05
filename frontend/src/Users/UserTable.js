@@ -12,9 +12,9 @@ function UserTable(props) {
                 <TableRow>
                     <TableCell>Id</TableCell>
                     <TableCell>Name</TableCell>
-                    <TableCell>Email</TableCell>
+                    {/* <TableCell>Email</TableCell>
                     <TableCell>Password</TableCell>
-                    <TableCell>Gender</TableCell>
+                    <TableCell>Gender</TableCell> */}
                     <TableCell>Action</TableCell>
                 </TableRow>
             </TableHead>
@@ -25,9 +25,9 @@ function UserTable(props) {
                         <TableRow key={row.id} sx={{'&:last-child td, &:last-child th':{border:0}}}>
                             <TableCell component='th' scope='row'>{row.id}</TableCell>
                             <TableCell component='th' scope='row'>{row.name}</TableCell>
-                            <TableCell component='th' scope='row'>{row.email}</TableCell>
+                            {/* <TableCell component='th' scope='row'>{row.email}</TableCell>
                             <TableCell component='th' scope='row'>{row.password}</TableCell>
-                            <TableCell component='th' scope='row'>{row.gender}</TableCell>
+                            <TableCell component='th' scope='row'>{row.gender}</TableCell> */}
                             <TableCell >
                                 <Button
                                 sx={{margin :'0px 10px'}}
