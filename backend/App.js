@@ -12,7 +12,7 @@ app.get('/users', (req,res) => {
         res.send();}
     )
 });
-app.put('/updateUser', (req,res) => {
+app.put('/usersupdate', (req,res) => {
     controller.updateOneUser(req.body,(callbak)=>{
         res.send(callbak);}
     )

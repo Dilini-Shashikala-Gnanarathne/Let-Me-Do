@@ -1,9 +1,23 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { TextField, Button, FormControl, InputLabel, Select, MenuItem, Grid, Typography } from '@mui/material';
 
-const CreateAccount = ({addUser}) => {
+const CreateAccount = ({addUser, submited,data,isEddit,updateUser}) => {
   const [id, setId] =useState(0);
   const[name,setName] = useState('');
+
+  useEffect(() =>{
+    if (!submited) {
+     setId(0);
+     setName(''); 
+    }
+  },[submited])
+
+  useEffect(()=>{
+    if (data?.id&& data.id !==0) {
+      setId(data.id);
+      setName(data.name);
+    }
+  },[data])
   // const[password,setPassword] = useState('');
   // const[email,setEmail]=useState('');
   // const[gender,setGender] = useState()
@@ -81,10 +95,10 @@ const CreateAccount = ({addUser}) => {
             fullWidth
             variant="contained"
             color="primary"
-            onClick={()=>addUser({id,name})}
+            onClick={()=>isEddit?updateUser({id,name}):addUser({id,name})}
             sx={{ py: 2, fontSize: '18px', textTransform: 'none' }}
           >
-            Enter
+            {isEddit? "Update": "Add"}
           </Button>
         </Grid>
       </form>
