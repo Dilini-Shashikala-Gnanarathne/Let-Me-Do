@@ -23,7 +23,7 @@ app.post('/create', (req,res) => {
         res.send();}
     )
 });
-app.delete('/deleteUser', (req,res) => {
+app.post('/deleteUser', (req,res) => {
     controller.deleteUser(req.body,(callbak)=>{
         res.send(callbak);}
     )

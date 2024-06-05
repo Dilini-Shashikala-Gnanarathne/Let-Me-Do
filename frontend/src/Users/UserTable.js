@@ -2,7 +2,7 @@ import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, 
 import Grid from '@mui/material/Grid'
 import { useState } from 'react'
 
-const  UserTable=({rows,selectedUser}) =>{
+const  UserTable=({rows,selectedUser,deleteUser}) =>{
    
   return (
     <Grid >
@@ -37,7 +37,7 @@ const  UserTable=({rows,selectedUser}) =>{
                                 </Button>
                                 <Button
                                 sx={{margin :'0px 10px'}}
-                                onClick={()=>{}}
+                                onClick={()=>deleteUser({id:row.id})}
                                 >
                                     Delete
                                 </Button>
