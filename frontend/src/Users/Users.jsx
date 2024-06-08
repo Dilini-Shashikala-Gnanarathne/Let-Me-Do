@@ -74,12 +74,6 @@ const Users = () => {
   }
   return (
     <div>
-      <UserForm  addUser={addUser}
-      updateUser={updateUser}
-      submited={submited} 
-      data={selectedUser}
-      isEddit={isEddit}
-      />
      
     
       <div>
