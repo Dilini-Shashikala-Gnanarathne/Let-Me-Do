@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { TextField, Button, FormControl, InputLabel, Select, MenuItem, Grid, Typography } from '@mui/material';
+import { TextField, Button, Grid, Typography } from '@mui/material';
 
 const CreateAccount = ({addUser, submited,data,isEddit,updateUser}) => {
   const [id, setId] =useState(0);
@@ -18,9 +18,7 @@ const CreateAccount = ({addUser, submited,data,isEddit,updateUser}) => {
       setName(data.name);
     }
   },[data])
-  // const[password,setPassword] = useState('');
-  // const[email,setEmail]=useState('');
-  // const[gender,setGender] = useState()
+ 
 
   return (
     <Grid sx={{padding:'20px',width:'500px',position:'center'}}>
@@ -31,7 +29,7 @@ const CreateAccount = ({addUser, submited,data,isEddit,updateUser}) => {
       <Grid mb={2}>
           <TextField
             fullWidth
-            label="Enter ID"
+            label="Enter Course Code"
             variant="outlined"
             name="id"
             value={id}
@@ -42,7 +40,7 @@ const CreateAccount = ({addUser, submited,data,isEddit,updateUser}) => {
         <Grid mb={2}>
           <TextField
             fullWidth
-            label="Enter Full Name"
+            label="Enter Subject Grade"
             variant="outlined"
             name="name"
             value={name}
@@ -50,45 +48,6 @@ const CreateAccount = ({addUser, submited,data,isEddit,updateUser}) => {
             required
           />
         </Grid>
-        {/* <Grid mb={2}>
-          <TextField
-            fullWidth
-            label="Enter Your Email"
-            variant="outlined"
-            type="email"
-            name="email"
-            value={email}
-            onChange={e=>setEmail(e.target.value)}
-            required
-          />
-        </Grid>
-        <Grid mb={2}>
-          <TextField
-            fullWidth
-            label="Enter Your Password"
-            variant="outlined"
-            type="password"
-            name="password"
-            value={password}
-            onChange={e=>setPassword(e.target.value)}
-            required
-          />
-        </Grid>
-        <Grid mb={2}>
-          <FormControl fullWidth variant="outlined">
-            <InputLabel id="role-label">Are you a:</InputLabel>
-            <Select
-              labelId="role-label"
-              label="Are you a:"
-              name="role"
-              value={gender}
-              onChange={e=>setGender(e.target.value)}
-            >
-              <MenuItem value="viewer">Viewer</MenuItem>
-              <MenuItem value="Packing">Packing</MenuItem>
-            </Select>
-          </FormControl>
-        </Grid> */}
         <Grid mt={2}>
           <Button
             type="submit"
