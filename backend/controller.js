@@ -24,7 +24,7 @@ const addUser = (req, res, next) => {
     })
    .catch(err => {
         res.json({err: err});
-        console.log(12);
+        console.log(1);
     });
 }
 
