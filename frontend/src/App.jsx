@@ -3,7 +3,7 @@ import UserForm from './Users/UserForm'
 import {useNavigate} from 'react-router-dom'
 import Axios from 'axios';
 import { useEffect, useState} from 'react'
-
+import Header from './Component/Header';
 const App = () => {
   const[users , setUsers]=useState([]);
   const [submited, setSubmited] = useState(false);
@@ -74,7 +74,11 @@ const App = () => {
     })
   }
   return (
+    
     <div>
+      <header>
+        <Header />
+      </header>
       <UserForm  addUser={addUser}
       updateUser={updateUser}
       submited={submited} 
