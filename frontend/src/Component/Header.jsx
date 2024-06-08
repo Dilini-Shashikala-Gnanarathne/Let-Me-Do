@@ -27,11 +27,11 @@ export default function Header() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             
           </Typography>
-          <Button color="inherit" onClick={e=>{navigate('./Users')}}>Form</Button>
-          <Button color="inherit" onClick={e=>{navigate('./Users')}}>Result Sheet</Button>
-          <Button color="inherit" onClick={e=>{navigate('./Users')}}></Button>
-          <Button color="inherit" onClick={e=>{navigate('./Users')}}></Button>
-          <Button color="inherit" onClick={e=>{navigate('./Users')}}></Button>
+          <Button color="inherit" onClick={e=>{navigate('./Form')}}>Form</Button>
+          <Button color="inherit" onClick={e=>{navigate('./Result')}}>Result Sheet</Button>
+          <Button color="inherit" onClick={e=>{navigate('./')}}></Button>
+          <Button color="inherit" onClick={e=>{navigate('./')}}></Button>
+          <Button color="inherit" onClick={e=>{navigate('./')}}></Button>
 
         </Toolbar>
       </AppBar>
