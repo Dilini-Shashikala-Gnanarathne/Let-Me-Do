@@ -51,8 +51,40 @@ const deleteUser = (req, res, next) => {
         })
     }
 
+    const calculateGPA = (req, res, next) => {
+        User.find()
+            .then(response => {
+                let count = {
+                    A: 0,
+                    B: 0,
+                    C: 0,
+                    D: 0
+                };
+    
+                response.forEach(user => {
+                    if (user.grade === 'A') {
+                        count.A++;
+                    } else if (user.grade === 'B') {
+                        count.B++;
+                    } else if (user.grade === 'C') {
+                        count.C++;
+                    } else if (user.grade === 'D') {
+                        count.D++;
+                    }
+                });
+    
+                res.json({ count });
+            })
+            .catch(err => {
+                res.status(500).json({ error: err.message });
+            });
+    };
+    
+    module.exports = calculateGPA;
+    
 exports.getAllUsers = getAllUsers;
 exports.addUser = addUser;
 exports.deleteUser = deleteUser;
 exports.updateOneUser = updateOneUser;
+exports.calculateGPA = calculateGPA;
 

@@ -29,7 +29,11 @@ app.post('/deleteUser', (req,res) => {
     )
 });
 
-
+app.get('/getUser', (req,res) => {
+    controller.deleteUser(req.body,(callbak)=>{
+        res.send(callbak);}
+    )
+});
 
 // app.get('/user', (req,res) => {
 //     const id=req.query.id;
