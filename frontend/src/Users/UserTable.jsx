@@ -2,7 +2,7 @@ import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, 
 import Grid from '@mui/material/Grid'
 import { useState } from 'react'
 
-const  UserTable=({rows,selectedUser,deleteUser}) =>{
+const  UserTable=({rows,selectedUser,deleteUser,rowww}) =>{
    
   return (
     <Grid >
@@ -43,8 +43,16 @@ const  UserTable=({rows,selectedUser,deleteUser}) =>{
                         <TableRow  sx={{'&:last-child td, &:last-child th':{border:0}}}>
                         <TableCell component='th' scope='row'>No Data</TableCell>
                         </TableRow>
-                       )
-                    
+                       )                   
+                }
+                {
+                                           rows.length<20?
+                                           (
+                                            <TableRow><TableCell>Total</TableCell>
+                    <TableCell></TableCell>
+                    <TableCell>CGPA</TableCell></TableRow>)
+                                           :(6)
+
                 }
             </TableBody>
         </Table>
