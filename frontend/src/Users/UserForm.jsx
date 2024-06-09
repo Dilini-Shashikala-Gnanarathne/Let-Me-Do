@@ -10,7 +10,6 @@ const CreateAccount = ({ addUserProp, submitted, data, isEdit, updateUser }) => 
   const [users, setUsers] = useState([]);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
-  const [selectedUser, setSelectedUser] = useState({});
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -50,11 +49,9 @@ const CreateAccount = ({ addUserProp, submitted, data, isEdit, updateUser }) => 
         getUsers();
         setIsSubmitted(false);
         setIsEditing(false);
-        console.log(556);
       })
-      .catch(error => {
+      .catch((error) => {
         console.error(error);
-        console.log(111);
       });
   };
 
@@ -62,51 +59,72 @@ const CreateAccount = ({ addUserProp, submitted, data, isEdit, updateUser }) => 
     // Fetch users from the server (implement this function as needed)
   };
 
+  const [num, setNum]= useState(0) // Placeholder variable; replace with actual logic as needed
+
   return (
     <Grid sx={{ padding: '20px', width: '500px', position: 'center' }}>
-      <Typography variant="h3" component="h3" sx={{ mb: 2, color: 'text.primary' }}>
-        Create an <span style={{ color: '#0066ff' }}>account</span>
-      </Typography>
-      {submissionCount < 5 ? (
-        <form onSubmit={handleSubmit}>
-          <Grid mb={2}>
-            <TextField
-              fullWidth
-              label="Enter Course Code"
-              variant="outlined"
-              name="id"
-              value={id}
-              onChange={(e) => setId(e.target.value)}
-              required
-            />
-          </Grid>
-          <Grid mb={2}>
-            <TextField
-              fullWidth
-              label="Enter Subject Grade"
-              variant="outlined"
-              name="name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-            />
-          </Grid>
-          <Grid mt={2}>
+      {num == 0 ? (
+        <TextField
+          fullWidth
+          label="Enter Subject Grade"
+          variant="outlined"
+          name="number"
+          value={num}
+          required
+          onChange={(e) => setNum(e.target.value)}
+
+        />
+      ) : (
+        <>
+          <Typography variant="h3" component="h3" sx={{ mb: 2, color: 'text.primary' }}>
+            Create an <span style={{ color: '#0066ff' }}>account</span>
+          </Typography>
+          {submissionCount < num ? (
+            <form onSubmit={handleSubmit}>
+              <Grid mb={2}>
+                <TextField
+                  fullWidth
+                  label="Enter Course Code"
+                  variant="outlined"
+                  name="id"
+                  value={id}
+                  onChange={(e) => setId(e.target.value)}
+                  required
+                />
+              </Grid>
+              <Grid mb={2}>
+                <TextField
+                  fullWidth
+                  label="Enter Subject Grade"
+                  variant="outlined"
+                  name="name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                />
+              </Grid>
+              <Grid mt={2}>
+                <Button
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  color="primary"
+                  sx={{ py: 2, fontSize: '18px', textTransform: 'none' }}
+                >
+                  {isEditing ? 'Update' : 'Add'}
+                </Button>
+              </Grid>
+            </form>
+          ) : (
             <Button
-              type="submit"
-              fullWidth
               variant="contained"
               color="primary"
-              sx={{ py: 2, fontSize: '18px', textTransform: 'none' }}
+              onClick={() => navigate('./Users')}
             >
-              {isEditing ? 'Update' : 'Add'}
+              Click Me
             </Button>
-          </Grid>
-        </form>
-      ) : (
-        <button className="button" onClick={() => navigate('./Users')}>
-          Click Me
-        </button>
+          )}
+        </>
       )}
     </Grid>
   );
