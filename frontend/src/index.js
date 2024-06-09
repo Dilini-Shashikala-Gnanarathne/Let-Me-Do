@@ -11,7 +11,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
   <Routes>
-    <Route path='/UserForm' element={< UserForm/>}/>
+    <Route path='/' element={< UserForm/>}/>
     <Route path='/Form' element={<Users/>}/>
     <Route path='/Result' element={<App/>}/>
 

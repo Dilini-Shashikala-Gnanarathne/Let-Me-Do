@@ -62,13 +62,13 @@ const deleteUser = (req, res, next) => {
                 };
     
                 response.forEach(user => {
-                    if (user.grade === 'A') {
+                    if (user.name === 'A') {
                         count.A++;
-                    } else if (user.grade === 'B') {
+                    } else if (user.name === 'B') {
                         count.B++;
-                    } else if (user.grade === 'C') {
+                    } else if (user.name === 'C') {
                         count.C++;
-                    } else if (user.grade === 'D') {
+                    } else if (user.name === 'D') {
                         count.D++;
                     }
                 });
@@ -80,7 +80,6 @@ const deleteUser = (req, res, next) => {
             });
     };
     
-    module.exports = calculateGPA;
     
 exports.getAllUsers = getAllUsers;
 exports.addUser = addUser;

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { TextField, Button, Grid, Typography } from '@mui/material';
 import Axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Header from '../Component/Header';
 
 const CreateAccount = ({ addUserProp, submitted, data, isEdit, updateUser }) => {
   const [id, setId] = useState(0);
@@ -62,7 +63,9 @@ const CreateAccount = ({ addUserProp, submitted, data, isEdit, updateUser }) => 
   const [num, setNum]= useState(0) // Placeholder variable; replace with actual logic as needed
 
   return (
-    <Grid sx={{ padding: '20px', width: '500px', position: 'center' }}>
+    <Grid >
+          
+
       {num == 0 ? (
         <TextField
           fullWidth
