@@ -2,7 +2,7 @@ import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, 
 import Grid from '@mui/material/Grid'
 import { useState } from 'react'
 
-const  UserTable=({rows,selectedUser,deleteUser,rowww}) =>{
+const  UserTable=({rows,selectedUser,deleteUser}) =>{
    
   return (
     <Grid >
@@ -46,7 +46,7 @@ const  UserTable=({rows,selectedUser,deleteUser,rowww}) =>{
                        )                   
                 }
                 {
-                                           rows.length<20?
+                                           rows.length <20?
                                            (
                                             <TableRow><TableCell>Total</TableCell>
                     <TableCell></TableCell>
