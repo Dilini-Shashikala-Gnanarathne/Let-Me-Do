@@ -73,6 +73,8 @@ const CreateAccount = ({ addUserProp, submitted, data, isEdit, updateUser }) => 
           required
           onChange={(e) => setNum(e.target.value)}
 
+          rowww={users}
+
         />
       ) : (
         <>
