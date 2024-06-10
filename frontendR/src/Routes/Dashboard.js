@@ -77,6 +77,7 @@ const Dashbord = ({  submited, data, isEddit, updateUser }) => {
       <h3 className="title">
         Create an <span className="highlight">account</span>
       </h3>
+      {submissionCount < num ? (
       <form>
         <div className="form-group">
           <label htmlFor="id">Enter Course Code</label>
@@ -108,7 +109,15 @@ const Dashbord = ({  submited, data, isEddit, updateUser }) => {
             {isEddit ? 'Update' : 'Add'}
           </button>
         </div>
-      </form>
+      </form>):(
+            <button
+              variant="contained"
+              color="primary"
+              onClick={() => navigate('./Users')}
+            >
+              Click Me
+            </button>
+          )}
     </div>)}
     </>
   );
