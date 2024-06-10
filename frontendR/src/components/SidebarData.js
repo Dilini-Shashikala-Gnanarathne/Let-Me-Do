@@ -17,6 +17,12 @@ export const SidebarData = [
     icon: <img src={ReportsIcon} alt="Reports" className="reports-icon"/>,
     cName: "nav-text reports",
   },
+  {
+    title: "Result",
+    path: "/Result",
+    icon: <img src={ReportsIcon} alt="Reports" className="reports-icon"/>,
+    cName: "nav-text reports",
+  },
   
   
   
