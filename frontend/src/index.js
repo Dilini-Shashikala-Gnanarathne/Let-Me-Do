@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Users from './Users/Users';
@@ -13,7 +12,7 @@ root.render(
   <Routes>
     <Route path='/' element={< UserForm/>}/>
     <Route path='/Form' element={<Users/>}/>
-    <Route path='/Result' element={<App/>}/>
+   
 
   </Routes>
   </BrowserRouter>

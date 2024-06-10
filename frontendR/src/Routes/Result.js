@@ -1,10 +1,10 @@
 import React from 'react'
-import UserForm from './Users/UserForm'
-import {useNavigate} from 'react-router-dom'
+import UserForm from './Dashboard'
+import UserTable from './Reports'
 import Axios from 'axios';
 import { useEffect, useState} from 'react'
-import Header from './Component/Header';
-const App = () => {
+
+const Users = () => {
   const[users , setUsers]=useState([]);
   const [submited, setSubmited] = useState(false);
   const[isEddit, setIsEddit] = useState(false);
@@ -12,7 +12,6 @@ const App = () => {
   useEffect(() =>{
     getUsers();
   },[]);
-  const navigate = useNavigate();
 
   const getUsers = () =>{
     Axios.get('http://localhost:3001/api/users')
@@ -74,21 +73,23 @@ const App = () => {
     })
   }
   return (
-    
     <div>
-      <header>
-        <Header />
-      </header>
-      <UserForm  addUser={addUser}
-      updateUser={updateUser}
-      submited={submited} 
-      data={selectedUser}
-      isEddit={isEddit}
-      />
      
     
       <div>
-      <button className="button"  onClick={e=>{navigate('./Users')}}>Click Me</button>
+      <UserTable rows={users}
+      selectedUser={data=>{
+        setSelectedUser(data);
+        setIsEddit(true);
+      }}
+      deleteUser={data => {
+        if (window.confirm("Are you sure you want to delete?")) {
+          deleteUser(data); 
+          console.log('deleteUser');
+        }
+      }}
+      
+      />
     </div>
     </div>
   )
@@ -96,4 +97,4 @@ const App = () => {
 
 
 
-export default App
+export default Users

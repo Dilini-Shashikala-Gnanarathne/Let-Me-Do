@@ -5,7 +5,7 @@ import Reports from "./Routes/Reports";
 import Navbar from "./components/Navbar";
 import "./App.css";
 import Dashboard from "./Routes/Dashboard";
-
+import Result from "./Routes/Result";
 const AppLayout = () => (
   <>
     <Navbar />
@@ -25,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: "reports",
         element: <Reports />,
+      },
+      {
+        path: "result",
+        element: <Result />,
       },
     ],
   },
