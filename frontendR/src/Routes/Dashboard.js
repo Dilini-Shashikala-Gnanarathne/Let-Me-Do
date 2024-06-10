@@ -11,7 +11,9 @@ const Dashbord = ({  submited, data, isEddit, updateUser }) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const navigate = useNavigate();
-
+  const handleClick = () => {
+    navigate('/Result');
+  };
   useEffect(() => {
     if (!isSubmitted) {
       setId(0);
@@ -78,7 +80,7 @@ const Dashbord = ({  submited, data, isEddit, updateUser }) => {
         Create an <span className="highlight">account</span>
       </h3>
       {submissionCount < num ? (
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="id">Enter Course Code</label>
           <input
@@ -110,13 +112,9 @@ const Dashbord = ({  submited, data, isEddit, updateUser }) => {
           </button>
         </div>
       </form>):(
-            <button
-              variant="contained"
-              color="primary"
-              onClick={() => navigate('./Users')}
-            >
-              Click Me
-            </button>
+            <div>
+              <button onClick={handleClick}>Go to Result</button>
+            </div>
           )}
     </div>)}
     </>
