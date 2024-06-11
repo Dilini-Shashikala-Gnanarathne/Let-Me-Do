@@ -37,5 +37,4 @@ const Reports = ({ rows, selectedUser, deleteUser }) => {
         </div>
     );
 };
-
 export default Reports;
