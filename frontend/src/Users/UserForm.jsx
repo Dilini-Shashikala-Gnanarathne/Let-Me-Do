@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { TextField, Button, Grid, Typography } from '@mui/material';
 import Axios from 'axios';
+import SendIcon from '@mui/icons-material/Send';
+import Stack from '@mui/material/Stack';
+
 import { useNavigate } from 'react-router-dom';
 import Header from '../Component/Header';
 
@@ -64,9 +67,17 @@ const CreateAccount = ({ addUserProp, submitted, data, isEdit, updateUser }) => 
 
   return (
     <Grid >
-          
+        <Header/>  
 
       {num == 0 ? (
+        
+
+        <Stack direction="row" spacing={12} 
+        alignItems="center"
+        justifyContent="center"
+        sx={{ minHeight: '100vh' }}>
+        
+        <Button variant="contained" endIcon={<SendIcon />}>
         <TextField
           fullWidth
           label="Enter Subject Grade"
@@ -77,13 +88,18 @@ const CreateAccount = ({ addUserProp, submitted, data, isEdit, updateUser }) => 
           onChange={(e) => setNum(e.target.value)}
 
         />
+        </Button>
+      </Stack>
+
+
+
       ) : (
         <>
-          <Typography variant="h3" component="h3" sx={{ mb: 2, color: 'text.primary' }}>
+          <Typography variant="h3" component="h3" sx={{ mb: 2, color: 'text.primary' }} >
             Create an <span style={{ color: '#0066ff' }}>account</span>
           </Typography>
           {submissionCount < num ? (
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} >
               <Grid mb={2}>
                 <TextField
                   fullWidth

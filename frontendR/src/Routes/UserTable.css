@@ -1,7 +1,12 @@
 .container {
+
     margin: 20px auto;
     width: 80%;
     color: aliceblue;
+    width: 800px;
+    overflow-x: auto;
+    color: #888;
+
 }
 
 .user-table {
@@ -14,6 +19,7 @@
     border: 1px solid #0e3169;
     padding: 8px;
     text-align: left;
+
     background-color: black;
 }
 
@@ -24,10 +30,13 @@
 .user-table td {
     padding-top: 12px;
     padding-bottom: 12px;
+
+    width: 33.33%; /* Set equal width for each column */
+
 }
 
 .action-button {
-    margin-right: 10px;
+    margin-right: 5px;
 }
 
 .no-data {
@@ -35,3 +44,4 @@
     font-style: italic;
     color: #888;
 }
+ 
