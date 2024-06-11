@@ -1,10 +1,9 @@
 import React from 'react'
-import UserForm from './Dashboard'
 import UserTable from './Reports'
 import Axios from 'axios';
 import { useEffect, useState} from 'react'
 
-const Users = () => {
+const Result = () => {
   const[users , setUsers]=useState([]);
   const [submited, setSubmited] = useState(false);
   const[isEddit, setIsEddit] = useState(false);
@@ -97,4 +96,4 @@ const Users = () => {
 
 
 
-export default Users
+export default Result

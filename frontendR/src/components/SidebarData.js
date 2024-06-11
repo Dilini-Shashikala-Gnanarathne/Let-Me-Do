@@ -10,17 +10,10 @@ export const SidebarData = [
     icon: <img src={DashboardIcon} alt="Dashboard" className="dashboard-icon"/>,
     cName: "nav-text dashboard",
   },
- 
-  {
-    title: "Reports",
-    path: "/reports",
-    icon: <img src={ReportsIcon} alt="Reports" className="reports-icon"/>,
-    cName: "nav-text reports",
-  },
   {
     title: "Result",
     path: "/Result",
-    icon: <img src={ReportsIcon} alt="Reports" className="reports-icon"/>,
+    icon: <img src={ReportsIcon} alt="Reports" className="dashboard-icon"/>,
     cName: "nav-text reports",
   },
   
