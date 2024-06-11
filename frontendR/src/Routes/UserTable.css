@@ -1,6 +1,7 @@
-.user-table-container {
+.container {
     margin: 20px auto;
     width: 80%;
+    color: aliceblue;
 }
 
 .user-table {
@@ -10,13 +11,14 @@
 
 .user-table th,
 .user-table td {
-    border: 1px solid #ddd;
+    border: 1px solid #0e3169;
     padding: 8px;
     text-align: left;
+    background-color: black;
 }
 
 .user-table th {
-    background-color: #f2f2f2;
+    background-color: #000000;
 }
 
 .user-table td {
