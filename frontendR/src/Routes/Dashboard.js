@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 const Dashboard = ({ data, updateUser }) => {
   const [id, setId] = useState('');
   const [name, setName] = useState('');
+  const[credit, setCredit]=useState('');
   const [submissionCount, setSubmissionCount] = useState(0);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
@@ -16,19 +17,21 @@ const Dashboard = ({ data, updateUser }) => {
     if (data?.id && data.id !== 0) {
       setId(data.id);
       setName(data.name);
+      setCredit(data.credit);
     }
   }, [data]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (isEditing) {
-      updateUser({ id, name });
+      updateUser({ id, name,credit });
     } else {
-      addUser({ id, name });
+      addUser({ id, name,credit });
     }
     setSubmissionCount((prevCount) => prevCount + 1);
     setId('');
     setName('');
+    setCredit('');
   };
 
   const addUser = (data) => {
@@ -36,6 +39,7 @@ const Dashboard = ({ data, updateUser }) => {
     const payload = {
       id: data.id,
       name: data.name,
+      credit:data.credit,
     };
     Axios.post('http://localhost:3001/api/create', payload)
       .then(() => {
@@ -99,6 +103,17 @@ const Dashboard = ({ data, updateUser }) => {
                   name="name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="credit">Enter Number of Credits</label>
+                <input
+                  type="text"
+                  id="credit"
+                  name="credit"
+                  value={credit}
+                  onChange={(e) => setCredit(e.target.value)}
                   required
                 />
               </div>

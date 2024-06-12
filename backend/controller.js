@@ -16,6 +16,7 @@ const addUser = (req, res, next) => {
     const user = new User({
     id:req.body.id,
     name:req.body.name,
+    credit:req.body.credit,
    
     });
     user.save()
