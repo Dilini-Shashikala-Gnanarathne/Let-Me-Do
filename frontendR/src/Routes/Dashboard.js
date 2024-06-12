@@ -106,10 +106,11 @@ const Dashbord = ({  submited, data, isEddit, updateUser }) => {
         <div className="form-group">
           <button
             type="submit"
-            onClick={() => (isEddit ? updateUser({ id, name }) : addUser({ id, name }))}
+            onClick={() =>  addUser({ id, name })}
           >
-            {isEddit ? 'Update' : 'Add'}
+           Add
           </button>
+          
         </div>
       </form>):(
             <div>

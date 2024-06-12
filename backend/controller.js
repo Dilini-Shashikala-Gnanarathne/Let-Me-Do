@@ -51,36 +51,91 @@ const deleteUser = (req, res, next) => {
         })
     }
 
-    const calculateGPA = (req, res, next) => {
-        User.find()
-            .then(response => {
-                let count = {
-                    A: 0,
-                    B: 0,
-                    C: 0,
-                    D: 0
-                };
+    // const calculateGPA = (req, res, next) => {
+    //     User.find()
+    //         .then(response => {
+    //             let count = {
+    //                 A: 0,
+    //                 B: 0,
+    //                 C: 0,
+    //                 D: 0
+    //             };
     
-                response.forEach(user => {
-                    if (user.name === 'A') {
-                        count.A++;
-                    } else if (user.name === 'B') {
-                        count.B++;
-                    } else if (user.name === 'C') {
-                        count.C++;
-                    } else if (user.name === 'D') {
-                        count.D++;
-                    }
-                });
+    //             response.forEach(user => {
+    //                 if (user.name === 'A') {
+    //                     count.A++;
+    //                 } else if (user.name === 'B') {
+    //                     count.B++;
+    //                 } else if (user.name === 'C') {
+    //                     count.C++;
+    //                 } else if (user.name === 'D') {
+    //                     count.D++;
+    //                 }
+    //             });
     
-                res.json({ count });
-            })
-            .catch(err => {
-                res.status(500).json({ error: err.message });
-            });
-    };
+    //             res.json({ count });
+    //         })
+    //         .catch(err => {
+    //             res.status(500).json({ error: err.message });
+    //         });
+    // };
+//     const calculateGPA = (req, res, next) => {
+//         User.find()
+//           .then(response => {
+//             let count = {
+//               A: 0,
+//               B: 0,
+//               C: 0,
+//               D: 0
+//             };      
+//             response.forEach(user => {
+//               if (user.name === 'A') {
+//                 count.A++;
+//               } else if (user.name === 'B') {
+//                 count.B++;
+//               } else if (user.name === 'C') {
+//                 count.C++;
+//               } else if (user.name === 'D') {
+//                 count.D++;
+//               }
+//             });
+//             res.json({ count });
+//           })
+//           .catch(err => {
+//             res.status(500).json({ error: err.message });
+//           });
+// };
     
-    
+const calculateGPA = (req, res, next) => {
+    User.find()
+      .then(response => {
+        let count = {
+          A: 0,
+          B: 0,
+          C: 0,
+          D: 0
+        };
+        let counts=0;
+        response.forEach(user => {
+          if (user.name === 'A') {
+            count.A++;
+          } else if (user.name === 'B') {
+            count.B++;
+          } else if (user.name === 'C') {
+            count.C++;
+          } else if (user.name === 'D') {
+            count.D++;
+          }
+        });
+        counts=count.A*5+count.B+count.C+count.D;
+        res.json({counts} );
+      })
+      .catch(err => {
+        res.status(500).json({ error: err.message });
+      });
+};
+
+      
 exports.getAllUsers = getAllUsers;
 exports.addUser = addUser;
 exports.deleteUser = deleteUser;
