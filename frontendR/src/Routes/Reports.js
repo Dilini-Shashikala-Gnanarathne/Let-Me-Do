@@ -1,5 +1,4 @@
 import React from 'react';
-import './UserTable.css'; // Import your CSS file
 
 const Reports = ({ rows, selectedUser, deleteUser }) => {
     return (

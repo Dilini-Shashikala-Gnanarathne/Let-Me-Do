@@ -1,17 +1,13 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { SidebarData } from "./SidebarData";
-import "../App.css";
-import CompanyLogo from "../assets/icons/logo.png";
-import LogoutIcon from "../assets/icons/Logout.png";
 const Navbar = () => {
   const location = useLocation();
 
   return (
     <div className="nav-menu active">
       <div className="nav-menu-header">
-        <img src={CompanyLogo} alt="Company Logo" className="company-logo" />
-        <span className="company-name">Ceciliyan</span>
+        <span className="app-name">Let Me Do</span>
       </div>
       <ul className="nav-menu-items">
         {SidebarData.map((item, index) => {
@@ -26,9 +22,8 @@ const Navbar = () => {
           );
         })}
       </ul>
-      <button className="logout-button">
-        <img src={LogoutIcon} alt="Logout" className="nav-icon" />
-        <span>Logout</span>
+      <button className="footer-button">
+        <span>Created by Dilini Shashikala</span>
       </button>
     </div>
   );

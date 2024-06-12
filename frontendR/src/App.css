@@ -64,20 +64,6 @@ body {
   align-items: center;
   padding: 20px;
 }
-
-.company-logo {
-  width: 40px;
-  height: 40px;
-  margin-right: 25px;
-}
-
-.company-name {
-  color: #fff;
-  font-size: 20px;
-  letter-spacing: 5px;
-  margin-top: 10px;
-}
-
 .nav-menu-items {
   width: 100%;
   padding: 0;
@@ -136,38 +122,12 @@ body {
   flex-direction: column;
   align-items: center;
 }
-.logout-button {
-  background-color: #1F2327;
-  border: none;
-  color: #fff;
-  font-size: 18px;
-  width: 100%;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  padding: 0 16px;
-  border-radius: 4px;
-  cursor: pointer;
-  justify-content: center;
-  margin-top: auto; /* Push the logout button to the bottom */
-}
-.logout-button:hover {
-  background-color: #4f0505;
-}
-
-.logout-button img {
-  margin-right: 16px;
-  width: 24px;
-  height: 24px;
-  object-fit: fill;
-}
-
-
 .container {
   padding: 20px;
   width: 500px;
   margin: 0 auto;
   text-align: center;
+  color: white;
 }
 
 .title {
@@ -210,4 +170,96 @@ button {
 
 button:hover {
   background-color: #303f9f;
+}
+
+.nav-menu {
+  background-color: #1F2327;
+  width: 250px;
+  height: calc(100vh - 80px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: fixed;
+  top: 35px;
+  bottom: 35px;
+  left: 30px;
+  border-top-left-radius: 10px;
+  overflow-y: auto;
+}
+
+.nav-menu-header {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+.app-name {
+  color: #fff;
+  font-size: 20px;
+  letter-spacing: 5px;
+  margin-top: 10px;
+}
+
+.nav-menu-items {
+  width: 100%;
+  padding: 0;
+  margin-top: 20px; 
+}
+
+.footer-button {
+  background-color: #1F2327;
+  border: none;
+  color: #4f0505;;
+  font-size: 12px;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  justify-content: center;
+  margin-top: auto; 
+
+}
+.footer-button:hover {
+  color: #f5f3f3;
+  background-color: transparent;
+}
+
+
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.user-table th,
+.user-table td {
+  border: 1px solid #0e3169;
+  padding: 8px;
+  text-align: left;
+
+  background-color: black;
+}
+
+.user-table th {
+  background-color: #000000;
+}
+
+.user-table td {
+  padding-top: 12px;
+  padding-bottom: 12px;
+
+  width: 33.33%; /* Set equal width for each column */
+
+}
+
+.action-button {
+  margin-right: 5px;
+}
+
+.no-data {
+  text-align: center;
+  font-style: italic;
+  color: #888;
 }

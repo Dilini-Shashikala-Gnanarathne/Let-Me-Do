@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import "./App.css";
 import Dashboard from "./Routes/Dashboard";
 import Result from "./Routes/Result";
+import DisplayData from "./Routes/DisplayData";
 const AppLayout = () => (
   <>
     <Navbar />
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: "result",
         element: <Result />,
+      },
+      {
+        path: "displayData",
+        element: <DisplayData />,
       },
     ],
   },
