@@ -127,6 +127,7 @@ const calculateGPA = (req, res, next) => {
          
         };
         let counts=0;
+        let gpa=0;
         response.forEach(user => {
           if (user.name === 'A') {
             count.A++;
@@ -157,7 +158,9 @@ const calculateGPA = (req, res, next) => {
           }
         });
         counts=4*count['A+']+count.A*4+count['A-']*3.7+count.B*3.3+count['B+']*3.0+count['B-']*2.7+count.C*2.3+count['C+']*2+count['C-']*1.7;
-        res.json({counts} );
+        gpa=(counts/count);
+        console.log({count});
+        res.json({gpa} );
       })
       .catch(err => {
         res.status(500).json({ error: err.message });
