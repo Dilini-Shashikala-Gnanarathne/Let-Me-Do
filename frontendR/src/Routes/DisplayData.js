@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
 
 const DisplayGPA = () => {
-  const [counts, setCounts] = useState(0);
+  const [gpa, setGPA] = useState(0);
   const [error, setError] = useState('');
 
   useEffect(() => {
@@ -12,7 +12,7 @@ const DisplayGPA = () => {
   const getGPAData = () => {
     Axios.get('http://localhost:3001/api/getUser')
       .then(response => {
-        setCounts(response.data.counts);
+        setGPA(response.data.gpa);
       })
       .catch(error => {
         setError(error.message);
@@ -21,19 +21,14 @@ const DisplayGPA = () => {
 
   return (
     <div className="container">
-      <h1>GPA Count</h1>
+      <h1>GPA Calculation</h1>
       {error && <p style={{ color: 'red' }}>Error: {error}</p>}
-      <ul>
-        <li>Total Count: {counts}</li>
-        <li>Total Count: </li>
-
-      </ul>
+      <h2>Total GPA: {gpa.toFixed(2)}</h2>
     </div>
   );
 };
 
 export default DisplayGPA;
-
 
 // import React, { useState, useEffect } from 'react';
 // import Axios from 'axios';
