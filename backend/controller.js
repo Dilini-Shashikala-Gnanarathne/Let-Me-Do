@@ -113,7 +113,18 @@ const calculateGPA = (req, res, next) => {
           A: 0,
           B: 0,
           C: 0,
-          D: 0
+          S: 0,
+          D:0,
+          E:0,
+          'A-':0,
+          'B-':0,
+          'C-':0,
+          'D-':0,
+          'A+':0,
+          'B+':0,
+          'C+':0,
+          'D+':0,
+         
         };
         let counts=0;
         response.forEach(user => {
@@ -123,11 +134,29 @@ const calculateGPA = (req, res, next) => {
             count.B++;
           } else if (user.name === 'C') {
             count.C++;
-          } else if (user.name === 'D') {
+          } else if (user.name === 'D') {  
+            count.D++;
+          } else if (user.name === 'A+') {
+            count['A+']++;
+          }else if (user.name === 'B+') {
+            count['B+']++;
+          } else if (user.name === 'C+') {
+            count['C+']++;
+          } else if (user.name === 'D+') {  
+            count['D+']++;
+          }  else if (user.name === 'A-') {
+            count['A-']++;
+          }else if (user.name === 'B-') {
+            count['B-']++;
+          } else if (user.name === 'C-') {
+            count['C-']++;
+          } else if (user.name === 'D-') {  
+            count['D-']++;
+            }  else if (user.name === 'E') {  
             count.D++;
           }
         });
-        counts=count.A*5+count.B+count.C+count.D;
+        counts=4*count['A+']+count.A*4+count['A-']*3.7+count.B*3.3+count['B+']*3.0+count['B-']*2.7+count.C*2.3+count['C+']*2+count['C-']*1.7;
         res.json({counts} );
       })
       .catch(err => {

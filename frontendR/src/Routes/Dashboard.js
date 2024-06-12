@@ -9,6 +9,7 @@ const Dashboard = ({ data, updateUser }) => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [num, setNum] = useState('');
+  const [click, setClick] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -45,14 +46,19 @@ const Dashboard = ({ data, updateUser }) => {
       });
   };
 
+  const handleClick1 = () => {
+    setClick(true);
+  };
   const handleClick = () => {
     navigate('/Result');
   };
 
   return (
     <>
-      {num === '' ? (
+      {!click ? (
         <div className="container">
+          
+          <div className="form-group">
           <label htmlFor="num">Enter Number of Courses</label>
           <input
             type="number"
@@ -62,6 +68,10 @@ const Dashboard = ({ data, updateUser }) => {
             onChange={(e) => setNum(e.target.value)}
             required
           />
+          </div>
+          <button onClick={handleClick1}>
+            Submit
+          </button>
         </div>
       ) : (
         <div className="container">
