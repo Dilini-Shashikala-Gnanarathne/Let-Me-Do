@@ -5,7 +5,8 @@ import { useNavigate } from 'react-router-dom';
 const Dashboard = ({ data, updateUser }) => {
   const [id, setId] = useState('');
   const [name, setName] = useState('');
-  const[credit, setCredit]=useState('');
+  const [credit, setCredit] = useState('');
+  const [semesterNo, setSemesterNo] = useState('');
   const [submissionCount, setSubmissionCount] = useState(0);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
@@ -18,20 +19,19 @@ const Dashboard = ({ data, updateUser }) => {
       setId(data.id);
       setName(data.name);
       setCredit(data.credit);
+      setSemesterNo(data.semesterNo);
     }
   }, [data]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (isEditing) {
-      updateUser({ id, name,credit });
+      updateUser({ id, name, credit });
     } else {
-      addUser({ id, name,credit });
+      addUser({ id, name, credit, semesterNo });
     }
     setSubmissionCount((prevCount) => prevCount + 1);
-    setId('');
-    setName('');
-    setCredit('');
+    resetForm();
   };
 
   const addUser = (data) => {
@@ -39,7 +39,8 @@ const Dashboard = ({ data, updateUser }) => {
     const payload = {
       id: data.id,
       name: data.name,
-      credit:data.credit,
+      credit: data.credit,
+      semesterNo: data.semesterNo,
     };
     Axios.post('http://localhost:3001/api/create', payload)
       .then(() => {
@@ -50,9 +51,16 @@ const Dashboard = ({ data, updateUser }) => {
       });
   };
 
+  const resetForm = () => {
+    setId('');
+    setName('');
+    setCredit('');
+  };
+
   const handleClick1 = () => {
     setClick(true);
   };
+
   const handleClick = () => {
     navigate('/Result');
   };
@@ -61,17 +69,37 @@ const Dashboard = ({ data, updateUser }) => {
     <>
       {!click ? (
         <div className="container">
-          
           <div className="form-group">
-          <label htmlFor="num">Enter Number of Courses</label>
-          <input
-            type="number"
-            id="num"
-            name="num"
-            value={num}
-            onChange={(e) => setNum(e.target.value)}
-            required
-          />
+            <label htmlFor="semesterNo">Enter Semester</label>
+            <select
+              id="semesterNo"
+              name="semesterNo"
+              value={semesterNo}
+              onChange={(e) => setSemesterNo(e.target.value)}
+              required
+              className='form-group'
+            >
+              <option value="">Select Semester</option>
+              <option>First Year First Semester</option>
+              <option>First Year Second Semester</option>
+              <option>Second Year First Semester</option>
+              <option>Second Year Second Semester</option>
+              <option>Third Year First Semester</option>
+              <option>Third Year Second Semester</option>
+              <option>Fourth Year First Semester</option>
+              <option>Fourth Year Second Semester</option>
+            </select>
+          </div>
+          <div className="form-group">
+            <label htmlFor="num">Enter Number of Courses</label>
+            <input
+              type="number"
+              id="num"
+              name="num"
+              value={num}
+              onChange={(e) => setNum(e.target.value)}
+              required
+            />
           </div>
           <button onClick={handleClick1}>
             Submit
@@ -97,25 +125,45 @@ const Dashboard = ({ data, updateUser }) => {
               </div>
               <div className="form-group">
                 <label htmlFor="name">Enter Subject Grade</label>
-                <input
-                  type="text"
+                <select
                   id="name"
                   name="name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   required
-                />
+                  className='form-group'
+                >
+                  <option value="">Select Grade</option>
+                  <option>A+</option>
+                  <option>A</option>
+                  <option>A-</option>
+                  <option>B+</option>
+                  <option>B</option>
+                  <option>B-</option>
+                  <option>C+</option>
+                  <option>C</option>
+                  <option>C-</option>
+                  <option>D+</option>
+                  <option>D</option>
+                  <option>D-</option>
+                  <option>E</option>
+                </select>
               </div>
               <div className="form-group">
                 <label htmlFor="credit">Enter Number of Credits</label>
-                <input
-                  type="text"
+                <select
                   id="credit"
                   name="credit"
                   value={credit}
                   onChange={(e) => setCredit(e.target.value)}
                   required
-                />
+                  className='form-group'
+                >
+                  <option value="">Select Credits</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                </select>
               </div>
               <div className="form-group">
                 <button type="submit">
