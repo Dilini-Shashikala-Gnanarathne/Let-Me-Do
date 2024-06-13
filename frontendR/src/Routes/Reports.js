@@ -8,7 +8,7 @@ const Reports = ({ rows, selectedUser, deleteUser }) => {
                     <tr>
                         <th>Subject Code</th>
                         <th>Grade</th>
-                        <th>Update</th>
+                        <th>Credit</th>
                         <th>Delete</th>
                     </tr>
                 </thead>
@@ -18,9 +18,10 @@ const Reports = ({ rows, selectedUser, deleteUser }) => {
                             <tr key={row.id}>
                                 <td>{row.id}</td>
                                 <td>{row.name}</td>
-                                <td>
+                                <td>{row.credit}</td>
+                                {/* <td>
                                     <button className="action-button" onClick={() => selectedUser({ id: row.id, name: row.name })}>Update</button>
-                                </td>
+                                </td> */}
                                 <td>
                                 <button className="action-button" onClick={() => deleteUser({ id: row.id })}>Delete</button>
                                 </td>
