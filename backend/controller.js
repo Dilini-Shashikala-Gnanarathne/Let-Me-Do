@@ -11,23 +11,33 @@ const getAllUsers = (req,res,next) => {
 
    }
 
+   const addUser = async (req, res, next) => {
+    try {
+        console.log('Received request to add user with ID:', req.body.id);
 
-const addUser = (req, res, next) => {
-    const user = new User({
-    id:req.body.id,
-    name:req.body.name,
-    credit:req.body.credit,
-   
-    });
-    user.save()
-   .then(response => {
-    res.json({response})
-    })
-   .catch(err => {
-        res.json({err: err});
-        console.log(1);
-    });
-}
+        const existingUser = await User.findOne({ id: req.body.id });
+        if (existingUser) {
+            console.log('User ID already exists:', req.body.id);
+            return res.status(400).json({ error: "User ID already exists" });
+        }
+
+        const user = new User({
+            id: req.body.id,
+            name: req.body.name,
+            credit: req.body.credit,
+        });
+        console.log('Creating new user:', user);
+
+        const response = await user.save();
+        console.log('User saved successfully:', response);
+
+        res.json({ response });
+    } catch (err) {
+        console.error('Error occurred:', err);
+        res.status(500).json({ error: err.message });
+    }
+};
+
 
 const updateOneUser = (req, res, next) => {
     const { id, name } = req.body;
