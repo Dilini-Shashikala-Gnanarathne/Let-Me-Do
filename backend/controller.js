@@ -13,12 +13,12 @@ const getAllUsers = (req,res,next) => {
 
    const addUser = async (req, res, next) => {
     try {
-        console.log('Received request to add user with ID:', req.body.id);
+        console.log('Received request to add course with ID:', req.body.id);
 
         const existingUser = await User.findOne({ id: req.body.id });
         if (existingUser) {
-            console.log('User ID already exists:', req.body.id);
-            return res.status(400).json({ error: "User ID already exists" });
+            console.log('Course code already exists. Please Enter new values:', req.body.id);
+            return res.status(400).json({ error: "Course code already exists. Please Enter new values" });
         }
 
         const user = new User({
@@ -26,10 +26,10 @@ const getAllUsers = (req,res,next) => {
             name: req.body.name,
             credit: req.body.credit,
         });
-        console.log('Creating new user:', user);
+        console.log('Creating new course:', user);
 
         const response = await user.save();
-        console.log('User saved successfully:', response);
+        console.log('Course saved successfully:', response);
 
         res.json({ response });
     } catch (err) {

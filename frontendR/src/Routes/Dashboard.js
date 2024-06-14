@@ -12,6 +12,7 @@ const Dashboard = ({ data, updateUser }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [num, setNum] = useState('');
   const [click, setClick] = useState(false);
+  const [error, setError] = useState(null);  // New state for error handling
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -30,8 +31,6 @@ const Dashboard = ({ data, updateUser }) => {
     } else {
       addUser({ id, name, credit, semesterNo });
     }
-    setSubmissionCount((prevCount) => prevCount + 1);
-    resetForm();
   };
 
   const addUser = (data) => {
@@ -45,10 +44,14 @@ const Dashboard = ({ data, updateUser }) => {
     Axios.post('http://localhost:3001/api/create', payload)
       .then(() => {
         setIsSubmitted(false);
+        setSubmissionCount((prevCount) => prevCount + 1);
+        resetForm();
+        setError(null);  // Clear error on success
       })
       .catch((error) => {
+        setIsSubmitted(false);
         if (error.response && error.response.status === 400) {
-          alert(error.response.data.error);  // Show alert popup
+          setError(error.response.data.error);  // Set error message
         } else {
           console.error(error);
         }
@@ -169,6 +172,7 @@ const Dashboard = ({ data, updateUser }) => {
                   <option>3</option>
                 </select>
               </div>
+              {error && <div className="error-message">{error}</div>}  {/* Error message display */}
               <div className="form-group">
                 <button type="submit">
                   Add
