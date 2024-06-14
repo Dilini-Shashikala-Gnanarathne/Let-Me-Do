@@ -47,7 +47,11 @@ const Dashboard = ({ data, updateUser }) => {
         setIsSubmitted(false);
       })
       .catch((error) => {
-        console.error(error);
+        if (error.response && error.response.status === 400) {
+          alert(error.response.data.error);  // Show alert popup
+        } else {
+          console.error(error);
+        }
       });
   };
 
