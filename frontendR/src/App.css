@@ -8,15 +8,10 @@
 }
 
 body {
-  background-color: #151414; /* Change this to your desired background color */
+  background-color: #000000; 
 }
 
-.dashboard,
-.reports,
-.packing,
-.team,
-.dispatch,
-.support {
+.home,.result{
   display: flex;
   height: 90vh;
   align-items: center;
@@ -67,7 +62,7 @@ body {
 .nav-menu-items {
   width: 100%;
   padding: 0;
-  margin-top: 20px; /* Adjust this to move tabs down */
+  margin-top: 20px; 
 }
 
 .nav-text {
@@ -93,28 +88,27 @@ body {
 
 .nav-text a:hover,
 .nav-text a.active {
-  background-color: #164614; /* Highlight color */
-  color: #fff; /* Text color when active */
+  background-color: #0066ff; 
+  color: #fff; 
 }
 
 .nav-text img {
   margin-right: 16px;
   width: 24px;
   height: 24px;
-  object-fit: fill; /* Ensure icons are not distorted */
+  object-fit: fill; 
 }
 
-/* Additional styling to ensure items align properly */
 .navbar .nav-menu-items {
   display: flex;
   flex-direction: column;
-  width: 100%; /* Ensure it takes the full width */
+  width: 100%; 
 }
 
 .navbar .nav-menu-items .nav-text {
   display: flex;
   align-items: center;
-  width: 100%; /* Ensure it takes the full width */
+  width: 100%; 
 }
 
 .centered-items {
@@ -187,7 +181,7 @@ button:hover {
 }
 
 .nav-menu {
-  background-color: #1F2327;
+  background-color: #0f1114;
   width: 250px;
   height: calc(100vh - 80px);
   display: flex;
@@ -222,7 +216,7 @@ button:hover {
 .footer-button {
   background-color: #1F2327;
   border: none;
-  color: #4f0505;;
+  color: #0066ff;;
   font-size: 12px;
   width: 100%;
   height: 60px;
@@ -243,8 +237,10 @@ button:hover {
 
 
 .user-table {
-  width: 100%;
+  width: 750px;
   border-collapse: collapse;
+  font-size: 20px;
+  border-right: #0066ff;
 }
 
 .user-table th,
@@ -252,7 +248,6 @@ button:hover {
   border: 1px solid #0e3169;
   padding: 8px;
   text-align: left;
-
   background-color: black;
 }
 
@@ -263,13 +258,12 @@ button:hover {
 .user-table td {
   padding-top: 12px;
   padding-bottom: 12px;
-
-  width: 33.33%; /* Set equal width for each column */
+  width: 33.33%; 
 
 }
 
 .action-button {
-  margin-right: 5px;
+  margin-right: 2px;
 }
 
 .no-data {

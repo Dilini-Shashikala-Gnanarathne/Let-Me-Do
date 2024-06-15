@@ -1,11 +1,11 @@
 import React from "react";
 
-import DashboardIcon from "../assets/icons/Group 1.png";
-import ReportsIcon from "../assets/icons/reports.png";
+import DashboardIcon from "../assets/home.png";
+import ReportsIcon from "../assets/result.png";
 
 export const SidebarData = [
   {
-    title: "Dashboard",
+    title: "Home",
     path: "/",
     icon: <img src={DashboardIcon} alt="Dashboard" className="dashboard-icon"/>,
     cName: "nav-text dashboard",
@@ -13,17 +13,8 @@ export const SidebarData = [
   {
     title: "Result",
     path: "/Result",
-    icon: <img src={ReportsIcon} alt="Reports" className="dashboard-icon"/>,
-    cName: "nav-text reports",
-  },
-  {
-    title: "DisplayData",
-    path: "/DisplayData",
-    icon: <img src={ReportsIcon} alt="Reports" className="dashboard-icon"/>,
-    cName: "nav-text reports",
+    icon: <img src={ReportsIcon} alt="Result" className="dashboard-icon"/>,
+    cName: "nav-text dashboard",
   },
   
-  
-  
- 
 ];
