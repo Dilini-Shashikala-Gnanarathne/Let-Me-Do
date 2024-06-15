@@ -1,123 +1,106 @@
 import React, { useEffect, useState } from 'react';
 import Axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import '../App.css'; // Assuming you have the CSS file mentioned above
 
 const Dashboard = ({ data, updateUser }) => {
-  const [id, setId] = useState('');
-  const [name, setName] = useState('');
-  const [credit, setCredit] = useState('');
-  const [semesterNo, setSemesterNo] = useState('');
+  const [courseData, setCourseData] = useState({
+    id: '',
+    name: '',
+    credit: '',
+    semesterNo: '',
+  });
+  const [numCourses, setNumCourses] = useState('');
   const [submissionCount, setSubmissionCount] = useState(0);
-  const [isSubmitted, setIsSubmitted] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
-  const [num, setNum] = useState('');
-  const [click, setClick] = useState(false);
-  const [error, setError] = useState(null);  // New state for error handling
+  const [formVisible, setFormVisible] = useState(false);
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
     if (data?.id && data.id !== 0) {
-      setId(data.id);
-      setName(data.name);
-      setCredit(data.credit);
-      setSemesterNo(data.semesterNo);
+      setCourseData({
+        id: data.id,
+        name: data.name,
+        credit: data.credit,
+        semesterNo: data.semesterNo,
+      });
+      setIsEditing(true);
     }
   }, [data]);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setCourseData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (isEditing) {
-      updateUser({ id, name, credit });
+      updateUser(courseData);
     } else {
-      addUser({ id, name, credit, semesterNo });
+      addUser(courseData);
     }
   };
 
   const addUser = (data) => {
-    setIsSubmitted(true);
-    const payload = {
-      id: data.id,
-      name: data.name,
-      credit: data.credit,
-      semesterNo: data.semesterNo,
-    };
-    Axios.post('http://localhost:3001/api/create', payload)
+    Axios.post('http://localhost:3001/api/create', data)
       .then(() => {
-        setIsSubmitted(false);
         setSubmissionCount((prevCount) => prevCount + 1);
         resetForm();
-        setError(null);  // Clear error on success
+        setError(null);
       })
       .catch((error) => {
-        setIsSubmitted(false);
         if (error.response && error.response.status === 400) {
-          setError(error.response.data.error);  // Set error message
+          setError(error.response.data.error);
         } else {
-          console.error(error);
+          setError('An unexpected error occurred');
         }
       });
   };
 
   const resetForm = () => {
-    setId('');
-    setName('');
-    setCredit('');
+    setCourseData({
+      id: '',
+      name: '',
+      credit: '',
+      semesterNo: '',
+    });
   };
 
-  const handleClick1 = () => {
-    setClick(true);
+  const handleStart = () => {
+    setFormVisible(true);
   };
 
-  const handleClick = () => {
+  const handleNavigate = () => {
     navigate('/Result');
   };
 
   return (
-    <>
-      {!click ? (
-        <div className="container">
+    <div className="container">
+      {!formVisible ? (
+        <div>
+          <h3 className="title">Calculate Semester GPA</h3>
           <div className="form-group">
-            <label htmlFor="semesterNo">Enter Semester</label>
-            <select
-              id="semesterNo"
-              name="semesterNo"
-              value={semesterNo}
-              onChange={(e) => setSemesterNo(e.target.value)}
-              required
-              className='form-group'
-            >
-              <option value="">Select Semester</option>
-              <option>First Year First Semester</option>
-              <option>First Year Second Semester</option>
-              <option>Second Year First Semester</option>
-              <option>Second Year Second Semester</option>
-              <option>Third Year First Semester</option>
-              <option>Third Year Second Semester</option>
-              <option>Fourth Year First Semester</option>
-              <option>Fourth Year Second Semester</option>
-            </select>
-          </div>
-          <div className="form-group">
-            <label htmlFor="num">Enter Number of Courses</label>
+            <label htmlFor="numCourses">Number of Courses</label>
             <input
               type="number"
-              id="num"
-              name="num"
-              value={num}
-              onChange={(e) => setNum(e.target.value)}
+              id="numCourses"
+              name="numCourses"
+              value={numCourses}
+              onChange={(e) => setNumCourses(e.target.value)}
               required
             />
           </div>
-          <button onClick={handleClick1}>
-            Submit
-          </button>
+          <button onClick={handleStart}>Enter</button>
         </div>
       ) : (
-        <div className="container">
-          <h3 className="title">
-            Create an <span className="highlight">account</span>
-          </h3>
-          {submissionCount < num ? (
+        <div>
+          <h3 className="title">Create an <span className="highlight">Account</span></h3>
+          {submissionCount < numCourses ? (
             <form onSubmit={handleSubmit}>
               <div className="form-group">
                 <label htmlFor="id">Enter Course Code</label>
@@ -125,8 +108,8 @@ const Dashboard = ({ data, updateUser }) => {
                   type="text"
                   id="id"
                   name="id"
-                  value={id}
-                  onChange={(e) => setId(e.target.value)}
+                  value={courseData.id}
+                  onChange={handleInputChange}
                   required
                 />
               </div>
@@ -135,10 +118,10 @@ const Dashboard = ({ data, updateUser }) => {
                 <select
                   id="name"
                   name="name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
+                  value={courseData.name}
+                  onChange={handleInputChange}
                   required
-                  className='form-group'
+                  className="form-group"
                 >
                   <option value="">Select Grade</option>
                   <option>A+</option>
@@ -161,32 +144,30 @@ const Dashboard = ({ data, updateUser }) => {
                 <select
                   id="credit"
                   name="credit"
-                  value={credit}
-                  onChange={(e) => setCredit(e.target.value)}
+                  value={courseData.credit}
+                  onChange={handleInputChange}
                   required
-                  className='form-group'
+                  className="form-group"
                 >
                   <option value="">Select Credits</option>
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
                 </select>
               </div>
-              {error && <div className="error-message">{error}</div>}  {/* Error message display */}
+              {error && <div className="error-message">{error}</div>}
               <div className="form-group">
-                <button type="submit">
-                  Add
-                </button>
+                <button type="submit">Add</button>
               </div>
             </form>
           ) : (
             <div>
-              <button onClick={handleClick}>Go to Result</button>
+              <button onClick={handleNavigate}>Go to Result</button>
             </div>
           )}
         </div>
       )}
-    </>
+    </div>
   );
 };
 
