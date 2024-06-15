@@ -25,6 +25,8 @@ const getAllUsers = (req,res,next) => {
             id: req.body.id,
             name: req.body.name,
             credit: req.body.credit,
+            semester:req.body.semester,
+            numofcourses:req.body.numofcourses,
         });
         console.log('Creating new course:', user);
 
