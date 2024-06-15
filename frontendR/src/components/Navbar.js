@@ -7,7 +7,7 @@ const Navbar = () => {
   return (
     <div className="nav-menu active">
       <div className="nav-menu-header">
-        <span className="app-name">Let Me Do</span>
+        <span className="app-name">Let<span style={{ textAlign: 'center', verticalAlign: 'middle', width:'20px',height:'20px',color:'#0066ff' }}>Me</span>Do</span>
       </div>
       <ul className="nav-menu-items">
         {SidebarData.map((item, index) => {

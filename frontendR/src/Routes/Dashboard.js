@@ -99,7 +99,9 @@ const Dashboard = ({ data, updateUser }) => {
         </div>
       ) : (
         <div>
-          <h3 className="title">Create an <span className="highlight">Account</span></h3>
+          <h3 className="title"> <div className="form-group">
+                <p>Enter subject: {submissionCount+1}</p>
+              </div></h3>
           {submissionCount < numCourses ? (
             <form onSubmit={handleSubmit}>
               <div className="form-group">
