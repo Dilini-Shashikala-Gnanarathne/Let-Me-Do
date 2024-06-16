@@ -35,12 +35,7 @@ app.get('/getUser', (req,res) => {
     )
 });
 
-// app.get('/user', (req,res) => {
-//     const id=req.query.id;
-//     controller.getUser(id,user=>{
-//         res.send(user);  
-// })
-// });
+
 
 
 
