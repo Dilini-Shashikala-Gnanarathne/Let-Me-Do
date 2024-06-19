@@ -5,8 +5,6 @@ import { useEffect, useState} from 'react'
 
 const Result = () => {
   const[users , setUsers]=useState([]);
-  const[isEddit, setIsEddit] = useState(false);
-  const[selectedUser, setSelectedUser] = useState({});
   useEffect(() =>{
     getUsers();
   },[]);
@@ -34,10 +32,6 @@ const Result = () => {
   return (
       <div>
       <UserTable rows={users}
-      selectedUser={data=>{
-        setSelectedUser(data);
-        setIsEddit(true);
-      }}
       deleteUser={data => {
         if (window.confirm("Are you sure you want to delete?")) {
           deleteUser(data); 

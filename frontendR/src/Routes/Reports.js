@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
 import DeleteIcon from '../assets/delete.png'
-const Reports = ({ rows, selectedUser, deleteUser }) => {
+const Reports = ({ rows, deleteUser }) => {
   const [gpa, setGPA] = useState(0);
   const [error, setError] = useState('');
 
