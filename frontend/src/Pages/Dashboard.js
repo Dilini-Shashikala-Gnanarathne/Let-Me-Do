@@ -8,7 +8,6 @@ const Dashboard = ({ data, updateUser }) => {
     id: '',
     name: '',
     credit: '',
-    semesterNo: '',
   });
   const [numCourses, setNumCourses] = useState('');
   const [submissionCount, setSubmissionCount] = useState(0);
@@ -23,7 +22,6 @@ const Dashboard = ({ data, updateUser }) => {
         id: data.id,
         name: data.name,
         credit: data.credit,
-        semesterNo: data.semesterNo,
       });
       setIsEditing(true);
     }
@@ -67,16 +65,11 @@ const Dashboard = ({ data, updateUser }) => {
       id: '',
       name: '',
       credit: '',
-      semesterNo: '',
     });
   };
 
   const handleStart = () => {
     setFormVisible(true);
-  };
-
-  const handleNavigate = () => {
-    navigate('/Result');
   };
 
   return (
@@ -99,11 +92,13 @@ const Dashboard = ({ data, updateUser }) => {
         </div>
       ) : (
         <div>
-          <h3 className="title"> <div className="form-group">
+         
+          {submissionCount < numCourses ? (
+            
+            <form onSubmit={handleSubmit}>
+               <h3 className="title"> <div className="form-group">
                 <p>Enter subject: {submissionCount+1}</p>
               </div></h3>
-          {submissionCount < numCourses ? (
-            <form onSubmit={handleSubmit}>
               <div className="form-group">
                 <label htmlFor="id">Enter Course Code</label>
                 <input
@@ -164,7 +159,12 @@ const Dashboard = ({ data, updateUser }) => {
             </form>
           ) : (
             <div>
-              <button onClick={handleNavigate}>Go to Result</button>
+              <h3 className="title"> 
+                <div className="form-end">
+                  You successfully added {submissionCount} courses 
+                  <p className='checkmark'>✨</p>         
+                </div>
+              </h3>
             </div>
           )}
         </div>
