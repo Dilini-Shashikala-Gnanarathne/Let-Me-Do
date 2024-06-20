@@ -10,7 +10,7 @@ const Result = () => {
   },[]);
 
   const getUsers = () =>{
-    Axios.get('http://localhost:3001/api/users')
+    Axios.get('https://let-me-do-mexj.onrender.com/api/users')
     .then(response=>{
       setUsers(response.data?.response||[]);
     })
@@ -19,7 +19,7 @@ const Result = () => {
     })
   }
   const deleteUser=(data)=>{
-    Axios.post('http://localhost:3001/api/deleteUser', data)
+    Axios.post('https://let-me-do-mexj.onrender.com/api/deleteUser', data)
     .then(()=>{
       getUsers();
       console.log(1);

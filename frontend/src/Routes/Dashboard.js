@@ -47,7 +47,7 @@ const Dashboard = ({ data, updateUser }) => {
   };
 
   const addUser = (data) => {
-    Axios.post('http://localhost:3001/api/create', data)
+    Axios.post('https://let-me-do-mexj.onrender.com/api/create', data)
       .then(() => {
         setSubmissionCount((prevCount) => prevCount + 1);
         resetForm();
