@@ -76,7 +76,7 @@ const Dashboard = ({ data, updateUser }) => {
     <div className="container">
       {!formVisible ? (
         <div>
-          <h3 className="title">Calculate Semester GPA</h3>
+          <h3 className="title">Hi! Calculate Your Semester GPA</h3>
           <div className="form-group">
             <label htmlFor="numCourses">Number of Courses</label>
             <input
