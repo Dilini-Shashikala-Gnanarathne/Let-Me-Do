@@ -10,7 +10,7 @@ const Reports = ({ rows, deleteUser }) => {
   }, []);
 
   const getGPAData = () => {
-    Axios.get('https://let-me-do-mexj.onrender.com/api/getUser')
+    Axios.get('http://localhost:3001/api/getUser')
       .then(response => {
         setGPA(response.data.gpa);
       })

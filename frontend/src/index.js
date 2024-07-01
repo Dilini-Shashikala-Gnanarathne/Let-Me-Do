@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import "./App.css";
 import Dashboard from "./Pages/Dashboard";
 import Result from "./Pages/Result";
+import Login from "./Pages/Login";
 const AppLayout = () => (
   <>
     <Navbar />
@@ -14,10 +15,14 @@ const AppLayout = () => (
 
 const router = createBrowserRouter([
   {
+    path: "/",
+    element: <Login />,
+  },
+  {
     element: <AppLayout />,
     children: [
       {
-        path: "/",
+        path: "/home",
         element: <Dashboard />,
       },
       {
