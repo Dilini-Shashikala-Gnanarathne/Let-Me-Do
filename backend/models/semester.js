@@ -1,0 +1,15 @@
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+
+const semesterSchema = new Schema(
+    {
+  id: { type: String, required: true, unique: true },
+  name: { type: String, required: true },
+  credit:{type:Number},
+  semester:{type: String} ,
+  numofcourses: {type:Number},   
+    }
+)
+
+
+module.exports = mongoose.model('semester', semesterSchema);

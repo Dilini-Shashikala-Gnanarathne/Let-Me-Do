@@ -5,9 +5,8 @@ const userSchema = new Schema(
     {
   id: { type: String, required: true, unique: true },
   name: { type: String, required: true },
-  credit:{type:Number},
-  semester:{type: String} ,
-  numofcourses: {type:Number},   
+  email: { type: String, required: true },
+  password: { type: String, required: true },
     }
 )
 
