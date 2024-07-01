@@ -1,4 +1,4 @@
-const User = require('./models');
+const User = require('./models/semester');
 
 const getAllUsers = (req,res,next) => {
     User.find()
