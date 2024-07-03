@@ -1,0 +1,26 @@
+.b1{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.b2{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.container{
+   margin-top: 25vh;
+   background-color: rgba(24, 24, 24, 0.85);
+   height: 400px;
+   border-radius: 20px;
+}
+.login{
+    margin-bottom: 25px;
+}
+.login-button{
+  width: 80%;
+  padding: 10px;
+  border-radius: 4px;
+  background-color: #4015ea; 
+  margin-top: 20px;
+}
