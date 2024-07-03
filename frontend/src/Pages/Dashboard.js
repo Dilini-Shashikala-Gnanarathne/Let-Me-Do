@@ -75,9 +75,9 @@ const Dashboard = ({ data, updateUser }) => {
   return (
     <>
     <Background/>
-    <div className="container">
+    <div >
       {!formVisible ? (
-        <div>
+        <div className="container">
           <h3 className="title">Calculate Semester GPA</h3>
           <div className="form-group">
             <label htmlFor="numCourses">Number of Courses</label>
@@ -93,7 +93,7 @@ const Dashboard = ({ data, updateUser }) => {
           <button onClick={handleStart}>Enter</button>
         </div>
       ) : (
-        <div>
+        <div className="container-Add">
          
           {submissionCount < numCourses ? (
             
