@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import '../App.css'; // Assuming you have the CSS file mentioned above
-
+import Background from '../components/D-Background';
 const Dashboard = ({ data, updateUser }) => {
   const [courseData, setCourseData] = useState({
     id: '',
@@ -73,6 +73,8 @@ const Dashboard = ({ data, updateUser }) => {
   };
 
   return (
+    <>
+    <Background/>
     <div className="container">
       {!formVisible ? (
         <div>
@@ -169,7 +171,7 @@ const Dashboard = ({ data, updateUser }) => {
           )}
         </div>
       )}
-    </div>
+    </div></>
   );
 };
 
