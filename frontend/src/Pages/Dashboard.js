@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import '../App.css'; // Assuming you have the CSS file mentioned above
-
+import Background from '../components/D-Background';
 const Dashboard = ({ data, updateUser }) => {
   const [courseData, setCourseData] = useState({
     id: '',
@@ -73,9 +73,11 @@ const Dashboard = ({ data, updateUser }) => {
   };
 
   return (
-    <div className="container">
+    <>
+    <Background/>
+    <div >
       {!formVisible ? (
-        <div>
+        <div className="container">
           <h3 className="title">Calculate Semester GPA</h3>
           <div className="form-group">
             <label htmlFor="numCourses">Number of Courses</label>
@@ -91,7 +93,7 @@ const Dashboard = ({ data, updateUser }) => {
           <button onClick={handleStart}>Enter</button>
         </div>
       ) : (
-        <div>
+        <div className="container-Add">
          
           {submissionCount < numCourses ? (
             
@@ -169,7 +171,7 @@ const Dashboard = ({ data, updateUser }) => {
           )}
         </div>
       )}
-    </div>
+    </div></>
   );
 };
 

@@ -130,6 +130,7 @@ body {
 
 .form-group {
   margin-bottom: 20px;
+  background-color: transparent;
 }
 
 label {
@@ -146,10 +147,16 @@ select {
   border: 1px solid #4015ea;
   border-radius: 5px;
   background-color: transparent;
+  color: #d5d3d3;
 }
+option{
+  background-color: rgb(26, 25, 25);
+  border-radius: 5px;
+  align-items: center;
 
+}
 button {
-  width: 100%;
+  width: 80%;
   padding: 15px;
   font-size: 18px;
   background-color: #0066ff;
@@ -256,4 +263,15 @@ button:hover {
   bottom: 0;
   left: 0;
   transform: rotate(180deg);
+}
+.container-Add{
+  background-color: rgba(24, 24, 24, 0.85);
+  height: 580px;
+  border-radius: 20px;
+ width: 500px;
+ text-align: center;
+ color: white;
+ margin: 0 auto;
+ margin-top: 18vh;
+
 }
