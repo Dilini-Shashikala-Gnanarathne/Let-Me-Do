@@ -8,22 +8,35 @@
     top: 0;
     right: 0;
 }
-.container{
-   margin-top: 25vh;
+.container-regi{
    background-color: rgba(24, 24, 24, 0.85);
-   height: 400px;
+   height: 580px;
    border-radius: 20px;
+  width: 500px;
+  text-align: center;
+  color: white;
+  margin: 0 auto;
+  margin-top: 18vh;
+
+   
 }
 .login{
-    margin-bottom: 0px;
+    margin-bottom: 25px;
 }
-.login-button{
+.regi-button{
   width: 80%;
   padding: 10px;
   border-radius: 4px;
   background-color: #4015ea; 
   margin-top: 20px;
+  margin-bottom: 10px;
 }
-h1{
-    margin-bottom: 10px;
+
+h2{
+    padding: 20px;
+}
+span{
+    color: #4015ea; 
+    margin-left: 10px;
+    cursor: pointer;
 }

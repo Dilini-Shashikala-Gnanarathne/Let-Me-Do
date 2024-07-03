@@ -1,9 +1,5 @@
 import { useState } from 'react';
-import B1 from '../assets/B1.png';
-import B2 from '../assets/B2.png';
-import B3 from '../assets/B3.png';
-import R2 from '../assets/R2.png';
-import R3 from '../assets/R3.png';
+import Backgrount from '../components/Backgrount';
 import './Login.css';
 
 const Login = () => {
@@ -27,15 +23,7 @@ const Login = () => {
           };
   return (
     <>
-    <div className='b1'>
-    <img src={B1} alt="b1" className='b1' /> 
-      <img src={B2} alt="b1" className='b1' />  
-      <img src={B3} alt="b1" className='b1' /> 
-    </div>
-    <div className='b2'>
-      <img src={R2} alt="R1" className='b2' />  
-      <img src={R3} alt="R1" className='b2' /> 
-    </div>
+    <Backgrount/>
     <div className='container'>
     <h1 className='login'>Login</h1>
     <form onSubmit={handleSubmit}>
