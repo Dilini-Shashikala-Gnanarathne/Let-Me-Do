@@ -1,6 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
-import '../App.css'
+import Backgrount from '../components/Backgrount';
+import { Link } from 'react-router-dom'; 
+import './Register.css'
 const Signup = () => {
     const [formData,setFormData] =useState({
             id: '',
@@ -22,10 +24,12 @@ const Signup = () => {
               };
             
   return (
-    <div className="container">
-        <h1>
+    <>    
+    <Backgrount/>
+    <div className="container-regi">
+        <h2>
             Create an <span>Account</span>
-        </h1>
+        </h2>
         <form onSubmit={handleSubmit}>
               <div className="form-group">
                 <label htmlFor="id">Enter Your Name</label>
@@ -71,9 +75,12 @@ const Signup = () => {
                   required
                 />
               </div>
-              <button type="submit">Add</button>
+              <button type="submit" className='regi-button'>Add</button><br/>
+              <h7>Already account<span><Link to="/login">Login</Link></span></h7>
             </form>
     </div>
+    </>
+
   )
 }
 
