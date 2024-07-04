@@ -94,8 +94,21 @@ body {
 .nav-text a:hover,
 .nav-text a.active {
   background-color: #0066ff;
-  color: #fff;
+  
 }
+
+.nav-menu-items .nav-text a:hover,
+.nav-menu-items .nav-text a.active {
+  color: #f8f5f5 ; 
+
+}
+.item-title{
+  color: white;
+}
+.nav-menu-items .nav-text a:hover .item-title {
+  color: #ffffff; 
+}
+
 
 .nav-text img {
   margin-right: 16px;
@@ -125,7 +138,7 @@ body {
 }
 
 .highlight {
-  color: #0066ff;
+  color: #e8eaed;
 }
 
 .form-group {
