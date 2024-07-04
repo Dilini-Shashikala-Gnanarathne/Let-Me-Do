@@ -8,6 +8,11 @@ const userSchema = new Schema({
   role: {
     type: String,
   },
+  id:{
+    type: String,
+    required: true,
+    unique: true,
+  }
 
 });
 

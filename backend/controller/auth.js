@@ -3,7 +3,7 @@ const Admin = require('../models/AdminSchema'); // Adjust the path as per your p
 const bcrypt = require('bcrypt');
 
 const register = async (req, res) => {
-    const { email, password, name, role } = req.body;
+    const { email, password, name, role,id } = req.body;
 
     try {
         // Check if user already exists based on role
@@ -29,14 +29,14 @@ const register = async (req, res) => {
                 name,
                 email,
                 password: hashPassword,
-                role
+                role,id
             });
         } else if (role === 'admin') {
             user = new Admin({
                 name,
                 email,
                 password: hashPassword,
-                role
+                role,id
             });
         }
 
