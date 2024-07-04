@@ -90,7 +90,7 @@ const Dashboard = ({ data, updateUser }) => {
               required
             />
           </div>
-          <button onClick={handleStart}>Enter</button>
+          <button className='login-button'onClick={handleStart}>Enter</button>
         </div>
       ) : (
         <div className="container-Add">

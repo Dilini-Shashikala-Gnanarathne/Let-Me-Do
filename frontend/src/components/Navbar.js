@@ -25,7 +25,7 @@ const Navbar = () => {
             <li key={index} className={item.cName}>
               <Link to={item.path} className={`${isActive ? 'active' : ''} ${item.title.toLowerCase()}`}>
                 {item.icon}
-                <span>{item.title}</span>
+                <span className="item-title">{item.title}</span>
               </Link>
             </li>
           );
