@@ -7,6 +7,7 @@ import Dashboard from "./Pages/Dashboard";
 import Result from "./Pages/Result";
 import Login from "./Pages/Login";
 import Register from "./Pages/Signup";
+import Reports from "./Pages/Report";
 const AppLayout = () => (
   <>
     <Navbar />
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: "result",
         element: <Result />,
+      },
+      {
+        path: "report",
+        element: <Reports />,
       },
     ],
   },
