@@ -9,5 +9,7 @@ router.post('/create', controller.addUser);
 router.post('/deleteUser', controller.deleteUser);
 router.put('/usersupdate', controller.updateOneUser);
 router.get('/getUser' , controller.calculateGPA);
-router.post('/createUser', routers.register)
+router.post('/createUser', routers.register);
+router.post('/login', routers.login);
+
 module.exports = router;
