@@ -275,3 +275,13 @@ button:hover {
  margin-top: 18vh;
 
 }
+
+.container-userTable{
+   height: 580px;
+   border-radius: 20px;
+  width: 500px;
+  text-align: center;
+  color: white;
+  margin: 0 auto;
+  margin-top: 5vh;
+}

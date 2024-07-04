@@ -19,7 +19,7 @@ const Reports = ({ rows, deleteUser }) => {
       });
   };
     return (
-        <div className="container">
+        <div className="container-userTable">
             <h3 className="title">Your Results</h3>
             <table className="user-table">
                 <thead>
