@@ -1,13 +1,22 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { SidebarData } from "./SidebarData";
+import LogoutIcon from '../assets/Logout.png'; 
+
 const Navbar = () => {
   const location = useLocation();
+  const navigate = useNavigate(); 
+
+  const handleLogout = () => {
+    navigate("/");
+  };
 
   return (
     <div className="nav-menu active">
       <div className="nav-menu-header">
-        <span className="app-name">Let<span style={{ textAlign: 'center', verticalAlign: 'middle', width:'20px',height:'20px',color:'#0066ff' }}>Me</span>Do</span>
+        <span className="app-name">
+          Let<span style={{ textAlign: 'center', verticalAlign: 'middle', width: '20px', height: '20px', color: '#0066ff' }}>Me</span>Do
+        </span>
       </div>
       <ul className="nav-menu-items">
         {SidebarData.map((item, index) => {
@@ -22,8 +31,9 @@ const Navbar = () => {
           );
         })}
       </ul>
-      <button className="footer-button">
-        <span>Created by Dilini Shashikala</span>
+      <button className="footer-button" onClick={handleLogout}>
+        <img src={LogoutIcon} alt="Logout" className="nav-icon" />
+        <span>Logout</span>
       </button>
     </div>
   );
