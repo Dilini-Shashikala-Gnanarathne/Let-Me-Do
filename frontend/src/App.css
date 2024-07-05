@@ -13,7 +13,7 @@ body {
 
 /* Home and Result Section */
 .home,
-.result,.report {
+.result,.report,.allsemester {
   display: flex;
   height: 90vh;
   align-items: center;
