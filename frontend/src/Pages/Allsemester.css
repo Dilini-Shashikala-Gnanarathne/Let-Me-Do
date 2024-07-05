@@ -1,0 +1,45 @@
+.container-all-sem-wrapper{
+   
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-left: 350px;
+
+}
+
+.container-all-sem{
+    background-color: rgba(24, 24, 24, 0.85);
+    height: 200px;
+    border-radius: 20px;
+   width: 400px;
+   text-align: center;
+   color: white;
+   margin: 0 auto;
+   margin-top: 5vh;
+   
+}
+
+.container-all-sem:hover {
+    box-shadow: 0 0 10px rgba(232, 13, 24, 0.5);
+  }
+  
+  .container-all-sem:focus-within {
+    box-shadow: 0 0 10px #0066ff;
+  }
+
+.title-all{
+    color: #0066ff;
+    font-size: 20px;
+    margin-top: 20px;
+    letter-spacing: 5px;
+    margin-bottom: 20px;
+
+}
+.first{
+    margin-bottom: 1px;
+    color: #fff;
+    padding-left: 850px; 
+   margin: 0 auto;
+   margin-top: 5vh;
+   font-size: 20px;
+}

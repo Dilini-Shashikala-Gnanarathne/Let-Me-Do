@@ -8,6 +8,7 @@ import Result from "./Pages/Result";
 import Login from "./Pages/Login";
 import Register from "./Pages/Signup";
 import Reports from "./Pages/Report";
+import Allsemester from "./Pages/Allsemester";
 const AppLayout = () => (
   <>
     <Navbar />
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
   {
     element: <AppLayout />,
     children: [
+      {
+        path: "allsemester",
+        element: <Allsemester />,
+      },
       {
         path: "/home",
         element: <Dashboard />,

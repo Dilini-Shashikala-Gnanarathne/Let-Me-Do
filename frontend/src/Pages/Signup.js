@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Backgrount from '../components/Backgrount'; // Make sure this component exists and is correctly named
+import Backgrount from '../components/Backgrount'; 
 import { Link } from 'react-router-dom'; 
 import Axios from 'axios';
 import './Register.css';
