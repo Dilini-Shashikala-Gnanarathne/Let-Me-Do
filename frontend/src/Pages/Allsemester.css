@@ -31,15 +31,16 @@
     color: #0066ff;
     font-size: 20px;
     margin-top: 20px;
-    letter-spacing: 5px;
     margin-bottom: 20px;
 
 }
 .first{
     margin-bottom: 1px;
     color: #fff;
-    padding-left: 850px; 
+    padding-left: 500px; 
    margin: 0 auto;
    margin-top: 5vh;
    font-size: 20px;
+   letter-spacing: 5px;
+
 }
