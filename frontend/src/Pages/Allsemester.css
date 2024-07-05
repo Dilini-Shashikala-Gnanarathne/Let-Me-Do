@@ -16,6 +16,7 @@
    color: white;
    margin: 0 auto;
    margin-top: 5vh;
+   margin-bottom: 10vh;
    
 }
 
@@ -43,4 +44,12 @@
    font-size: 20px;
    letter-spacing: 5px;
 
+}
+
+.add-result{
+  width: 50%;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #4015ea; 
+  margin-top: 20px;
 }
