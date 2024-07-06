@@ -4,12 +4,7 @@ import DashboardIcon from "../assets/home.png";
 import ResultIcon from "../assets/result.png";
 import ReportsIcon from "../assets/report.png";
 export const SidebarData = [
-  {
-    title: "Allsemester",
-    path: "/allsemester",
-    icon: <img src={DashboardIcon} alt="Dashboard" className="dashboard-icon"/>,
-    cName: "nav-text dashboard",
-  },
+  
   {
     title: "Home",
     path: "/home",

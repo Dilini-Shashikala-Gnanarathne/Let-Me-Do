@@ -8,8 +8,7 @@ import Result from "./Pages/Result";
 import Login from "./Pages/Login";
 import Register from "./Pages/Signup";
 import Reports from "./Pages/Report";
-import Allsemester from "./Pages/Allsemester";
-import Addresult from "./Pages/Addresult";
+import Home from "./Pages/Home";
 import Addresult2 from "./Pages/AddResult2";
 
 const AppLayout = () => (
@@ -28,23 +27,21 @@ const router = createBrowserRouter([
     path: "/login",
     element: <Login />,
   },
-  {
-    path: "/addresult",
-    element: <Addresult />,
-  },
-  {
-    path: "/addresult2",
-    element: <Addresult2 />,
-  },
+ 
   {
     element: <AppLayout />,
     children: [
       {
-        path: "allsemester",
-        element: <Allsemester />,
+        path: "home",
+        element: <Home />,
       },
       {
-        path: "/home",
+        path: "addresult2",
+        element: <Addresult2 />,
+      },
+      
+      {
+        path: "dashbord",
         element: <Dashboard />,
       },
       {
