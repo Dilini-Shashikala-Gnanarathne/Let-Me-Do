@@ -6,7 +6,7 @@ const SemesterGPAForm = ({ semesterName, pageName }) => {
   const getLinkPath = () => {
     switch (pageName) {
       case '1':
-        return '/addresult1';
+        return '/addresult';
       case '2':
         return '/addresult2';
       case '3':
