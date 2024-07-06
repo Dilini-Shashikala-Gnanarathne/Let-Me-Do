@@ -8,9 +8,9 @@ const SemesterGPAForm = ({ semesterName, pageName }) => {
       case '1':
         return '/addresult';
       case '2':
-        return '/addresult2';
+        return '/home';
       case '3':
-        return '/addresult3';
+        return '/addresult2';
       case '4':
         return '/addresult4';
       case '5':
