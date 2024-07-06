@@ -10,6 +10,8 @@ import Register from "./Pages/Signup";
 import Reports from "./Pages/Report";
 import Allsemester from "./Pages/Allsemester";
 import Addresult from "./Pages/Addresult";
+import Addresult2 from "./Pages/AddResult2";
+
 const AppLayout = () => (
   <>
     <Navbar />
@@ -29,6 +31,10 @@ const router = createBrowserRouter([
   {
     path: "/addresult",
     element: <Addresult />,
+  },
+  {
+    path: "/addresult2",
+    element: <Addresult2 />,
   },
   {
     element: <AppLayout />,
