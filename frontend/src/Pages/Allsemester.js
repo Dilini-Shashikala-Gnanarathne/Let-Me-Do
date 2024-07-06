@@ -6,21 +6,21 @@ const SemesterGPAForm = ({ semesterName, pageName }) => {
   const getLinkPath = () => {
     switch (pageName) {
       case '1':
-        return '/addresult';
+        return '/addresult2';
       case '2':
-        return '/home';
+        return '/addresult2';
       case '3':
         return '/addresult2';
       case '4':
-        return '/addresult4';
+        return '/addresult2';
       case '5':
-        return '/addresult5';
+        return '/addresult2';
       case '6':
-        return '/addresult6';
+        return '/addresult2';
       case '7':
-        return '/addresult7';
+        return '/addresult2';
       case '8':
-        return '/addresult8';
+        return '/addresult2';
       default:
         return '/';
     }

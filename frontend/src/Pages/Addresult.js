@@ -1,17 +1,17 @@
-import React from 'react';
-import SubjectGrade from '../components/SubjectGrade';
-import '../App.css';
-import Background from '../components/D-Background';
+// import React from 'react';
+// import SubjectGrade from '../components/SubjectGrade';
+// import '../App.css';
+// import Background from '../components/D-Background';
 
-const Dashboard = () => {
+// const Dashboard = () => {
 
 
-  return (
-    <>
-      <Background />
-            <SubjectGrade />
-    </>
-  );
-};
+//   return (
+//     <>
+//       <Background />
+//       <SubjectGrade />
+//     </>
+//   );
+// };
 
-export default Dashboard;
+// export default Dashboard;
