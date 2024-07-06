@@ -9,6 +9,7 @@ import Login from "./Pages/Login";
 import Register from "./Pages/Signup";
 import Reports from "./Pages/Report";
 import Allsemester from "./Pages/Allsemester";
+import Addresult from "./Pages/Addresult";
 const AppLayout = () => (
   <>
     <Navbar />
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login />,
+  },
+  {
+    path: "/addresult",
+    element: <Addresult />,
   },
   {
     element: <AppLayout />,
