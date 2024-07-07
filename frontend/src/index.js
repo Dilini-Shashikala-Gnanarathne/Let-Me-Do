@@ -3,14 +3,15 @@ import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import "./App.css";
-import Dashboard from "./Pages/Dashboard";
 import Result from "./Pages/Result";
 import Login from "./Pages/Login";
 import Register from "./Pages/Signup";
 import Reports from "./Pages/Report";
-import Home from "./Pages/Home";
-import Addresult2 from "./Pages/AddResult2";
-
+import Allsemester from "./Pages/Allsemester";
+import FirstYearFirst from "./Pages/All Semester Pages/FirstYearFrirst";
+import FirstYearSecond from "./Pages/All Semester Pages/FirstYearSecond";
+import SeconYearFirst from "./Pages/All Semester Pages/SecondYearFirst";
+import SeconYearSecond from "./Pages/All Semester Pages/SecondYearSecond";
 const AppLayout = () => (
   <>
     <Navbar />
@@ -24,6 +25,19 @@ const router = createBrowserRouter([
     element: <Register />,
   },
   {
+    path: "/firstfirst",
+    element: <FirstYearFirst />,
+  },
+  {
+    path: "/firstsecond",
+    element: <FirstYearSecond />,
+  },{
+    path: "/secondfirst",
+    element: <SeconYearFirst />,
+  },{
+    path: "/secondsecond",
+    element: <SeconYearSecond />,
+  },{
     path: "/login",
     element: <Login />,
   },
@@ -33,17 +47,17 @@ const router = createBrowserRouter([
     children: [
       {
         path: "home",
-        element: <Home />,
+        element: <Allsemester />,
       },
-      {
-        path: "addresult2",
-        element: <Addresult2 />,
-      },
+      // {
+      //   path: "addresult2",
+      //   element: <Addresult2 />,
+      // },
       
-      {
-        path: "dashbord",
-        element: <Dashboard />,
-      },
+      // {
+      //   path: "dashbord",
+      //   element: <Dashboard />,
+      // },
       {
         path: "result",
         element: <Result />,
