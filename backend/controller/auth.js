@@ -96,7 +96,7 @@ const login = async (req, res) => {
 
   } catch (err) {
     console.error(err.message);
-    const errorMessage = err instanceof Error ? err.message : 'Internal server error, Please try again';
+    const errorMessage = err instanceof Error ? err.message : 'Internal server error, Please try again !';
     res.status(500).json({ success: false, message: errorMessage });
   }
 };

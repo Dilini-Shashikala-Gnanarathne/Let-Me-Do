@@ -246,7 +246,10 @@ button:hover {
 }
 
 .form-end {
-  margin-top: 250px;
+  margin-top: 20px;
+  align-items: center;
+
+
 }
 
 .checkmark {
@@ -297,4 +300,23 @@ button:hover {
   color: white;
   margin: 0 auto;
   margin-top: 5vh;
+}
+
+.label-title{
+  font-size: 30px;
+}
+
+.check-text{
+  margin-top: 50px;
+}
+.container-end{
+  background-color: rgba(24, 24, 24, 0.85);
+  height: 250px;
+  border-radius: 20px;
+ width: 500px;
+ text-align: center;
+ color: white;
+ margin: 0 auto;
+ margin-top: 18vh;
+
 }
