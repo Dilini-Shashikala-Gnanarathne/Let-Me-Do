@@ -97,14 +97,14 @@ const Dashboard = ({ data, updateUser }) => {
         <button className='login-button'onClick={handleStart}>Enter</button>
       </div>
     ) : (
-      <div className="container-Add">
+      <div>
         
         {submissionCount < numCourses ? (
         <div className="container-Add">
         <form>
           <h3 className="title">Add Course Details</h3>
           <div className="form-group">
-            <label htmlFor="id">Course Code: IS100{submissionCount + 1}</label>
+            <label htmlFor="id" className='label-title'>Course Code: IS100{submissionCount + 1}</label>
           </div>
           <div className="form-group">
             <label htmlFor="name">Enter Subject Grade</label>
@@ -152,14 +152,14 @@ const Dashboard = ({ data, updateUser }) => {
         </form>
       </div>
     ) : (
-          <div>
+      <div className="container-end">
             <h3 className="title"> 
               <div className="form-end">
-                You successfully added {submissionCount} courses 
+                <p className='check-text'>You successfully added {submissionCount} courses </p>
                 <p className='checkmark'>✨</p>         
               </div>
             </h3>
-          </div>
+        </div>
         )}
       </div>
     )}
