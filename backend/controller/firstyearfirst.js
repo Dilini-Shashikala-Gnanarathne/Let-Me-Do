@@ -25,14 +25,9 @@ const firstyearfirst = async (req, res) => {
             }
 
             for (const update of updates) {
-                const { semesterSubject, subjectname, grade, gpa } = update;
+                const {  subjectname, grade, gpa } = update;
 
-                if (!semesterSubjects.includes(semesterSubject)) {
-                    return res.status(400).json({
-                        success: false,
-                        message: `Invalid semester subject provided: ${semesterSubject}`,
-                    });
-                }
+                
 
                 record.firstyearfirst.push({ subject: subjectname, grade, gpa });
             }

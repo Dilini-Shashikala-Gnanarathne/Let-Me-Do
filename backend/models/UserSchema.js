@@ -5,7 +5,11 @@ const firstsem= new Schema({
   grade:{type:String},
   gpa:{type:Number}
 })
-
+const secondsem= new Schema({
+  subject:{type:String, },
+  grade:{type:String},
+  gpa:{type:Number}
+})
 const userSchema = new Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
@@ -19,6 +23,7 @@ const userSchema = new Schema({
     unique: true,
   },
   firstyearfirst:[firstsem],
+  firstyearsecond:[secondsem],
 
 });
 
