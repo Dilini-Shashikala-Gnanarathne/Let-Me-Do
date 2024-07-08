@@ -1,5 +1,10 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const firstsem= new Schema({
+  subject:{type:String, },
+  grade:{type:String},
+  gpa:{type:Number}
+})
 
 const userSchema = new Schema({
   email: { type: String, required: true, unique: true },
@@ -12,7 +17,8 @@ const userSchema = new Schema({
     type: String,
     required: true,
     unique: true,
-  }
+  },
+  firstyearfirst:[firstsem],
 
 });
 

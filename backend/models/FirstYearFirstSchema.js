@@ -8,7 +8,7 @@ const sem=new Schema({
 });
 
 
-const semesterSchema = new Schema(
+const firstyearfirst = new Schema(
     {
   id: { type: String, required: true, unique: true },
   name: { type: String, required: true },
@@ -17,6 +17,6 @@ const semesterSchema = new Schema(
 )
 
 
-module.exports = mongoose.model('semester', semesterSchema);
+module.exports = mongoose.model('firstyearfirst', firstyearfirst);
 
 

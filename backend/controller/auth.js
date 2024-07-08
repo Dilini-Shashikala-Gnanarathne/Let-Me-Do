@@ -25,6 +25,7 @@ const register = async (req, res) => {
 
     if (user) {
       return res.status(400).json({ success: false, message: 'User already exists' });
+
     }
 
     const salt = await bcrypt.genSalt(10);
