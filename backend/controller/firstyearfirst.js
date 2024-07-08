@@ -1,4 +1,4 @@
-const Firstfirst = require('../models/UserSchema');
+const User = require('../models/UserSchema');
 
 const firstyearfirst = async (req, res) => {
     const { email, updates } = req.body;
@@ -13,28 +13,28 @@ const firstyearfirst = async (req, res) => {
             });
         }
 
-        let record = await Firstfirst.findOne({ email });
+        let record = await User.findOne({ email });
 
         const semesterSubjects = [
             'IS1001', 'IS1002', 'IS1003', 'IS1004', 'IS1005', 'IS1006', 'IS1007', 'IS1008', 'IS1009',
         ];
 
         if (record) {
+            if (!record.firstyearfirst) {
+                record.firstyearfirst = [];
+            }
+
             for (const update of updates) {
                 const { semesterSubject, subjectname, grade, gpa } = update;
 
                 if (!semesterSubjects.includes(semesterSubject)) {
                     return res.status(400).json({
                         success: false,
-                        message: `Invalid semester Subject provided: ${semesterSubject}`,
+                        message: `Invalid semester subject provided: ${semesterSubject}`,
                     });
                 }
 
-                if (!record[semesterSubject]) {
-                    record[semesterSubject] = [];
-                }
-
-                record[semesterSubject].push({ subjectname, grade, gpa });
+                record.firstyearfirst.push({ subject: subjectname, grade, gpa });
             }
 
             await record.save();
