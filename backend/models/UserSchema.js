@@ -10,6 +10,36 @@ const secondsem= new Schema({
   grade:{type:String},
   gpa:{type:Number}
 })
+const thirdsem= new Schema({
+  subject:{type:String, },
+  grade:{type:String},
+  gpa:{type:Number}
+})
+const fourthsem= new Schema({
+  subject:{type:String, },
+  grade:{type:String},
+  gpa:{type:Number}
+})
+const fifthsem= new Schema({
+  subject:{type:String, },
+  grade:{type:String},
+  gpa:{type:Number}
+})
+const sixthsem= new Schema({
+  subject:{type:String, },
+  grade:{type:String},
+  gpa:{type:Number}
+})
+const seventhsem= new Schema({
+  subject:{type:String, },
+  grade:{type:String},
+  gpa:{type:Number}
+})
+const eighthsem= new Schema({
+  subject:{type:String, },
+  grade:{type:String},
+  gpa:{type:Number}
+})
 const userSchema = new Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
@@ -24,6 +54,13 @@ const userSchema = new Schema({
   },
   firstyearfirst:[firstsem],
   firstyearsecond:[secondsem],
+  secondyearfirst:[thirdsem],
+  secondyearsecond:[fourthsem],
+  thirdyearfirst:[fifthsem],
+  thirdyearsecond:[sixthsem],
+  fourthyearfirst:[seventhsem],
+  fourthyearsecond:[eighthsem],
+
 
 });
 
