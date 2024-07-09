@@ -28,34 +28,8 @@ const router = createBrowserRouter([
     path: "/",
     element: <Register />,
   },
-  {
-    path: "/firstfirst",
-    element: <FirstYearFirst />,
-  },
-  {
-    path: "/firstsecond",
-    element: <FirstYearSecond />,
-  },{
-    path: "/secondfirst",
-    element: <SeconYearFirst />,
-  },{
-    path: "/secondsecond",
-    element: <SeconYearSecond />,
-  },
-  {
-    path: "/thirdfirst",
-    element: <ThirdYearFirst />,
-  },
-  {
-    path: "/thirdsecond",
-    element: <ThirdYearSecond />,
-  },{
-    path: "/fourthfirst",
-    element: <FourthYearFirst />,
-  },{
-    path: "/fourthsecond",
-    element: <FourthYearSecond />,
-  },
+ 
+ 
   {
     path: "/login",
     element: <Login />,
@@ -75,6 +49,34 @@ const router = createBrowserRouter([
       {
         path: "report",
         element: <Reports />,
+      },
+      {
+        path: "firstfirst",
+        element: <FirstYearFirst />,
+      },
+      {
+        path: "firstsecond",
+        element: <FirstYearSecond />,
+      },{
+        path: "secondfirst",
+        element: <SeconYearFirst />,
+      },{
+        path: "secondsecond",
+        element: <SeconYearSecond />,
+      },
+      {
+        path: "thirdfirst",
+        element: <ThirdYearFirst />,
+      },
+      {
+        path: "thirdsecond",
+        element: <ThirdYearSecond />,
+      },{
+        path: "fourthfirst",
+        element: <FourthYearFirst />,
+      },{
+        path: "fourthsecond",
+        element: <FourthYearSecond />,
       },
     ],
   },

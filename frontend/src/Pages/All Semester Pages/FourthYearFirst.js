@@ -68,7 +68,7 @@ const FourthYearFirst = () => {
       <div>
         {!formVisible ? (
           <div className="container">
-            <h3 className="title">Calculate Semester GPA</h3>
+            <h3 className="title">Calculate Semester fourth GPA</h3>
             <div className="form-group">
               <label htmlFor="numCourses">Number of Courses</label>
               <input
