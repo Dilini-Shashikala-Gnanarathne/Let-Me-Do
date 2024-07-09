@@ -14,13 +14,13 @@ const SemesterGPAForm = ({ semesterName, pageName }) => {
       case '4':
         return '/secondsecond';
       case '5':
-        return '/addresult5';
+        return '/thirdfirst';
       case '6':
-        return '/addresult6';
+        return '/thirdsecond';
       case '7':
-        return '/addresult7';
+        return '/fourthfirst';
       case '8':
-        return '/addresult8';
+        return '/fourthsecond';
       default:
         return '/';
     }
