@@ -6,6 +6,8 @@ const routers= require('./controller/auth');
 const first= require('./controller/FirstYear');
 const second= require('./controller/SecondYear');
 const third= require('./controller/ThirdYear');
+const fourth= require('./controller/FourthYear');
+
 router.get('/users', controller.getAllUsers);
 router.post('/create', controller.addUser);
 router.post('/deleteUser', controller.deleteUser);
@@ -19,5 +21,7 @@ router.put('/secondyearfirst',second.secondyearfirst);
 router.put('/secondyearsecond',second.secondyearsecond);
 router.put('/thirdyearfirst',third.thirdyearfirst);
 router.put('/thirdyearsecond',third.thirdyearsecond);
+router.put('/fourthyearfirst',fourth.fourthyearfirst);
+router.put('/fourthyearsecond',fourth.fourthyearsecond);
 
 module.exports = router;
