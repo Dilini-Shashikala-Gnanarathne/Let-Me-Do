@@ -36,7 +36,7 @@ const FourthYearSecond = () => {
   };
 
   const addUser = (data) => {
-    Axios.put('http://localhost:3001/api/fourthyearfirst', { email: 'shashi@gmail.com', updates: [data] })
+    Axios.put('http://localhost:3001/api/fourthyearsecond', { email: 'shashi@gmail.com', updates: [data] })
       .then(() => {
         setSubmissionCount((prevCount) => prevCount + 1);
         resetForm();

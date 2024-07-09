@@ -106,5 +106,5 @@ const fourthyearsecond = async (req, res) => {
 };
 module.exports = {
    fourthyearfirst,
-    fourthyearsecond,
+   fourthyearsecond,
 };

@@ -41,7 +41,22 @@ const router = createBrowserRouter([
   },{
     path: "/secondsecond",
     element: <SeconYearSecond />,
+  },
+  {
+    path: "/thirdfirst",
+    element: <ThirdYearFirst />,
+  },
+  {
+    path: "/thirdsecond",
+    element: <ThirdYearSecond />,
   },{
+    path: "/fourthfirst",
+    element: <FourthYearFirst />,
+  },{
+    path: "/fourthsecond",
+    element: <FourthYearSecond />,
+  },
+  {
     path: "/login",
     element: <Login />,
   },
@@ -53,15 +68,6 @@ const router = createBrowserRouter([
         path: "home",
         element: <Allsemester />,
       },
-      // {
-      //   path: "addresult2",
-      //   element: <Addresult2 />,
-      // },
-      
-      // {
-      //   path: "dashbord",
-      //   element: <Dashboard />,
-      // },
       {
         path: "result",
         element: <Result />,
