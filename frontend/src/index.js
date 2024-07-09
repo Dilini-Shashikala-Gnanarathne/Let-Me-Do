@@ -12,6 +12,10 @@ import FirstYearFirst from "./Pages/All Semester Pages/FirstYearFrirst";
 import FirstYearSecond from "./Pages/All Semester Pages/FirstYearSecond";
 import SeconYearFirst from "./Pages/All Semester Pages/SecondYearFirst";
 import SeconYearSecond from "./Pages/All Semester Pages/SecondYearSecond";
+import ThirdYearFirst from "./Pages/All Semester Pages/ThirdYearFirst";
+import ThirdYearSecond from "./Pages/All Semester Pages/ThirdYearSecond";
+import FourthYearFirst from "./Pages/All Semester Pages/FourthYearFirst";
+import FourthYearSecond from "./Pages/All Semester Pages/FirstYearSecond";
 const AppLayout = () => (
   <>
     <Navbar />

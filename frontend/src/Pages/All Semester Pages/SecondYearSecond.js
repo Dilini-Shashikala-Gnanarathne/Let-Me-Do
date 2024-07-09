@@ -36,7 +36,7 @@ const SecondYearSecond = () => {
   };
 
   const addUser = (data) => {
-    Axios.put('http://localhost:3001/api/firstyearfirst', { email: 'shashi@gmail.com', updates: [data] })
+    Axios.put('http://localhost:3001/api/secondyearfirst', { email: 'shashi@gmail.com', updates: [data] })
       .then(() => {
         setSubmissionCount((prevCount) => prevCount + 1);
         resetForm();

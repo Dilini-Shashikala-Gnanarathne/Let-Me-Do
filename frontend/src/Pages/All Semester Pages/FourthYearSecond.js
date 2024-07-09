@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import '../../App.css';
 import Background from '../../components/D-Background';
 
-const SecondYearFirst = () => {
+const FourthYearSecond = () => {
   const [courseData, setCourseData] = useState([]);
   const [numCourses, setNumCourses] = useState('');
   const [submissionCount, setSubmissionCount] = useState(0);
@@ -36,7 +36,7 @@ const SecondYearFirst = () => {
   };
 
   const addUser = (data) => {
-    Axios.put('http://localhost:3001/api/secondyearfirst', { email: 'shashi@gmail.com', updates: [data] })
+    Axios.put('http://localhost:3001/api/fourthyearfirst', { email: 'shashi@gmail.com', updates: [data] })
       .then(() => {
         setSubmissionCount((prevCount) => prevCount + 1);
         resetForm();
@@ -170,4 +170,4 @@ const SecondYearFirst = () => {
   );
 };
 
-export default SecondYearFirst;
+export default FourthYearSecond;
