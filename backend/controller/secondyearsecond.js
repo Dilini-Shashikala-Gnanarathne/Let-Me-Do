@@ -1,6 +1,6 @@
 const User = require('../models/UserSchema');
 
-const seconyearsecond = async (req, res) => {
+const firstyearsecond = async (req, res) => {
     const { email, updates } = req.body;
 
     try {
@@ -20,8 +20,8 @@ const seconyearsecond = async (req, res) => {
         ];
 
         if (record) {
-            if (!record.seconyearsecond) {
-                record.seconyearsecond = [];
+            if (!record.firstyearsecond) {
+                record.firstyearsecond = [];
             }
 
             for (const update of updates) {
@@ -29,7 +29,7 @@ const seconyearsecond = async (req, res) => {
 
                 
 
-                record.seconyearsecond.push({ subject: subjectname, grade, gpa });
+                record.firstyearsecond.push({ subject: subjectname, grade, gpa });
             }
 
             await record.save();
@@ -53,5 +53,5 @@ const seconyearsecond = async (req, res) => {
 };
 
 module.exports = {
-    seconyearsecond,
+    firstyearsecond,
 };
