@@ -36,7 +36,7 @@ const SecondYearSecond = () => {
   };
 
   const addUser = (data) => {
-    Axios.put('http://localhost:3001/api/secondyearfirst', { email: 'shashi@gmail.com', updates: [data] })
+    Axios.put('http://localhost:3001/api/secondyearsecond', { email: 'shashi@gmail.com', updates: [data] })
       .then(() => {
         setSubmissionCount((prevCount) => prevCount + 1);
         resetForm();
@@ -68,7 +68,7 @@ const SecondYearSecond = () => {
       <div>
         {!formVisible ? (
           <div className="container">
-            <h3 className="title">Calculate Semester GPA</h3>
+            <h3 className="title">Calculate Semester second second GPA</h3>
             <div className="form-group">
               <label htmlFor="numCourses">Number of Courses</label>
               <input

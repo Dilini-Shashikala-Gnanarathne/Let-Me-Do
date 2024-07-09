@@ -1,26 +1,32 @@
 import React from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { SidebarData } from "./SidebarData";
-import LogoutIcon from '../assets/Logout.png'; 
+import LogoutIcon from "../assets/Logout.png";
 
 const Navbar = () => {
   const location = useLocation();
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     navigate("/");
   };
 
+  // Determine if the current path is one of the "Add" paths
+  const isAddPath = SidebarData.some(
+    (item) => item.title === "Add" && item.path === location.pathname
+  );
+
   return (
     <div className="nav-menu active">
       <div className="nav-menu-header">
         <span className="app-name">
-          Let<span style={{ textAlign: 'center', verticalAlign: 'middle', width: '20px', height: '20px', color: '#0066ff' }}>Me</span>Do
+          Let<span style={{ textAlign: "center", verticalAlign: "middle", width: "20px", height: "20px", color: "#0066ff" }}>Me</span>Do
         </span>
       </div>
       <ul className="nav-menu-items">
-        {SidebarData.map((item, index) => {
-          const isActive = location.pathname === item.path;
+        {SidebarData.filter(item => item.title !== "Add").map((item, index) => {
+          // Determine if the current item should be active
+          const isActive = location.pathname === item.path || (item.title === "Home" && isAddPath);
           return (
             <li key={index} className={item.cName}>
               <Link to={item.path} className={`${isActive ? 'active' : ''} ${item.title.toLowerCase()}`}>
