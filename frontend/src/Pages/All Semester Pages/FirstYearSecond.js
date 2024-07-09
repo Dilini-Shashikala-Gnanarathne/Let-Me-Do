@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import '../../App.css';
 import Background from '../../components/D-Background';
 
-const FirstYearFirst = () => {
+const FirstYearSecond = () => {
   const [courseData, setCourseData] = useState([]);
   const [numCourses, setNumCourses] = useState('');
   const [submissionCount, setSubmissionCount] = useState(0);
@@ -170,4 +170,4 @@ const FirstYearFirst = () => {
   );
 };
 
-export default FirstYearFirst;
+export default FirstYearSecond;
