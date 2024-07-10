@@ -60,6 +60,9 @@ const userSchema = new Schema({
   thirdyearsecond:[sixthsem],
   fourthyearfirst:[seventhsem],
   fourthyearsecond:[eighthsem],
+  totalgpa:{
+    type: Number
+  }
 
 
 });
