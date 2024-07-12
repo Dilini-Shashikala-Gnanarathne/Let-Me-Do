@@ -1,7 +1,9 @@
 const User = require('../models/UserSchema');
 
+// Helper function to update semester records
 const updateSemester = async (req, res, semesterField) => {
-  const { email, updates } = req.body;
+  const { updates } = req.body;
+  const email = req.user.email; // Accessing logged-in user's email
 
   try {
     console.log('Request Body:', req.body);
@@ -13,6 +15,7 @@ const updateSemester = async (req, res, semesterField) => {
       });
     }
 
+    console.log(email);
     let record = await User.findOne({ email });
 
     if (record) {
@@ -45,6 +48,7 @@ const updateSemester = async (req, res, semesterField) => {
   }
 };
 
+// Controller functions
 const firstyearfirst = (req, res) => updateSemester(req, res, 'firstyearfirst');
 const firstyearsecond = (req, res) => updateSemester(req, res, 'firstyearsecond');
 

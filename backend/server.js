@@ -1,16 +1,18 @@
 const express = require('express');
-const app = express();
 const cors = require('cors');
-const port = 3001;
 const mongoose = require('mongoose');
+const dotenv = require('dotenv');
 const router = require('./router');
-const dotenv =require('dotenv');
 
 dotenv.config();
+
+const app = express();
+const port = process.env.PORT || 3001; // Use environment variable for port
 
 app.use(cors());
 app.use(express.json());
 
+// MongoDB connection function
 const connectDB = async () => {
     try {
         await mongoose.connect(process.env.Mongo_URL, {
@@ -19,15 +21,21 @@ const connectDB = async () => {
         });
         console.log('MongoDB database is connected');
     } catch (err) {
-        console.error('MongoDB database connection failed:', err); 
+        console.error('MongoDB database connection failed:', err);
+        process.exit(1); // Exit process with failure
     }
 };
 
+// Start the server
+const startServer = async () => {
+    await connectDB(); // Ensure DB connection before starting server
+    app.listen(port, () => {
+        console.log(`Server is running on port ${port}`);
+    });
+};
 
-
-app.listen(port, () => {
-    connectDB();
-    console.log("Server is running on port " + port);
-});
-
+// Use the router for API endpoints
 app.use('/api', router);
+
+// Start the application
+startServer();

@@ -12,7 +12,7 @@ const FirstYearFirst = () => {
   const [formVisible, setFormVisible] = useState(false);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
-  const { user } = useAuth(); // Access the user from AuthContext
+  const { user } = useAuth(); 
 
   useEffect(() => {
     if (submissionCount < numCourses) {
@@ -42,7 +42,7 @@ const FirstYearFirst = () => {
       setError('User not logged in');
       return;
     }
-    Axios.put('http://localhost:3001/api/firstyearfirst', { email: user.email, updates: [data] })
+    Axios.post('http://localhost:3001/api/firstyearfirst', { email: user.email, updates: [data] })
       .then(() => {
         setSubmissionCount((prevCount) => prevCount + 1);
         resetForm();
@@ -50,7 +50,7 @@ const FirstYearFirst = () => {
       })
       .catch((error) => {
         if (error.response && error.response.status === 400) {
-          setError(error.response.data.error);
+          setError(error.response.data.message || 'Validation error');
         } else {
           setError('An unexpected error occurred');
         }
@@ -172,6 +172,7 @@ const FirstYearFirst = () => {
           </div>
         )}
       </div>
+      {error && <div className="error-message">{error}</div>}
     </>
   );
 };
