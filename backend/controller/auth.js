@@ -3,13 +3,11 @@ const Admin = require('../models/AdminSchema');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-
 const generateToken = user => {
   return jwt.sign({ id: user._id, role: user.role }, process.env.JWT_SECRET_KEY, {
-      expiresIn: '15d' // the token will expire in 15 days
+    expiresIn: '15d' 
   });
 };
-
 
 const register = async (req, res) => {
   const { email, password, name, role, id } = req.body;
@@ -24,36 +22,25 @@ const register = async (req, res) => {
 
     if (user) {
       return res.status(400).json({ success: false, message: 'User already exists' });
-
     }
 
     const salt = await bcrypt.genSalt(10);
     const hashPassword = await bcrypt.hash(password, salt);
 
+    const userData = { name, email, password: hashPassword, role, id };
+    
     if (role === 'viewer') {
-      user = new User({
-        name,
-        email,
-        password: hashPassword,
-        role,
-        id,
-      });
+      user = new User(userData);
     } else if (role === 'admin') {
-      user = new Admin({
-        name,
-        email,
-        password: hashPassword,
-        role,
-        id,
-      });
+      user = new Admin(userData);
     }
 
     await user.save();
-    res.status(200).json({ success: true, message: 'User successfully created' });
+    res.status(201).json({ success: true, message: 'User successfully created' });
 
   } catch (err) {
     console.error(err.message);
-    res.status(500).json({ success: false, message: 'Internal server error, Please try again' });
+    res.status(500).json({ success: false, message: 'Internal server error, please try again' });
   }
 };
 
@@ -61,16 +48,7 @@ const login = async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    let user = null;
-    const viewer = await User.findOne({ email });
-    const admin = await Admin.findOne({ email });
-
-    if (viewer) {
-      user = viewer;
-    }
-    if (admin) {
-      user = admin;
-    }
+    let user = await User.findOne({ email }) || await Admin.findOne({ email });
 
     if (!user) {
       return res.status(404).json({ success: false, message: 'User not found' });
@@ -84,22 +62,21 @@ const login = async (req, res) => {
 
     const token = generateToken(user);
 
-    const { password: pwd, role, appointments, ...rest } = user._doc;
+    const { password: pwd, ...userData } = user._doc;
 
     res.status(200).json({
       success: true,
       message: 'Successfully logged in',
       token,
-      data: { ...rest },
-      role,
+      data: userData,
     });
 
   } catch (err) {
     console.error(err.message);
-    const errorMessage = err instanceof Error ? err.message : 'Internal server error, Please try again !';
-    res.status(500).json({ success: false, message: errorMessage });
+    res.status(500).json({ success: false, message: 'Internal server error, please try again' });
   }
 };
+
 module.exports = {
   register,
   login,
