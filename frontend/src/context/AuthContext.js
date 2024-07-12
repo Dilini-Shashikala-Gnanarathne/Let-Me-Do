@@ -7,13 +7,18 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    Axios.get('/api/auth/user')
-      .then(response => {
+    const fetchUserData = async () => {
+      try {
+        const response = await Axios.get('http://localhost:3001/api/user');
+        console.log(11111111111);
         setUser(response.data);
-      })
-      .catch(error => {
+      } catch (error) {
+        console.log(4444444444);
         console.error('Error fetching user data:', error);
-      });
+      }
+    };
+
+    fetchUserData();
   }, []);
 
   return (
