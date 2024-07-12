@@ -1,46 +1,21 @@
-import jwt from "jsonwebtoken";
-import User from "../models/UserSchema";
+const jwt = require('jsonwebtoken');
 
-export const authenticate = async (req, res, next) => {
-    const authToken = req.headers.authorization;
+const authenticateToken = (req, res, next) => {
+  const authHeader = req.headers['authorization'];
+  const token = authHeader && authHeader.split(' ')[1]; 
 
-    if (!authToken || !authToken.startsWith("Bearer")){
-        return res
-        .status(401)
-        .json({success: false, message: "No token, authorization denied"});
+  if (!token) {
+    return res.sendStatus(401); 
+  }
+
+  jwt.verify(token, process.env.JWT_SECRET_KEY, (err, user) => {
+    if (err) {
+      return res.sendStatus(403); 
     }
-    try{
-        const token = authToken.split(" ")[1];
 
-        const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY)
-
-        req.userId = decoded.id
-        req.role = decoded.role
-        next();
-    }catch(err){
-        if(err.name =='TokenExpiredError'){
-            return res.status(401).json({message: "Token is expired"});
-        }
-        return res.status(401).json({success: false,message: "Invalid token"});
-    }
+    req.user = user;
+    next();
+  });
 };
 
-export const restrict = roles => async (req,res, next) => {
-    const userId = req.userId;
-
-    let user;
-
-    const patient = await User.findById(userId);
-
-    if(patient){
-        user = patient;
-    }
-   
-    if(!roles.includes(user.role)){
-        return res
-        .status(401)
-        .json({success: false, message: "You're not authorized"});
-    }
-    next();
-
-}
+module.exports = authenticateToken;
