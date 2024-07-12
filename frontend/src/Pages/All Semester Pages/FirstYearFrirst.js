@@ -3,6 +3,7 @@ import Axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import '../../App.css';
 import Background from '../../components/D-Background';
+import { useAuth } from '../../context/AuthContext';
 
 const FirstYearFirst = () => {
   const [courseData, setCourseData] = useState([]);
@@ -11,6 +12,7 @@ const FirstYearFirst = () => {
   const [formVisible, setFormVisible] = useState(false);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
+  const { user } = useAuth(); // Access the user from AuthContext
 
   useEffect(() => {
     if (submissionCount < numCourses) {
@@ -36,7 +38,11 @@ const FirstYearFirst = () => {
   };
 
   const addUser = (data) => {
-    Axios.put('http://localhost:3001/api/firstyearfirst', { email: 'shashi@gmail.com', updates: [data] })
+    if (!user) {
+      setError('User not logged in');
+      return;
+    }
+    Axios.put('http://localhost:3001/api/firstyearfirst', { email: user.email, updates: [data] })
       .then(() => {
         setSubmissionCount((prevCount) => prevCount + 1);
         resetForm();
