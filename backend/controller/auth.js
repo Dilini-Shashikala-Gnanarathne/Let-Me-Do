@@ -2,15 +2,14 @@ const User = require('../models/UserSchema');
 const Admin = require('../models/AdminSchema');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const crypto = require('crypto');
 
-const secretKey = process.env.JWT_SECRET_KEY || crypto.randomBytes(64).toString('hex');
 
-const generateToken = (user) => {
-  return jwt.sign({ id: user._id, role: user.role }, secretKey, {
-    expiresIn: '15d',
+const generateToken = user => {
+  return jwt.sign({ id: user._id, role: user.role }, process.env.JWT_SECRET_KEY, {
+      expiresIn: '15d' // the token will expire in 15 days
   });
 };
+
 
 const register = async (req, res) => {
   const { email, password, name, role, id } = req.body;
