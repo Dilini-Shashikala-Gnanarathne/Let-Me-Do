@@ -8,8 +8,19 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const fetchUserData = async () => {
+      const token = localStorage.getItem('authToken');
+      if (!token) {
+        console.error('No token found');
+        return;
+      }
       try {
-        const response = await Axios.get('http://localhost:3001/api/user');
+        const config = {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        };
+
+        const response = await Axios.get('http://localhost:3001/api/user', config);
         setUser(response.data);
       } catch (error) {
         console.error('Error fetching user data:', error);
