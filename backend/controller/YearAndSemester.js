@@ -1,6 +1,5 @@
 const User = require('../models/UserSchema');
 
-// Helper function to update semester records
 const updateSemester = async (req, res, semesterField) => {
   const { email, updates } = req.body;
 
@@ -51,11 +50,21 @@ const updateSemester = async (req, res, semesterField) => {
   }
 };
 
-// Controller functions
 const firstyearfirst = (req, res) => updateSemester(req, res, 'firstyearfirst');
 const firstyearsecond = (req, res) => updateSemester(req, res, 'firstyearsecond');
-
+const secondyearfirst = (req, res) => updateSemester(req, res, 'secondyearfirst');
+const secondyearsecond = (req, res) => updateSemester(req, res, 'secondyearsecond');
+const thirdyearfirst = (req, res) => updateSemester(req, res, 'thirdyearfirst');
+const thirdyearsecond = (req, res) => updateSemester(req, res, 'thirdyearsecond');
+const fourthyearfirst = (req, res) => updateSemester(req, res, 'fourthyearfirst');
+const fourthyearsecond = (req, res) => updateSemester(req, res, 'fourthyearsecond');
 module.exports = {
   firstyearfirst,
   firstyearsecond,
+  secondyearfirst,
+  secondyearsecond,
+  thirdyearfirst,
+  thirdyearsecond,
+  fourthyearfirst,
+  fourthyearsecond
 };
