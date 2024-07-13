@@ -11,7 +11,6 @@ const Navbar = () => {
     navigate("/");
   };
 
-  // Determine if the current path is one of the "Add" paths
   const isAddPath = SidebarData.some(
     (item) => item.title === "Add" && item.path === location.pathname
   );
@@ -25,7 +24,6 @@ const Navbar = () => {
       </div>
       <ul className="nav-menu-items">
         {SidebarData.filter(item => item.title !== "Add").map((item, index) => {
-          // Determine if the current item should be active
           const isActive = location.pathname === item.path || (item.title === "Home" && isAddPath);
           return (
             <li key={index} className={item.cName}>
