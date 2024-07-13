@@ -3,14 +3,16 @@ import Axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import '../../App.css';
 import Background from '../../components/D-Background';
+import { useAuth } from '../../context/AuthContext'
 
-const FourthYearSecond = () => {
+const FirstYearFirst = () => {
   const [courseData, setCourseData] = useState([]);
   const [numCourses, setNumCourses] = useState('');
   const [submissionCount, setSubmissionCount] = useState(0);
   const [formVisible, setFormVisible] = useState(false);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
+  const { user } = useAuth();
 
   useEffect(() => {
     if (submissionCount < numCourses) {
@@ -36,7 +38,12 @@ const FourthYearSecond = () => {
   };
 
   const addUser = (data) => {
-    Axios.put('http://localhost:3001/api/fourthyearsecond', { email: 'shashi@gmail.com', updates: [data] })
+    if (!user) {
+      setError('User is not authenticated');
+      return;
+    }
+
+    Axios.put('http://localhost:3001/api/firstyearfirst', { email: user.email, updates: [data] })
       .then(() => {
         setSubmissionCount((prevCount) => prevCount + 1);
         resetForm();
@@ -68,7 +75,7 @@ const FourthYearSecond = () => {
       <div>
         {!formVisible ? (
           <div className="container">
-            <h3 className="title">Calculate Semester fourth second GPA</h3>
+            <h3 className="title">Calculate Semester GPA</h3>
             <div className="form-group">
               <label htmlFor="numCourses">Number of Courses</label>
               <input
@@ -170,4 +177,4 @@ const FourthYearSecond = () => {
   );
 };
 
-export default FourthYearSecond;
+export default FirstYearFirst;
