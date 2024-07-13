@@ -7,7 +7,7 @@ const updateSemester = async (req, res, semesterField) => {
 
   try {
     console.log('Request Body:', req.body);
-
+    console.log('User Email:', email);
     if (!Array.isArray(updates)) {
       return res.status(400).json({
         success: false,
@@ -15,7 +15,6 @@ const updateSemester = async (req, res, semesterField) => {
       });
     }
 
-    console.log(email);
     let record = await User.findOne({ email });
 
     if (record) {
