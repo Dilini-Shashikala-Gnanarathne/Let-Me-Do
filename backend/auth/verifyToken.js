@@ -1,34 +1,57 @@
-// router.js
 const express = require('express');
 const jwt = require('jsonwebtoken');
 const User = require('../models/UserSchema');
-const router = express.Router();
 
-const authenticateToken = (req, res, next) => {
-  const token = req.headers['authorization']?.split(' ')[1];
-console.log(555555);
-  if (!token) return res.sendStatus(401);
+const authenticateToken = async (req, res, next) => {
+  const authHeader = req.headers['authorization'];
+  const token = authHeader && authHeader.split(' ')[1];
 
-  jwt.verify(token, process.env.JWT_SECRET_KEY, (err, user) => {
-    if (err) return res.sendStatus(403);
-    req.user = user;
+  if (!token) {
+    return res.sendStatus(401); 
+  }
+
+  try {
+    console.log('Token:', token); 
+    const decoded = jwt.verify(token, process.env.JWT_SECRET_key);
+    console.log('Decoded Token:', decoded); 
+
+    const foundUser = await User.findOne({ email: decoded.email });
+    if (!foundUser) {
+      return res.sendStatus(404); 
+    }
+
+    req.user = foundUser;
+    console.log('Authenticated User:', req.user.email); 
     next();
-  });
+  } catch (error) {
+    console.error('Authentication Error:', error);
+    res.status(403).json({ success: false, message: 'Forbidden', error: error.message });
+  }
+};
+
+const getUserData = async (email) => {
+  try {
+    const user = await User.findOne({ email });
+    if (!user) {
+      throw new Error('User not found');
+    }
+    return user;
+  } catch (error) {
+    throw new Error('Error fetching user data');
+  }
 };
 
 const verifyUser = async (req, res) => {
   try {
-    const user = await User.findById(req.user.id).select('-password');
-    if (!user) return res.status(404).json({ message: 'User not found' });
+    const user = await getUserData(req.user.email);
     res.json(user);
   } catch (err) {
-    console.error(err);
+    console.error('Error fetching user:', err);
     res.status(500).json({ message: 'Internal server error' });
   }
 };
 
-
 module.exports = {
-  verifyUser,authenticateToken
-
+  authenticateToken,
+  verifyUser
 };

@@ -3,14 +3,16 @@ import Axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import '../../App.css';
 import Background from '../../components/D-Background';
+import { useAuth } from '../../context/AuthContext';
 
-const SecondYearFirst = () => {
+const FirstYearFirst = () => {
   const [courseData, setCourseData] = useState([]);
   const [numCourses, setNumCourses] = useState('');
   const [submissionCount, setSubmissionCount] = useState(0);
   const [formVisible, setFormVisible] = useState(false);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
+  const { user } = useAuth(); 
 
   useEffect(() => {
     if (submissionCount < numCourses) {
@@ -36,7 +38,11 @@ const SecondYearFirst = () => {
   };
 
   const addUser = (data) => {
-    Axios.put('http://localhost:3001/api/secondyearfirst', { email: 'shashi@gmail.com', updates: [data] })
+    if (!user) {
+      setError('User not logged in');
+      return;
+    }
+    Axios.post('http://localhost:3001/api/seconyearfirst', { email: user.email, updates: [data] })
       .then(() => {
         setSubmissionCount((prevCount) => prevCount + 1);
         resetForm();
@@ -44,7 +50,7 @@ const SecondYearFirst = () => {
       })
       .catch((error) => {
         if (error.response && error.response.status === 400) {
-          setError(error.response.data.error);
+          setError(error.response.data.message || 'Validation error');
         } else {
           setError('An unexpected error occurred');
         }
@@ -166,8 +172,9 @@ const SecondYearFirst = () => {
           </div>
         )}
       </div>
+      {error && <div className="error-message">{error}</div>}
     </>
   );
 };
 
-export default SecondYearFirst;
+export default FirstYearFirst;

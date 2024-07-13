@@ -27,9 +27,18 @@ const Login = () => {
 
     const loging = (data) => {
         Axios.post('http://localhost:3001/api/login', data)
-            .then(() => {
-                setError(null);
-                navigate('/home'); 
+            .then((response) => {
+                const { token, email } = response.data;
+                console.log(`Login:${token}`);
+
+                if (token) {
+                    localStorage.setItem(`authToken`, token);
+                    setError(null);
+                    navigate('/home');
+                } else {
+                    setError('Login failed: no token received');
+                }
+                console.log(token);
             })
             .catch((error) => {
                 if (error.response && error.response.status === 400) {
@@ -44,7 +53,7 @@ const Login = () => {
         <>
             <Background />
             <div className='container'>
-                <h1 className='login'>Login</h1>
+                <h1 className='login-title'>Login</h1>
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">
                         <label htmlFor="email">Enter Your Email</label>
@@ -68,7 +77,7 @@ const Login = () => {
                             required
                         />
                     </div>
-                    {error && <p className='error'>{error}</p>}
+                    {error && <p className='error-message'>{error}</p>}
                     <button type="submit" className='login-button'>Login</button>
                 </form>
             </div>
