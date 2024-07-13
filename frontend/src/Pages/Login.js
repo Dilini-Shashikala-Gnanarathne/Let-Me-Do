@@ -29,10 +29,10 @@ const Login = () => {
         Axios.post('http://localhost:3001/api/login', data)
             .then((response) => {
                 const { token, email } = response.data;
-                console.log(token);
+                console.log(`Login:${token}`);
 
                 if (token) {
-                    localStorage.setItem(`authToken_${email}`, token);
+                    localStorage.setItem(`authToken`, token);
                     setError(null);
                     navigate('/home');
                 } else {

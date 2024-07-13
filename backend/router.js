@@ -26,9 +26,9 @@ router.put('/thirdyearsecond', thirdYear.thirdyearsecond);
 router.put('/fourthyearfirst', fourthYear.fourthyearfirst);
 router.put('/fourthyearsecond', fourthYear.fourthyearsecond);
 
-router.post('/firstyearfirst', authenticateToken,firstYear.firstyearfirst);
+router.post('/firstyearfirst', firstYear.firstyearfirst);
 router.post('/firstyearsecond', firstYear.firstyearsecond);
 
-router.get('/user', verifyUser);
+router.get('/user',authenticateToken, verifyUser);
 
 module.exports = router;

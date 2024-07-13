@@ -33,7 +33,7 @@ const FirstYearFirst = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (submissionCount < numCourses) {
-      await addUser(courseData[submissionCount]);
+       addUser(courseData[submissionCount]);
     }
   };
 

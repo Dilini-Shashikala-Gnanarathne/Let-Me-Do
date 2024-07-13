@@ -62,6 +62,7 @@ const login = async (req, res) => {
 
     const token = generateToken(user);
 
+    console.log(`Generate: ${token}`);
     const { password: pwd, ...userData } = user._doc;
 
     res.status(200).json({
