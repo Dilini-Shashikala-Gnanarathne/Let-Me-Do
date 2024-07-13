@@ -43,7 +43,7 @@ const FirstYearFirst = () => {
       return;
     }
 
-    Axios.put('http://localhost:3001/api/firstyearfirst', { email: user.email, updates: [data] })
+    Axios.put('http://localhost:3001/api/thirdyearsecond', { email: user.email, updates: [data] })
       .then(() => {
         setSubmissionCount((prevCount) => prevCount + 1);
         resetForm();
