@@ -12,7 +12,7 @@ const FirstYearFirst = () => {
   const [formVisible, setFormVisible] = useState(false);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
-  const { user } = useAuth(); 
+  const { user } = useAuth();
 
   useEffect(() => {
     if (submissionCount < numCourses) {
@@ -30,31 +30,36 @@ const FirstYearFirst = () => {
     setCourseData(updatedData);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (submissionCount < numCourses) {
-      addUser(courseData[submissionCount]);
+      await addUser(courseData[submissionCount]);
     }
   };
 
-  const addUser = (data) => {
+  const addUser = async (data) => {
     if (!user) {
       setError('User not logged in');
       return;
     }
-    Axios.post('http://localhost:3001/api/firstyearfirst', { email: user.email, updates: [data] })
-      .then(() => {
-        setSubmissionCount((prevCount) => prevCount + 1);
-        resetForm();
-        setError(null);
-      })
-      .catch((error) => {
-        if (error.response && error.response.status === 400) {
-          setError(error.response.data.message || 'Validation error');
-        } else {
-          setError('An unexpected error occurred');
-        }
-      });
+    
+    try {
+      const token = await user.getIdToken(); 
+      const config = {
+        headers: { Authorization: `Bearer ${token}` }
+      };
+      console.log(token);
+      await Axios.post('http://localhost:3001/api/firstyearfirst', { updates: [data] }, config);
+      setSubmissionCount((prevCount) => prevCount + 1);
+      resetForm();
+      setError(null);
+    } catch (error) {
+      if (error.response && error.response.status === 400) {
+        setError(error.response.data.message || 'Validation error');
+      } else {
+        setError('An unexpected error occurred');
+      }
+    }
   };
 
   const resetForm = () => {

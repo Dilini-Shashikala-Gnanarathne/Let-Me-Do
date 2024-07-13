@@ -8,21 +8,21 @@ const authenticateToken = async (req, res, next) => {
   const token = authHeader && authHeader.split(' ')[1];
 
   if (!token) {
-    return res.sendStatus(401); // Unauthorized
+    return res.sendStatus(401); 
   }
 
   try {
-    console.log('Token:', token); // Log the token
+    console.log('Token:', token); 
     const decoded = jwt.verify(token, process.env.JWT_SECRET_key);
-    console.log('Decoded Token:', decoded); // Log the decoded token details
+    console.log('Decoded Token:', decoded); 
 
     const foundUser = await User.findOne({ email: decoded.email });
     if (!foundUser) {
-      return res.sendStatus(404); // User not found
+      return res.sendStatus(404); 
     }
 
     req.user = foundUser;
-    console.log('Authenticated User:', req.user.email); // Debugging line
+    console.log('Authenticated User:', req.user.email); 
     next();
   } catch (error) {
     console.error('Authentication Error:', error);
@@ -30,14 +30,21 @@ const authenticateToken = async (req, res, next) => {
   }
 };
 
+const getUserData = async (email) => {
+  try {
+    const user = await User.findOne({ email });
+    if (!user) {
+      throw new Error('User not found');
+    }
+    return user;
+  } catch (error) {
+    throw new Error('Error fetching user data');
+  }
+};
 
-
-// Controller for verifying user
 const verifyUser = async (req, res) => {
   try {
-    const user = await User.findById(req.user.id).select('-password');
-    if (!user) return res.status(404).json({ message: 'User not found' });
-    console.log(1);
+    const user = await getUserData(req.user.email);
     res.json(user);
   } catch (err) {
     console.error('Error fetching user:', err);
@@ -45,7 +52,6 @@ const verifyUser = async (req, res) => {
   }
 };
 
-// Exporting the middleware and controller
 module.exports = {
   authenticateToken,
   verifyUser
