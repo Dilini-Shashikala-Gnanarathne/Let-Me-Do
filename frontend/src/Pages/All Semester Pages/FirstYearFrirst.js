@@ -3,7 +3,7 @@ import Axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import '../../App.css';
 import Background from '../../components/D-Background';
-import { useAuth } from '../../context/AuthContext';
+import { useAuth } from '../../context/AuthContext'
 
 const FirstYearFirst = () => {
   const [courseData, setCourseData] = useState([]);
@@ -30,36 +30,32 @@ const FirstYearFirst = () => {
     setCourseData(updatedData);
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (submissionCount < numCourses) {
-       addUser(courseData[submissionCount]);
+      addUser(courseData[submissionCount]);
     }
   };
 
-  const addUser = async (data) => {
+  const addUser = (data) => {
     if (!user) {
-      setError('User not logged in');
+      setError('User is not authenticated');
       return;
     }
-    
-    try {
-      const token = await user.getIdToken(); 
-      const config = {
-        headers: { Authorization: `Bearer ${token}` }
-      };
-      console.log(token);
-      await Axios.post('http://localhost:3001/api/firstyearfirst', { updates: [data] }, config);
-      setSubmissionCount((prevCount) => prevCount + 1);
-      resetForm();
-      setError(null);
-    } catch (error) {
-      if (error.response && error.response.status === 400) {
-        setError(error.response.data.message || 'Validation error');
-      } else {
-        setError('An unexpected error occurred');
-      }
-    }
+
+    Axios.put('http://localhost:3001/api/firstyearfirst', { email: user.email, updates: [data] })
+      .then(() => {
+        setSubmissionCount((prevCount) => prevCount + 1);
+        resetForm();
+        setError(null);
+      })
+      .catch((error) => {
+        if (error.response && error.response.status === 400) {
+          setError(error.response.data.error);
+        } else {
+          setError('An unexpected error occurred');
+        }
+      });
   };
 
   const resetForm = () => {
@@ -177,7 +173,6 @@ const FirstYearFirst = () => {
           </div>
         )}
       </div>
-      {error && <div className="error-message">{error}</div>}
     </>
   );
 };
