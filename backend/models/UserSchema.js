@@ -1,14 +1,12 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// Define the semester schema once and reuse it
 const semesterSchema = new Schema({
   subject: { type: String },
   grade: { type: String },
   gpa: { type: Number }
 });
 
-// Define the user schema
 const userSchema = new Schema({
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
@@ -26,7 +24,6 @@ const userSchema = new Schema({
   totalgpa: { type: Number }
 });
 
-// Pre-save hook to calculate total GPA
 userSchema.pre('save', function(next) {
   let totalGpa = 0;
   let semesters = [
