@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const controller = require('./controller');
+const verify = require('./auth/verifyToken');
+
 app.use(cors());
 app.use(express.urlencoded({
     extended: true,}
@@ -34,7 +36,6 @@ app.get('/getUser', (req,res) => {
         res.send(callbak);}
     )
 });
-
 
 
 
