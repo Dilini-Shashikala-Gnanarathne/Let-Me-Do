@@ -17,7 +17,6 @@ router.get('/getUser', controller.calculateGPA);
 router.post('/createUser', routers.register);
 router.post('/login', routers.login);
 
-router.use(authenticateToken);
 
 router.put('/secondyearfirst', secondYear.secondyearfirst);
 router.put('/secondyearsecond', secondYear.secondyearsecond);
@@ -26,8 +25,8 @@ router.put('/thirdyearsecond', thirdYear.thirdyearsecond);
 router.put('/fourthyearfirst', fourthYear.fourthyearfirst);
 router.put('/fourthyearsecond', fourthYear.fourthyearsecond);
 
-router.post('/firstyearfirst', firstYear.firstyearfirst);
-router.post('/firstyearsecond', firstYear.firstyearsecond);
+router.put('/firstyearfirst', firstYear.firstyearfirst);
+router.put('/firstyearsecond', firstYear.firstyearsecond);
 
 router.get('/user',authenticateToken, verifyUser);
 

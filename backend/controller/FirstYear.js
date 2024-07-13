@@ -2,20 +2,24 @@ const User = require('../models/UserSchema');
 
 // Helper function to update semester records
 const updateSemester = async (req, res, semesterField) => {
-  const { updates } = req.body;
-  const email = req.user.email; // Accessing logged-in user's email
+  const { email, updates } = req.body;
 
   try {
-    console.log('Request Body:', req.body);
-    console.log('User Email:', email);
-    if (!Array.isArray(updates)) {
-      return res.status(400).json({
-        success: false,
-        message: 'Updates must be an array',
-      });
-    }
+      console.log('Request Body:', req.body);
 
-    let record = await User.findOne({ email });
+      if (!Array.isArray(updates)) {
+          return res.status(400).json({
+              success: false,
+              message: 'Updates must be an array',
+          });
+      }
+
+      let record = await User.findOne({ email });
+
+      const semesterSubjects = [
+          'IS1001', 'IS1002', 'IS1003', 'IS1004', 'IS1005', 'IS1006', 'IS1007', 'IS1008', 'IS1009',
+      ];
+
 
     if (record) {
       if (!record[semesterField]) {
