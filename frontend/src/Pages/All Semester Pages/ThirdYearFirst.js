@@ -6,16 +6,22 @@ import Background from '../../components/D-Background';
 import { useAuth } from '../../context/AuthContext';
 
 const courses = [
-  { code: 'IS1101', name: 'Fundamentals of Information Systems', credit: 2 },
-  { code: 'IS1102', name: 'Structured Programming Techniques', credit: 2 },
-  { code: 'IS1103', name: 'Structured Programming Practicum', credit: 1 },
-  { code: 'IS1104', name: 'Theories of Information Systems', credit: 2 },
-  { code: 'IS1105', name: 'Computer System Organization', credit: 2 },
-  { code: 'IS1106', name: 'Foundations of Web Technologies', credit: 2 },
-  { code: 'IS1107', name: 'Personal Productivity with Information Technology', credit: 1 },
-  { code: 'IS1108', name: 'Fundamentals of Mathematics', credit: 2 },
-  { code: 'IS1109', name: 'Statistics & Probability Theory', credit: 2 },
+  { code: 'IS5101', name: 'Entrepreneurship & Innovation', credit: 1 },
+  { code: 'IS5102', name: 'Enterprise Architecture', credit: 1 },
+  { code: 'IS5103', name: 'High Performance Computing', credit: 2 },
+  { code: 'IS5104', name: 'Software Process Management', credit: 1 },
+  { code: 'IS5105', name: 'Business Process Management', credit: 2 },
+  { code: 'IS5106', name: 'UI/UX Practicum', credit: 1 },
+  { code: 'IS5107', name: 'Project Management Practicum', credit: 1 },
+  { code: 'IS5108', name: 'Business Intelligence', credit: 2 },
+  { code: 'IS5109', name: 'IS Project for Community', credit: 1 },
+  { code: 'IS5110', name: 'Advanced Database Systems', credit: 2 },
+  { code: 'IS5111', name: 'Data Communication & Networks', credit: 2 },
+  { code: 'IS5112', name: 'Design Patterns & Anti-patterns', credit: 2 },
+  { code: 'IS5113', name: 'Software Quality Assurance', credit: 2 },
+  { code: 'IS5114', name: 'Data Mining & Analytics', credit: 2 }
 ];
+
 
 const FirstYearFirst = () => {
   const [courseData, setCourseData] = useState([]);

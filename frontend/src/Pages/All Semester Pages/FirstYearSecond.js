@@ -6,15 +6,17 @@ import Background from '../../components/D-Background';
 import { useAuth } from '../../context/AuthContext';
 
 const courses = [
-  { code: 'IS1101', name: 'Fundamentals of Information Systems', credit: 2 },
-  { code: 'IS1102', name: 'Structured Programming Techniques', credit: 2 },
-  { code: 'IS1103', name: 'Structured Programming Practicum', credit: 1 },
-  { code: 'IS1104', name: 'Theories of Information Systems', credit: 2 },
-  { code: 'IS1105', name: 'Computer System Organization', credit: 2 },
-  { code: 'IS1106', name: 'Foundations of Web Technologies', credit: 2 },
-  { code: 'IS1107', name: 'Personal Productivity with Information Technology', credit: 1 },
-  { code: 'IS1108', name: 'Fundamentals of Mathematics', credit: 2 },
-  { code: 'IS1109', name: 'Statistics & Probability Theory', credit: 2 },
+  { code: 'IS2101', name: 'Object Oriented Programming', credit: 2 },
+  { code: 'IS2102', name: 'Object Oriented Programming Practicum', credit: 1 },
+  { code: 'IS2103', name: 'Emerging IS Technologies', credit: 1 },
+  { code: 'IS2104', name: 'Database Systems', credit: 2 },
+  { code: 'IS2105', name: 'Database Management Systems Practicum', credit: 1 },
+  { code: 'IS2106', name: 'System Analysis & Design', credit: 1 },
+  { code: 'IS2107', name: 'Social & Professional Issues', credit: 1 },
+  { code: 'IS2108', name: 'Human Computer Interaction', credit: 2 },
+  { code: 'IS2109', name: 'Information Assurance & Security', credit: 2 },
+  { code: 'IS2110', name: 'Software Project Initiation & Planning', credit: 1 },
+  { code: 'IS2111', name: 'Advanced Mathematics', credit: 2 }
 ];
 
 const FirstYearFirst = () => {
