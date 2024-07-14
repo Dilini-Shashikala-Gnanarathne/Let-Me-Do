@@ -6,16 +6,20 @@ import Background from '../../components/D-Background';
 import { useAuth } from '../../context/AuthContext';
 
 const courses = [
-  { code: 'IS1101', name: 'Fundamentals of Information Systems', credit: 2 },
-  { code: 'IS1102', name: 'Structured Programming Techniques', credit: 2 },
-  { code: 'IS1103', name: 'Structured Programming Practicum', credit: 1 },
-  { code: 'IS1104', name: 'Theories of Information Systems', credit: 2 },
-  { code: 'IS1105', name: 'Computer System Organization', credit: 2 },
-  { code: 'IS1106', name: 'Foundations of Web Technologies', credit: 2 },
-  { code: 'IS1107', name: 'Personal Productivity with Information Technology', credit: 1 },
-  { code: 'IS1108', name: 'Fundamentals of Mathematics', credit: 2 },
-  { code: 'IS1109', name: 'Statistics & Probability Theory', credit: 2 },
+  { code: 'IS7101', name: 'Research Methodologies', credit: 2 },
+  { code: 'IS7102', name: 'IT Law', credit: 1 },
+  { code: 'IS7103', name: 'Business Process Simulation', credit: 2 },
+  { code: 'IS7104', name: 'Enterprise Modelling Ontologies', credit: 2 },
+  { code: 'IS7105', name: 'Organizational Behavior & Management', credit: 1 },
+  { code: 'IS7106', name: 'Cloud Computing', credit: 2 },
+  { code: 'IS7107', name: 'Mobile Application Development', credit: 1 },
+  { code: 'IS7108', name: 'Web Service Technologies', credit: 2 },
+  { code: 'IS7109', name: 'Geographical Information Systems', credit: 2 },
+  { code: 'IS7110', name: 'Statistical Distribution & Inferences', credit: 1 },
+  { code: 'IS7111', name: 'Advanced Programming Practicum', credit: 1 },
+  { code: 'IS7112', name: 'Machine Learning', credit: 2 }
 ];
+
 
 const FirstYearFirst = () => {
   const [courseData, setCourseData] = useState([]);

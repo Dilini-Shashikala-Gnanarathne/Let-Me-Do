@@ -5,16 +5,16 @@ import '../../App.css';
 import Background from '../../components/D-Background';
 import { useAuth } from '../../context/AuthContext';
 
-const courses = [
-  { code: 'IS1101', name: 'Fundamentals of Information Systems', credit: 2 },
-  { code: 'IS1102', name: 'Structured Programming Techniques', credit: 2 },
-  { code: 'IS1103', name: 'Structured Programming Practicum', credit: 1 },
-  { code: 'IS1104', name: 'Theories of Information Systems', credit: 2 },
-  { code: 'IS1105', name: 'Computer System Organization', credit: 2 },
-  { code: 'IS1106', name: 'Foundations of Web Technologies', credit: 2 },
-  { code: 'IS1107', name: 'Personal Productivity with Information Technology', credit: 1 },
-  { code: 'IS1108', name: 'Fundamentals of Mathematics', credit: 2 },
-  { code: 'IS1109', name: 'Statistics & Probability Theory', credit: 2 },
+  const courses = [
+    { code: 'IS3101', name: 'Object Oriented Analysis & Design', credit: 2 },
+    { code: 'IS3102', name: 'Data Structures & Algorithms', credit: 2 },
+    { code: 'IS3103', name: 'IT Governance', credit: 2 },
+    { code: 'IS3104', name: 'Software Engineering', credit: 2 },
+    { code: 'IS3105', name: 'IS Risk Management', credit: 2 },
+    { code: 'IS3106', name: 'IS Sustainability', credit: 1 },
+    { code: 'IS3107', name: 'Management Information Systems', credit: 2 },
+    { code: 'IS3108', name: 'E-Business', credit: 1 },
+    { code: 'IS3109', name: 'Digital Innovation', credit: 2 }  
 ];
 
 const FirstYearFirst = () => {
