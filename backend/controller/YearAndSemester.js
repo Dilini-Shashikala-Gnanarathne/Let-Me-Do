@@ -23,17 +23,14 @@ const updateSemester = async (req, res, semesterField) => {
       for (const update of updates) {
         const { subjectname, grade, gpa } = update;
 
-        // Check if the subject already exists
         const existingSubject = record[semesterField].find(
           (subject) => subject.subject === subjectname
         );
 
         if (existingSubject) {
-          // Update the existing subject
           existingSubject.grade = grade;
           existingSubject.gpa = gpa;
         } else {
-          // Add the new subject
           record[semesterField].push({ subject: subjectname, grade, gpa });
         }
       }
