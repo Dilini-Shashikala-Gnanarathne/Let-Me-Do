@@ -6,16 +6,19 @@ import Background from '../../components/D-Background';
 import { useAuth } from '../../context/AuthContext';
 
 const courses = [
-  { code: 'IS1101', name: 'Fundamentals of Information Systems', credit: 2 },
-  { code: 'IS1102', name: 'Structured Programming Techniques', credit: 2 },
-  { code: 'IS1103', name: 'Structured Programming Practicum', credit: 1 },
-  { code: 'IS1104', name: 'Theories of Information Systems', credit: 2 },
-  { code: 'IS1105', name: 'Computer System Organization', credit: 2 },
-  { code: 'IS1106', name: 'Foundations of Web Technologies', credit: 2 },
-  { code: 'IS1107', name: 'Personal Productivity with Information Technology', credit: 1 },
-  { code: 'IS1108', name: 'Fundamentals of Mathematics', credit: 2 },
-  { code: 'IS1109', name: 'Statistics & Probability Theory', credit: 2 },
+  { code: 'IS8101', name: 'Research Project in IS', credit: 8 },
+  { code: 'IS8102', name: 'Business/IT Alignment', credit: 2 },
+  { code: 'IS8103', name: 'Human Resource Management', credit: 2 },
+  { code: 'IS8104', name: 'Scientific Communication', credit: 1 },
+  { code: 'IS8105', name: 'IS Economics', credit: 2 },
+  { code: 'IS8106', name: 'Computer System Security', credit: 2 },
+  { code: 'IS8107', name: 'Supply Chain Management', credit: 2 },
+  { code: 'IS8108', name: 'Advanced Computer Networks', credit: 2 },
+  { code: 'IS8109', name: 'Process Mining', credit: 2 },
+  { code: 'IS8110', name: 'Digital Business Model', credit: 1 },
+  { code: 'IS8111', name: 'Game Development', credit: 2 }
 ];
+
 
 const FirstYearFirst = () => {
   const [courseData, setCourseData] = useState([]);

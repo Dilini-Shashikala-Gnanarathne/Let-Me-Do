@@ -6,16 +6,9 @@ import Background from '../../components/D-Background';
 import { useAuth } from '../../context/AuthContext';
 
 const courses = [
-  { code: 'IS1101', name: 'Fundamentals of Information Systems', credit: 2 },
-  { code: 'IS1102', name: 'Structured Programming Techniques', credit: 2 },
-  { code: 'IS1103', name: 'Structured Programming Practicum', credit: 1 },
-  { code: 'IS1104', name: 'Theories of Information Systems', credit: 2 },
-  { code: 'IS1105', name: 'Computer System Organization', credit: 2 },
-  { code: 'IS1106', name: 'Foundations of Web Technologies', credit: 2 },
-  { code: 'IS1107', name: 'Personal Productivity with Information Technology', credit: 1 },
-  { code: 'IS1108', name: 'Fundamentals of Mathematics', credit: 2 },
-  { code: 'IS1109', name: 'Statistics & Probability Theory', credit: 2 },
+  { code: 'IS6101', name: 'Professional Practice', credit: 6 }
 ];
+
 
 const FirstYearFirst = () => {
   const [courseData, setCourseData] = useState([]);
