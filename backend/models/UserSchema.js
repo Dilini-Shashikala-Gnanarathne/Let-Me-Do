@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const semesterSchema = new Schema({
-  subject: { type: String },
+  subject: { type: String ,unique: true},
   grade: { type: String },
   gpa: { type: Number }
 });

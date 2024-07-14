@@ -4,21 +4,16 @@ const updateSemester = async (req, res, semesterField) => {
   const { email, updates } = req.body;
 
   try {
-      console.log('Request Body:', req.body);
+    console.log('Request Body:', req.body);
 
-      if (!Array.isArray(updates)) {
-          return res.status(400).json({
-              success: false,
-              message: 'Updates must be an array',
-          });
-      }
+    if (!Array.isArray(updates)) {
+      return res.status(400).json({
+        success: false,
+        message: 'Updates must be an array',
+      });
+    }
 
-      let record = await User.findOne({ email });
-
-      const semesterSubjects = [
-          'IS1001', 'IS1002', 'IS1003', 'IS1004', 'IS1005', 'IS1006', 'IS1007', 'IS1008', 'IS1009',
-      ];
-
+    let record = await User.findOne({ email });
 
     if (record) {
       if (!record[semesterField]) {
@@ -27,7 +22,17 @@ const updateSemester = async (req, res, semesterField) => {
 
       for (const update of updates) {
         const { subjectname, grade, gpa } = update;
-        record[semesterField].push({ subject: subjectname, grade, gpa });
+
+        const existingSubject = record[semesterField].find(
+          (subject) => subject.subject === subjectname
+        );
+
+        if (existingSubject) {
+          existingSubject.grade = grade;
+          existingSubject.gpa = gpa;
+        } else {
+          record[semesterField].push({ subject: subjectname, grade, gpa });
+        }
       }
 
       await record.save();
@@ -49,6 +54,7 @@ const updateSemester = async (req, res, semesterField) => {
     return res.status(500).json({ success: false, message: 'Internal server error', err: err.message });
   }
 };
+
 
 const firstyearfirst = (req, res) => updateSemester(req, res, 'firstyearfirst');
 const firstyearsecond = (req, res) => updateSemester(req, res, 'firstyearsecond');
