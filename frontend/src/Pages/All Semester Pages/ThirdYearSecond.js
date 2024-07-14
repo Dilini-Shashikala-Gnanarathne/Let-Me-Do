@@ -147,6 +147,7 @@ const FirstYearFirst = () => {
                     <option value="D">D</option>
                     <option value="D-">D-</option>
                     <option value="E">E</option>
+                    <option value="Absent">Absent</option> 
                   </select>
                 </div>
                 <div className="form-group">
