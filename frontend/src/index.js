@@ -17,6 +17,7 @@ import ThirdYearSecond from './Pages/All Semester Pages/ThirdYearSecond';
 import FourthYearFirst from './Pages/All Semester Pages/FourthYearFirst';
 import FourthYearSecond from './Pages/All Semester Pages/FourthYearSecond'; 
 import GetFirstYearFirst from './Pages/All Result Pages/FirstYearFirstResult';
+import TryEmail from './Pages/All Result Pages/TryEmail';
 import { AuthProvider } from './context/AuthContext';
 
 const AppLayout = () => (
@@ -86,6 +87,10 @@ const router = createBrowserRouter([
         path: 'getfirstfirst',
         element: <GetFirstYearFirst />,
       },
+      {
+        path: 'tryemail',
+        element: <TryEmail />,
+      }
     ],
   },
 ]);
