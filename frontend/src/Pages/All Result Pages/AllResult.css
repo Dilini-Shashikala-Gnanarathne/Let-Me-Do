@@ -15,8 +15,8 @@
      width: 500px;
      color: white;
      margin: 0 auto;
-     margin-top: 15vh;
-     margin-bottom: 10vh;
+     margin-top: 5vh;
+     margin-bottom: 20vh;
      
   }
   
@@ -29,27 +29,11 @@
       color: #0066ff;
       font-size: 36px;
       margin-top: 20px;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
   
   }
-  .first{
-      margin-bottom: 1px;
-      color: #fff;
-      padding-left: 500px; 
-     margin: 0 auto;
-     margin-top: 5vh;
-     font-size: 20px;
-     letter-spacing: 5px;
+
   
-  }
-  
-  .add-result{
-    width: 50%;
-    padding: 10px;
-    border-radius: 10px;
-    background-color: #4015ea; 
-    margin-top: 20px;
-  }
 .container-Add-result{
  width: 500px;
  text-align: center;
@@ -62,7 +46,7 @@
   .form-group-result{
     color: rgb(138, 128, 128);
     padding-left: 50px;
-    margin-top: 25px;
+    margin-top: 2px;
   }
 
   .semester{

@@ -4,7 +4,6 @@ const Schema = mongoose.Schema;
 const semesterSchema = new Schema({
   subject: { type: String ,unique: true},
   grade: { type: String },
-  gpa: { type: Number }
 });
 
 const userSchema = new Schema({
@@ -21,27 +20,24 @@ const userSchema = new Schema({
   thirdyearsecond: [semesterSchema],
   fourthyearfirst: [semesterSchema],
   fourthyearsecond: [semesterSchema],
-  totalgpa: { type: Number }
+  firstyearfirstGPA: { type: Number },
+
+  firstyearsecondGPA: { type: Number },
+
+  secondyearfirstGPA: { type: Number },
+
+  secondyearsecondGPA: { type: Number },
+
+  thirdyearfirstGPA: { type: Number },
+
+  thirdyearsecondGPA: { type: Number },
+
+  fourthyearfirstGPA: { type: Number },
+
+  fourthyearsecondGPA: { type: Number },
 });
 
-userSchema.pre('save', function(next) {
-  let totalGpa = 0;
-  let semesters = [
-    ...this.firstyearfirst,
-    ...this.firstyearsecond,
-    ...this.secondyearfirst,
-    ...this.secondyearsecond,
-    ...this.thirdyearfirst,
-    ...this.thirdyearsecond,
-    ...this.fourthyearfirst,
-    ...this.fourthyearsecond
-  ];
-  if (semesters.length > 0) {
-    totalGpa = semesters.reduce((acc, sem) => acc + sem.gpa, 0) / semesters.length;
-  }
-  this.totalgpa = totalGpa;
-  next();
-});
+
 
 const User = mongoose.model('User', userSchema);
 
