@@ -4,7 +4,7 @@ const controller = require('./controller');
 const routers = require('./controller/auth');
 const yearSem= require('./controller/YearAndSemester');
 const router = express.Router();
-
+const getSem= require('./controller/FirstYearFirstResult');
 
 router.get('/users', controller.getAllUsers);
 router.post('/create', controller.addUser);
@@ -23,6 +23,8 @@ router.put('/thirdyearfirst', yearSem.thirdyearfirst);
 router.put('/thirdyearsecond', yearSem.thirdyearsecond);
 router.put('/fourthyearfirst', yearSem.fourthyearfirst);
 router.put('/fourthyearsecond', yearSem.fourthyearsecond);
+
+router.get('/getfirstyearfirst', getSem.getfirstyearfirst);
 
 
 
