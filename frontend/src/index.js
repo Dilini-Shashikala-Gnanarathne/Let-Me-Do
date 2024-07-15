@@ -8,14 +8,16 @@ import Login from './Pages/Login';
 import Register from './Pages/Signup';
 import Reports from './Pages/Report';
 import Allsemester from './Pages/Allsemester';
-import FirstYearFirst from './Pages/All Semester Pages/FirstYearFrirst'; // Fixed typo
+import FirstYearFirst from './Pages/All Semester Pages/FirstYearFrirst'; 
 import FirstYearSecond from './Pages/All Semester Pages/FirstYearSecond';
-import SecondYearFirst from './Pages/All Semester Pages/SecondYearFirst'; // Fixed typo
-import SecondYearSecond from './Pages/All Semester Pages/SecondYearSecond'; // Fixed typo
+import SecondYearFirst from './Pages/All Semester Pages/SecondYearFirst'; 
+import SecondYearSecond from './Pages/All Semester Pages/SecondYearSecond'; 
 import ThirdYearFirst from './Pages/All Semester Pages/ThirdYearFirst';
 import ThirdYearSecond from './Pages/All Semester Pages/ThirdYearSecond';
 import FourthYearFirst from './Pages/All Semester Pages/FourthYearFirst';
-import FourthYearSecond from './Pages/All Semester Pages/FourthYearSecond'; // Fixed typo
+import FourthYearSecond from './Pages/All Semester Pages/FourthYearSecond'; 
+import GetFirstYearFirst from './Pages/All Result Pages/FirstYearFirstResult';
+import TryEmail from './Pages/All Result Pages/TryEmail';
 import { AuthProvider } from './context/AuthContext';
 
 const AppLayout = () => (
@@ -81,6 +83,14 @@ const router = createBrowserRouter([
         path: 'fourthsecond',
         element: <FourthYearSecond />,
       },
+      {
+        path: 'getfirstfirst',
+        element: <GetFirstYearFirst />,
+      },
+      {
+        path: 'tryemail',
+        element: <TryEmail />,
+      }
     ],
   },
 ]);
