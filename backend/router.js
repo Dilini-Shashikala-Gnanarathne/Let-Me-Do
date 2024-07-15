@@ -24,7 +24,7 @@ router.put('/thirdyearsecond', yearSem.thirdyearsecond);
 router.put('/fourthyearfirst', yearSem.fourthyearfirst);
 router.put('/fourthyearsecond', yearSem.fourthyearsecond);
 
-router.get('/getfirstyearfirst', getSem.getfirstyearfirst);
+router.post('/getfirstyearfirst', getSem.getfirstyearfirst);
 
 
 
