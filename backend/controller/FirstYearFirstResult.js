@@ -1,21 +1,18 @@
 const User = require('../models/UserSchema');
 
 const getSemester = async (req, res) => {
-  const { email } = req.body;
+  const { email } = req.body; // Use req.body for POST requests
 
   try {
     console.log('Request Body:', req.body);
 
-   
-
     let record = await User.findOne({ email });
-
+console.log(`hi dilini${record}`);
+console.log(5);
     if (record) {
-    
-
       return res.status(200).json({
         success: true,
-        message: 'Successfully updated',
+        message: 'Successfully retrieved record',
         data: record,
       });
     } else {
@@ -31,9 +28,8 @@ const getSemester = async (req, res) => {
   }
 };
 
+const getfirstyearfirst = (req, res) => getSemester(req, res);
 
-const getfirstyearfirst = (req, res) => getSemester(req, res, 'getfirstyearfirst');
 module.exports = {
   getfirstyearfirst,
- 
 };
