@@ -56,6 +56,10 @@ const updateSemester = async (req, res, semesterField) => {
 };
 
 
+
+
+
+
 const firstyearfirst = (req, res) => updateSemester(req, res, 'firstyearfirst');
 const firstyearsecond = (req, res) => updateSemester(req, res, 'firstyearsecond');
 const secondyearfirst = (req, res) => updateSemester(req, res, 'secondyearfirst');
