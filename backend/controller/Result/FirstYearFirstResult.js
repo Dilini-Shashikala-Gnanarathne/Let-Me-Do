@@ -1,4 +1,4 @@
-const User = require('../models/UserSchema');
+const User = require('../../models/UserSchema');
 
 const getSemester = async (req, res) => {
   const { email } = req.body;
