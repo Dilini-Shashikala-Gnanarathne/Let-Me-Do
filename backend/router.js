@@ -24,9 +24,19 @@ router.put('/thirdyearsecond', yearSem.thirdyearsecond);
 router.put('/fourthyearfirst', yearSem.fourthyearfirst);
 router.put('/fourthyearsecond', yearSem.fourthyearsecond);
 
-router.post('/getfirstyearfirst', getSem.getfirstyearfirst);
-router.get('/gettryfirstyearfirst',getTry.gettryfirstyearfirst );
 
+router.post('/getfirstyearfirstGPA', getSem.getFirstYearFirstSemesterGPA);
+router.post('/getfirstyearsecondGPA', getSem.getFirstYearSecondSemesterGPA);
+router.post('/getsecondyearfirstGPA', getSem.getSecondYearFirstSemesterGPA);
+router.post('/getsecondyearsecondGPA', getSem.getSecondYearSecondSemesterGPA);
+router.post('/getthirdyearfirstGPA', getSem.getThirdYearFirstSemesterGPA);
+router.post('/getthirdyearsecondGPA', getSem.getThirdYearSecondSemesterGPA);
+router.post('/getfourthyearfirstGPA', getSem.getFourthYearFirstSemesterGPA);
+router.post('/getfourthyearsecondGPA', getSem.getFourthYearSecondSemesterGPA);
+
+
+
+router.get('/gettryfirstyearfirst',getTry.gettryfirstyearfirst );
 
 router.get('/user',authenticateToken, verifyUser);
 

@@ -1,15 +1,15 @@
-  let firstyearfirstGPA=0;
+  router.post('/getfirstyearfirstGPA',getSem.);
 
-  let firstyearsecondGPA=0;
+  router.post('/getfirstyearsecondGPA',getSem.);
 
-  let secondyearfirstGPA=0;
+  router.post('/getsecondyearfirstGPA',getSem.);
 
-  let secondyearsecondGPA=0;
+  router.post('/getsecondyearsecondGPA',getSem.);
 
-  let  thirdyearfirstGPA=0;
+  router.post('/getthirdyearfirstGPA',getSem.);
 
-  let thirdyearsecondGPA=0;
+  router.post('/getthirdyearsecondGPA',getSem.);
 
-  let fourthyearfirstGPA=0;
+  router.post('/getfourthyearfirstGPA',getSem.);
 
-  let fourthyearsecondGPA=0;
+  router.post('/getfourthyearsecondGPA',getSem.);

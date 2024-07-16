@@ -23,7 +23,7 @@ const FirstYearFirst = () => {
       return;
     }
 
-    Axios.post('http://localhost:3001/api/getfirstyearfirst', { email: user.email })
+    Axios.post('http://localhost:3001/api/getfirstyearfirstGPA', { email: user.email })
       .then(() => {
         console.log("Great job!");
         setShowGPA(true);
