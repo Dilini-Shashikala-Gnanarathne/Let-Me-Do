@@ -3,7 +3,6 @@ import { useAuth, useEmail } from '../../context/AuthContext';
 import './AllResult.css';
 const UserProfile = () => {
   const { user } = useAuth();
-  const email = useEmail();
 
   if (!user) {
     return <div>Loading...</div>;

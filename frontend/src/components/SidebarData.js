@@ -61,13 +61,13 @@ export const SidebarData = [
   },
   {
     title: "Result",
-    path: "/getfirstfirst",
+    path: "/tryemail",
     icon: <img src={ResultIcon} alt="Result" className="dashboard-icon"/>,
     cName: "nav-text dashboard",
   },
   {
     title: "Report",
-    path: "/tryemail",
+    path: 'getfirstfirst',
     icon: <img src={ReportsIcon} alt="Dashboard" className="dashboard-icon"/>,
     cName: "nav-text dashboard",
   },
