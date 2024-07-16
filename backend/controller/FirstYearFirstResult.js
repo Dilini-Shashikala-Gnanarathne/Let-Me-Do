@@ -8,14 +8,13 @@ const getSemester = async (req, res) => {
 
     let record = await User.findOne({ email });
     if (record) {
-      for(let i = 0; i < record.firstyearfirst.length; i++) {
-      let user = record.firstyearfirst[i].grade; 
-      console.log(user);
       let totalWeightedGrades = 0;
       let totalCredits = 0;
+      for(let i = 0; i < record.firstyearfirst.length; i++) {
+      let user = record.firstyearfirst[i].grade; 
+      let credit= record.firstyearfirst[i].subjectcredit;
+      console.log(user);
         let grade = 0;
-
-
         switch (user) {
           case 'A':
           case 'A+':
@@ -46,18 +45,18 @@ const getSemester = async (req, res) => {
             console.log("Invalid grade");
             return;}
             console.log(grade);
-        totalWeightedGrades += grade * user;
+            console.log(credit);
+        totalWeightedGrades += grade * credit;
         console.log(totalWeightedGrades);
-        totalCredits += user;
-        console.log(totalWeightedGrades, totalCredits);
-
+        totalCredits += credit;
+        console.log(totalWeightedGrades, totalCredits);}
       const gpa = totalCredits ? (totalWeightedGrades / totalCredits) : 0;
       console.log(gpa);
       return res.status(200).json({
         success: true,
         message: 'Successfully retrieved record',
         data: gpa,
-      });}
+      });
     } else {
       return res.status(404).json({
         success: false,
