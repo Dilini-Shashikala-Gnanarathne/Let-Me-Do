@@ -4,11 +4,31 @@ import { useNavigate } from 'react-router-dom';
 import '../../App.css';
 import Background from '../../components/D-Background';
 import { useAuth } from '../../context/AuthContext';
-import FirstYearFirstGPA from '../All Result Pages/FirstYearFirstGPA';    
+import { 
+  FirstYearFirstSemesterGPA,
+  FirstYearSecondSemesterGPA,
+  SecondYearFirstSemesterGPA,
+  SecondYearSecondSemesterGPA,
+  ThirdYearFirstSemesterGPA,
+  ThirdYearSecondSemesterGPA,
+  FourthYearFirstSemesterGPA,
+  FourthYearSecondSemesterGPA
+} from '../All Result Pages/FirstYearFirstGPA';    
+
+const GPAComponents = {
+  'getfirstyearfirstGPA': FirstYearFirstSemesterGPA,
+  'getfirstyearsecondGPA': FirstYearSecondSemesterGPA,
+  'getsecondyearfirstGPA': SecondYearFirstSemesterGPA,
+  'getsecondyearsecondGPA': SecondYearSecondSemesterGPA,
+  'getthirdyearfirstGPA': ThirdYearFirstSemesterGPA,
+  'getthirdyearsecondGPA': ThirdYearSecondSemesterGPA,
+  'getfourthyearfirstGPA': FourthYearFirstSemesterGPA,
+  'getfourthyearsecondGPA': FourthYearSecondSemesterGPA
+};
 
 const FirstYearFirst = () => {
   const [error, setError] = useState(null);
-  const [showGPA, setShowGPA] = useState(false);
+  const [selectedGPA, setSelectedGPA] = useState(null);
   const navigate = useNavigate();
   const { user } = useAuth();
 
@@ -33,7 +53,7 @@ const FirstYearFirst = () => {
     Axios.post(`http://localhost:3001/api/${url}`, { email: user.email })
       .then(() => {
         console.log("Great job!");
-        setShowGPA(true);
+        setSelectedGPA(url); // Set the selected GPA to show the correct component
       })
       .catch((error) => {
         if (error.response && error.response.status === 400) {
@@ -43,6 +63,8 @@ const FirstYearFirst = () => {
         }
       });
   };
+
+  const GPAComponent = selectedGPA ? GPAComponents[selectedGPA] : null;
 
   return (
     <>
@@ -57,7 +79,7 @@ const FirstYearFirst = () => {
             </form>
           ))}
           {error && <p>{error}</p>}
-          {showGPA && <FirstYearFirstGPA />}
+          {GPAComponent && <GPAComponent />}
         </div>
       </div>
     </>
