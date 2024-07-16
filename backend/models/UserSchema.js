@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 const semesterSchema = new Schema({
   subject: { type: String ,unique: true},
   grade: { type: String },
+  subjectcredit:{type: Number, min: 0, max:7}
 });
 
 const userSchema = new Schema({
