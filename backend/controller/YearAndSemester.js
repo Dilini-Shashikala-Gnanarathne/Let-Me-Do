@@ -21,7 +21,7 @@ const updateSemester = async (req, res, semesterField) => {
       }
 
       for (const update of updates) {
-        const { subjectname, grade, gpa } = update;
+        const { subjectname, grade, subjectcredit } = update;
 
         const existingSubject = record[semesterField].find(
           (subject) => subject.subject === subjectname
@@ -29,9 +29,9 @@ const updateSemester = async (req, res, semesterField) => {
 
         if (existingSubject) {
           existingSubject.grade = grade;
-          existingSubject.gpa = gpa;
+          existingSubject.subjectcredit = subjectcredit;
         } else {
-          record[semesterField].push({ subject: subjectname, grade, gpa });
+          record[semesterField].push({ subject: subjectname, grade, subjectcredit });
         }
       }
 
