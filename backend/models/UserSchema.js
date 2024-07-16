@@ -21,6 +21,7 @@ const userSchema = new Schema({
   thirdyearsecond: [semesterSchema],
   fourthyearfirst: [semesterSchema],
   fourthyearsecond: [semesterSchema],
+  
   firstyearfirstGPA: { type: Number },
   firstyearsecondGPA: { type: Number },
   secondyearfirstGPA: { type: Number },

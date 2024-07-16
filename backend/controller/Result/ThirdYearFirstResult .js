@@ -11,9 +11,9 @@ const getSemester = async (req, res) => {
       let totalWeightedGrades = 0;
       let totalCredits = 0;
 
-      for (let i = 0; i < record.firstyearfirst.length; i++) {
-        let user = record.firstyearfirst[i].grade; 
-        let credit = record.firstyearfirst[i].subjectcredit;
+      for (let i = 0; i < record.thirdyearfirst.length; i++) {
+        let user = record.thirdyearfirst[i].grade; 
+        let credit = record.thirdyearfirst[i].subjectcredit;
         console.log(user);
 
         let grade = 0;
@@ -57,16 +57,16 @@ const getSemester = async (req, res) => {
         }
       }
 
-      const firstyearfirstGPA = totalCredits ? (totalWeightedGrades / totalCredits) : 0;
-      console.log(firstyearfirstGPA);
+      const thirdyearfirstGPA = totalCredits ? (totalWeightedGrades / totalCredits) : 0;
+      console.log(thirdyearfirstGPA);
       
-      record.firstyearfirstGPA = firstyearfirstGPA;
+      record.thirdyearfirstGPA = thirdyearfirstGPA;
       await record.save();
 
       return res.status(200).json({
         success: true,
         message: 'Successfully retrieved record',
-        data: firstyearfirstGPA,
+        data: thirdyearfirstGPA,
       });
     } else {
       return res.status(404).json({
