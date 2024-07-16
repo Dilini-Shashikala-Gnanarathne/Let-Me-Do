@@ -1,15 +1,145 @@
-  router.post('/getfirstyearfirstGPA',getSem.);
 
-  router.post('/getfirstyearsecondGPA',getSem.);
+FirstYearFirstSemesterGPA= () => {
+  const { user } = useAuth();
 
-  router.post('/getsecondyearfirstGPA',getSem.);
+  if (!user) {
+    return <div>Loading...</div>;
+  };
 
-  router.post('/getsecondyearsecondGPA',getSem.);
+  return (
+    <div className="container-Add-result">
+      <h1 className='title-all-result'>Welcome, {user.name}</h1>
+      <p>Register Number: {user.id}</p>
+      <div>
+       <p>FirstYearFirstGPA:{user.firstyearfirstGPA}</p>
+      </div>
+    </div>
+  );
+};
+ 
+FirstYearSecondSemesterGPA= () => {
+  const { user } = useAuth();
 
-  router.post('/getthirdyearfirstGPA',getSem.);
+  if (!user) {
+    return <div>Loading...</div>;
+  };
 
-  router.post('/getthirdyearsecondGPA',getSem.);
+  return (
+    <div className="container-Add-result">
+      <h1 className='title-all-result'>Welcome, {user.name}</h1>
+      <p>Register Number: {user.id}</p>
+      <div>
+       <p>FirstYearFirstGPA:{user.firstyearfirstGPA}</p>
+      </div>
+    </div>
+  );
+};
 
-  router.post('/getfourthyearfirstGPA',getSem.);
+SecondYearFirstSemesterGPA= () => {
+  const { user } = useAuth();
 
-  router.post('/getfourthyearsecondGPA',getSem.);
+  if (!user) {
+    return <div>Loading...</div>;
+  };
+
+  return (
+    <div className="container-Add-result">
+      <h1 className='title-all-result'>Welcome, {user.name}</h1>
+      <p>Register Number: {user.id}</p>
+      <div>
+       <p>FirstYearFirstGPA:{user.firstyearfirstGPA}</p>
+      </div>
+    </div>
+  );
+};
+
+SecondYearSecondSemesterGPA= () => {
+  const { user } = useAuth();
+
+  if (!user) {
+    return <div>Loading...</div>;
+  };
+
+  return (
+    <div className="container-Add-result">
+      <h1 className='title-all-result'>Welcome, {user.name}</h1>
+      <p>Register Number: {user.id}</p>
+      <div>
+       <p>FirstYearFirstGPA:{user.firstyearfirstGPA}</p>
+      </div>
+    </div>
+  );
+};
+
+ThirdYearFirstSemesterGPA= () => {
+  const { user } = useAuth();
+
+  if (!user) {
+    return <div>Loading...</div>;
+  };
+
+  return (
+    <div className="container-Add-result">
+      <h1 className='title-all-result'>Welcome, {user.name}</h1>
+      <p>Register Number: {user.id}</p>
+      <div>
+       <p>FirstYearFirstGPA:{user.firstyearfirstGPA}</p>
+      </div>
+    </div>
+  );
+};
+
+ThirdYearSecondSemesterGPA= () => {
+  const { user } = useAuth();
+
+  if (!user) {
+    return <div>Loading...</div>;
+  };
+
+  return (
+    <div className="container-Add-result">
+      <h1 className='title-all-result'>Welcome, {user.name}</h1>
+      <p>Register Number: {user.id}</p>
+      <div>
+       <p>FirstYearFirstGPA:{user.firstyearfirstGPA}</p>
+      </div>
+    </div>
+  );
+};
+
+FourthYearFirstSemesterGPA= () => {
+  const { user } = useAuth();
+
+  if (!user) {
+    return <div>Loading...</div>;
+  };
+
+  return (
+    <div className="container-Add-result">
+      <h1 className='title-all-result'>Welcome, {user.name}</h1>
+      <p>Register Number: {user.id}</p>
+      <div>
+       <p>FirstYearFirstGPA:{user.firstyearfirstGPA}</p>
+      </div>
+    </div>
+  );
+};
+
+FourthYearSecondSemesterGPA= () => {
+  const { user } = useAuth();
+
+  if (!user) {
+    return <div>Loading...</div>;
+  };
+
+  return (
+    <div className="container-Add-result">
+      <h1 className='title-all-result'>Welcome, {user.name}</h1>
+      <p>Register Number: {user.id}</p>
+      <div>
+       <p>FirstYearFirstGPA:{user.firstyearfirstGPA}</p>
+      </div>
+    </div>
+  );
+};
+
