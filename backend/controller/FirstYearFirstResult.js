@@ -14,7 +14,7 @@ const getSemester = async (req, res) => {
       let user = record.firstyearfirst[i].grade; 
       let credit= record.firstyearfirst[i].subjectcredit;
       console.log(user);
-        let grade = 0;
+      if (user === 'A' || user === 'A+' || user === 'A-' || user === 'B+' || user === 'B' || user === 'B-'||user === 'C+' || user === 'C' || user === 'C-') {
         switch (user) {
           case 'A':
           case 'A+':
@@ -42,14 +42,13 @@ const getSemester = async (req, res) => {
             grade = 1.7;
             break;
           default:
-            console.log("Invalid grade");
             return;}
             console.log(grade);
             console.log(credit);
         totalWeightedGrades += grade * credit;
         console.log(totalWeightedGrades);
         totalCredits += credit;
-        console.log(totalWeightedGrades, totalCredits);}
+        console.log(totalWeightedGrades, totalCredits);}}
       const gpa = totalCredits ? (totalWeightedGrades / totalCredits) : 0;
       console.log(gpa);
       return res.status(200).json({
