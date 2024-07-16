@@ -67,7 +67,7 @@ export const SidebarData = [
   },
   {
     title: "Report",
-    path: "/report",
+    path: 'getfirstfirst',
     icon: <img src={ReportsIcon} alt="Dashboard" className="dashboard-icon"/>,
     cName: "nav-text dashboard",
   },
