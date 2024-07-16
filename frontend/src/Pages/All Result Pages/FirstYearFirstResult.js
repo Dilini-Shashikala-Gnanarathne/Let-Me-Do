@@ -1,26 +1,23 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import '../../App.css';
 import Background from '../../components/D-Background';
 import { useAuth } from '../../context/AuthContext';
-
+import FirstYearFirstGPA from '../All Result Pages/FirstYearFirstGPA';	
 
 const FirstYearFirst = () => {
   const [error, setError] = useState(null);
+  const [showGPA, setShowGPA] = useState(false);
   const navigate = useNavigate();
   const { user } = useAuth();
 
-  useEffect(() => {
-  });
-
-
   const handleSubmit = (e) => {
     e.preventDefault();
-      addUser();
+    addUser();
   };
 
-  const addUser = (data) => {
+  const addUser = () => {
     if (!user) {
       setError('User is not authenticated');
       return;
@@ -28,7 +25,8 @@ const FirstYearFirst = () => {
 
     Axios.post('http://localhost:3001/api/getfirstyearfirst', { email: user.email })
       .then(() => {
-       console.log("Great job!");
+        console.log("Great job!");
+        setShowGPA(true);
       })
       .catch((error) => {
         if (error.response && error.response.status === 400) {
@@ -45,10 +43,12 @@ const FirstYearFirst = () => {
       <div>
         <div className="container-Add">
           <form onSubmit={handleSubmit}>
-                <div className="form-group">
-                  <button type="submit">Add</button>
-                </div>
+            <div className="form-group">
+              <button type="submit">Add</button>
+            </div>
           </form>
+          {error && <p>{error}</p>}
+          {showGPA && <FirstYearFirstGPA />}
         </div>
       </div>
     </>
