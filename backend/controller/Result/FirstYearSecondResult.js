@@ -81,8 +81,8 @@ const getSemester = async (req, res) => {
   }
 };
 
-const getFirstYearFirstSemesterGPA = (req, res) => getSemester(req, res);
+const getFirstYearSecondSemesterGPA = (req, res) => getSemester(req, res);
 
 module.exports = {
-  getFirstYearFirstSemesterGPA,
+  getFirstYearSecondSemesterGPA,
 };
