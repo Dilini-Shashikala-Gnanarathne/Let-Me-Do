@@ -41,10 +41,9 @@ const FirstYearFirst = () => {
     }
   }, [submissionCount]);
 
-  const handleInputChange = (e, index) => {
-    const { name, value } = e.target;
+ const handleGradeSelection = (grade, index) => {
     const updatedData = [...courseData];
-    updatedData[index][name] = value;
+    updatedData[index].grade = grade;
     setCourseData(updatedData);
   };
 
