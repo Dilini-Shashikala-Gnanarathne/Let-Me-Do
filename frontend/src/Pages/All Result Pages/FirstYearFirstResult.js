@@ -81,7 +81,7 @@ const FirstYearFirst = () => {
           {error && <p>{error}</p>}
           {GPAComponent && <GPAComponent />}
         </div>
-      </div>
+        </div>
     </>
   );
 };

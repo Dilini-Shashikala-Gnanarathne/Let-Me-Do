@@ -17,6 +17,8 @@ const courses = [
   { code: 'IS1109', name: 'Statistics & Probability Theory', credit: 2 },
 ];
 
+const grades = ['A+', 'A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+', 'D', 'D-', 'E', 'Skip'];
+
 const FirstYearFirst = () => {
   const [courseData, setCourseData] = useState([]);
   const [submissionCount, setSubmissionCount] = useState(0);
@@ -38,10 +40,9 @@ const FirstYearFirst = () => {
     }
   }, [submissionCount]);
 
-  const handleInputChange = (e, index) => {
-    const { name, value } = e.target;
+  const handleGradeSelection = (grade, index) => {
     const updatedData = [...courseData];
-    updatedData[index][name] = value;
+    updatedData[index].grade = grade;
     setCourseData(updatedData);
   };
 
@@ -132,30 +133,18 @@ const FirstYearFirst = () => {
                 </div>
                 <div className="form-group">
                   <label htmlFor="grade">Enter Subject Grade</label>
-                  <select
-                    id="grade"
-                    name="grade"
-                    required
-                    className="form-control"
-                    value={courseData[submissionCount]?.grade || ''}
-                    onChange={(e) => handleInputChange(e, submissionCount)}
-                  >
-                    <option value="">Select Grade</option>
-                    <option value="A+">A+</option>
-                    <option value="A">A</option>
-                    <option value="A-">A-</option>
-                    <option value="B+">B+</option>
-                    <option value="B">B</option>
-                    <option value="B-">B-</option>
-                    <option value="C+">C+</option>
-                    <option value="C">C</option>
-                    <option value="C-">C-</option>
-                    <option value="D+">D+</option>
-                    <option value="D">D</option>
-                    <option value="D-">D-</option>
-                    <option value="E">E</option>
-                    <option value="Absent">Absent</option> 
-                  </select>
+                  <div className="grade-selection">
+                    {grades.map((grade) => (
+                      <button
+                        type="button"
+                        key={grade}
+                        className={`grade-button ${courseData[submissionCount]?.grade === grade ? 'selected' : ''}`}
+                        onClick={() => handleGradeSelection(grade, submissionCount)}
+                      >
+                        {grade}
+                      </button>
+                    ))}
+                  </div>
                 </div>
                 <div className="form-group">
                   <button type="submit">Add</button>
