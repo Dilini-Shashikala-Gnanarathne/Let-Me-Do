@@ -90,15 +90,15 @@ const FirstYearFirst = () => {
       },
     ]);
   };
-
   return (
     <>
       <Background />
       <div>
         <div className="container-Add">
+        {submissionCount < courses.length && (
+
           <form onSubmit={handleSubmit}>
             <h3 className="title">Add Course Details</h3>
-            {submissionCount < courses.length && (
               <>
                 <div className="form-group">
                   <label htmlFor="subjectname">Subject Name</label>
@@ -155,9 +155,10 @@ const FirstYearFirst = () => {
                   <button type="submit">Add</button>
                 </div>
               </>
-            )}
-            {submissionCount >= courses.length && <p>All courses submitted!</p>}
+           
           </form>
+           )}
+            {submissionCount >= courses.length && <div className='p-last'><p >All courses submitted! 👏</p></div>}
         </div>
       </div>
     </>
