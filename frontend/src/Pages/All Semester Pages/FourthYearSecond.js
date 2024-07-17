@@ -135,30 +135,18 @@ const FirstYearFirst = () => {
                 </div>
                 <div className="form-group">
                   <label htmlFor="grade">Enter Subject Grade</label>
-                  <select
-                    id="grade"
-                    name="grade"
-                    required
-                    className="form-control"
-                    value={courseData[submissionCount]?.grade || ''}
-                    onChange={(e) => handleInputChange(e, submissionCount)}
-                  >
-                    <option value="">Select Grade</option>
-                    <option value="A+">A+</option>
-                    <option value="A">A</option>
-                    <option value="A-">A-</option>
-                    <option value="B+">B+</option>
-                    <option value="B">B</option>
-                    <option value="B-">B-</option>
-                    <option value="C+">C+</option>
-                    <option value="C">C</option>
-                    <option value="C-">C-</option>
-                    <option value="D+">D+</option>
-                    <option value="D">D</option>
-                    <option value="D-">D-</option>
-                    <option value="E">E</option>
-                    <option value="Absent">Absent</option> 
-                  </select>
+                  <div className="grade-selection">
+                    {grades.map((grade) => (
+                      <button
+                        type="button"
+                        key={grade}
+                        className={`grade-button ${courseData[submissionCount]?.grade === grade ? 'selected' : ''}`}
+                        onClick={() => handleGradeSelection(grade, submissionCount)}
+                      >
+                        {grade}
+                      </button>
+                    ))}
+                  </div>
                 </div>
                 <div className="form-group">
                   <button type="submit">Add</button>
