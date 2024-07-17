@@ -7,14 +7,14 @@ import { useAuth } from '../../context/AuthContext';
 
 const courses = [
   { code: 'IS1101', name: 'Fundamentals of Information Systems', credit: 2 },
-  { code: 'IS1102', name: 'Structured Programming Techniques', credit: 2 },
-  { code: 'IS1103', name: 'Structured Programming Practicum', credit: 1 },
-  { code: 'IS1104', name: 'Theories of Information Systems', credit: 2 },
-  { code: 'IS1105', name: 'Computer System Organization', credit: 2 },
-  { code: 'IS1106', name: 'Foundations of Web Technologies', credit: 2 },
-  { code: 'IS1107', name: 'Personal Productivity with Information Technology', credit: 1 },
-  { code: 'IS1108', name: 'Fundamentals of Mathematics', credit: 2 },
-  { code: 'IS1109', name: 'Statistics & Probability Theory', credit: 2 },
+  // { code: 'IS1102', name: 'Structured Programming Techniques', credit: 2 },
+  // { code: 'IS1103', name: 'Structured Programming Practicum', credit: 1 },
+  // { code: 'IS1104', name: 'Theories of Information Systems', credit: 2 },
+  // { code: 'IS1105', name: 'Computer System Organization', credit: 2 },
+  // { code: 'IS1106', name: 'Foundations of Web Technologies', credit: 2 },
+  // { code: 'IS1107', name: 'Personal Productivity with Information Technology', credit: 1 },
+  // { code: 'IS1108', name: 'Fundamentals of Mathematics', credit: 2 },
+  // { code: 'IS1109', name: 'Statistics & Probability Theory', credit: 2 },
 ];
 
 const grades = ['A+', 'A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+', 'D', 'D-', 'E', 'Skip'];
@@ -91,9 +91,10 @@ const FirstYearFirst = () => {
       <Background />
       <div>
         <div className="container-Add">
+        {submissionCount < courses.length && (
+
           <form onSubmit={handleSubmit}>
             <h3 className="title">Add Course Details</h3>
-            {submissionCount < courses.length && (
               <>
                 <div className="form-group">
                   <label htmlFor="subjectname">Subject Name</label>
@@ -150,9 +151,10 @@ const FirstYearFirst = () => {
                   <button type="submit">Add</button>
                 </div>
               </>
-            )}
-            {submissionCount >= courses.length && <p>All courses submitted!</p>}
+           
           </form>
+           )}
+            {submissionCount >= courses.length && <div className='p-last'><p >All courses submitted! 👏</p></div>}
         </div>
       </div>
     </>
