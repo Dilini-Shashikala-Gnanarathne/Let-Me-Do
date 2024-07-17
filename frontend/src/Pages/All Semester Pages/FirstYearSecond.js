@@ -19,7 +19,6 @@ const courses = [
   { code: 'IS2110', name: 'Software Project Initiation & Planning', credit: 1 },
   { code: 'IS2111', name: 'Advanced Mathematics', credit: 2 }
 ];
-const grades = ['A+', 'A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+', 'D', 'D-', 'E', 'Skip'];
 
 const FirstYearFirst = () => {
   const [courseData, setCourseData] = useState([]);
