@@ -4,6 +4,11 @@ import { useNavigate } from 'react-router-dom';
 import '../../App.css';
 import Background from '../../components/D-Background';
 import { useAuth } from '../../context/AuthContext';
+import { FirstYearFirstSemesterGPA } from '../All Result Pages/FirstYearFirstGPA';
+
+const GPAComponents = {
+  'getfirstyearfirstGPA': FirstYearFirstSemesterGPA,
+};
 
 const courses = [
   { code: 'IS1101', name: 'Fundamentals of Information Systems', credit: 2 },
@@ -17,24 +22,28 @@ const courses = [
   // { code: 'IS1109', name: 'Statistics & Probability Theory', credit: 2 },
 ];
 
+const endpoints = [
+  { name: 'First Year First Semester GPA', url: 'getfirstyearfirstGPA', key: 'firstyearfirstGPA' },
+];
+
 const grades = ['A+', 'A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+', 'D', 'D-', 'E', 'Skip'];
 
 const FirstYearFirst = () => {
   const [courseData, setCourseData] = useState([]);
   const [submissionCount, setSubmissionCount] = useState(0);
   const [error, setError] = useState(null);
-  const navigate = useNavigate();
   const { user } = useAuth();
+  const [selectedGPA, setSelectedGPA] = useState(null);
 
   useEffect(() => {
     if (submissionCount < courses.length) {
       setCourseData((prevData) => [
         ...prevData,
-        { 
-          subjectcode: courses[submissionCount].code, 
-          subjectname: courses[submissionCount].name, 
-          subjectcredit: courses[submissionCount].credit, 
-          grade: '' 
+        {
+          subjectcode: courses[submissionCount].code,
+          subjectname: courses[submissionCount].name,
+          subjectcredit: courses[submissionCount].credit,
+          grade: '',
         },
       ]);
     }
@@ -74,27 +83,50 @@ const FirstYearFirst = () => {
       });
   };
 
+  const handleSubmitGpa = (url, key) => (e) => {
+    e.preventDefault();
+    if (!user) {
+      setError('User is not authenticated');
+      return;
+    }
+
+    Axios.post(`http://localhost:3001/api/${url}`, { email: user.email })
+      .then(() => {
+        console.log('Successfully fetched GPA data for', url);
+        setSelectedGPA(key);
+        setError(null);
+      })
+      .catch((error) => {
+        if (error.response && error.response.status === 400) {
+          setError(error.response.data.error);
+        } else {
+          setError('An unexpected error occurred');
+        }
+      });
+  };
+
   const resetForm = () => {
     setCourseData((prevData) => [
       ...prevData.slice(0, -1),
-      { 
-        subjectname: courses[submissionCount + 1]?.name || '', 
-        subjectcode: courses[submissionCount + 1]?.code || '', 
-        subjectcredit: courses[submissionCount + 1]?.credit || '', 
-        grade: '' 
+      {
+        subjectname: courses[submissionCount + 1]?.name || '',
+        subjectcode: courses[submissionCount + 1]?.code || '',
+        subjectcredit: courses[submissionCount + 1]?.credit || '',
+        grade: '',
       },
     ]);
   };
+
+  const GPAComponent = selectedGPA ? GPAComponents[selectedGPA] : null;
 
   return (
     <>
       <Background />
       <div>
         <div className="container-Add">
-        {submissionCount < courses.length && (
-
-          <form onSubmit={handleSubmit}>
-            <h3 className="title">Add Course Details</h3>
+          {submissionCount < courses.length && (
+            <form onSubmit={handleSubmit}>
+              <h3 className="title">Add Course Details</h3>
               <>
                 <div className="form-group">
                   <label htmlFor="subjectname">Subject Name</label>
@@ -109,7 +141,7 @@ const FirstYearFirst = () => {
                   />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="subjectname">Subject Code</label>
+                  <label htmlFor="subjectcode">Subject Code</label>
                   <input
                     type="text"
                     id="subjectcode"
@@ -151,10 +183,22 @@ const FirstYearFirst = () => {
                   <button type="submit">Add</button>
                 </div>
               </>
-           
-          </form>
-           )}
-            {submissionCount >= courses.length && <div className='p-last'><p >All courses submitted! 👏</p></div>}
+            </form>
+          )}
+          {submissionCount >= courses.length && (
+            <div className="container-Add">
+              {endpoints.map((endpoint, index) => (
+                <form key={index} onSubmit={handleSubmitGpa(endpoint.url, endpoint.key)}>
+                  <div className="form-group">
+                    <button type="submit">{endpoint.name}</button>
+                  </div>
+                </form>
+              ))}
+              {error && <p>{error}</p>}
+              {GPAComponent && <GPAComponent />}
+            <p>Dilini</p>
+            </div>
+          )}
         </div>
       </div>
     </>
