@@ -30,7 +30,7 @@ const courses = [
   { code: 'IS2111', name: 'Advanced Mathematics', credit: 2 }
 ];
 
-const FirstYearFirst = () => {
+const FirstYearSecond = () => {
   const [courseData, setCourseData] = useState([]);
   const [submissionCount, setSubmissionCount] = useState(0);
   const [error, setError] = useState(null);
@@ -199,7 +199,7 @@ const FirstYearFirst = () => {
                 </form>
               ))}
               {error && <p>{error}</p>}
-              {GPAComponent && <GPAComponent />}
+{selectedGPA && GPAComponent[selectedGPA] && React.createElement(GPAComponent[selectedGPA])}
             <p>Dilini</p>
             </div>
           )}        </div>
@@ -208,4 +208,4 @@ const FirstYearFirst = () => {
   );
 };
 
-export default FirstYearFirst;
+export default FirstYearSecond;

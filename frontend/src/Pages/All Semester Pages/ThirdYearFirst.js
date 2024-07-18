@@ -37,7 +37,7 @@ const courses = [
 ];
 
 
-const FirstYearFirst = () => {
+const ThirdYearFirst = () => {
   const [courseData, setCourseData] = useState([]);
   const [submissionCount, setSubmissionCount] = useState(0);
   const [error, setError] = useState(null);
@@ -195,7 +195,7 @@ const FirstYearFirst = () => {
            
           </form>
            )}
- {submissionCount >= courses.length && (
+           {submissionCount >= courses.length && (
             <div className="container-Add">
               {endpoints.map((endpoint, index) => (
                 <form key={index} onSubmit={handleSubmitGpa(endpoint.url, endpoint.key)}>
@@ -205,7 +205,7 @@ const FirstYearFirst = () => {
                 </form>
               ))}
               {error && <p>{error}</p>}
-              {GPAComponent && <GPAComponent />}
+{selectedGPA && GPAComponent[selectedGPA] && React.createElement(GPAComponent[selectedGPA])}
             <p>Dilini</p>
             </div>
           )}        </div>
@@ -214,4 +214,4 @@ const FirstYearFirst = () => {
   );
 };
 
-export default FirstYearFirst;
+export default ThirdYearFirst;
