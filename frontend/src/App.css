@@ -364,3 +364,42 @@ button:hover {
   max-width: 300px;
   margin: 0 auto;
 }
+.grade-selection-div {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.grade-selection-div > * {
+}
+
+.grade-button-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 150px;
+  background-color: transparent;
+  border: 2px solid #0066ff; 
+  margin: 10px;
+  cursor: pointer;
+}
+
+.grade-button.selected-div {
+  background-color: transparent;
+  color: #e70909;
+}
+
+.container-Add-div{
+  height: 700px;
+  border-radius: 20px;
+ width: 500px;
+ text-align: center;
+ color: white;
+ margin: 0 auto;
+ margin-top: 5vh;
+
+
+}

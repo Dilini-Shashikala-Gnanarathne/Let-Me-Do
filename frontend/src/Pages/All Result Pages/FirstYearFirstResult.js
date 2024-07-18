@@ -4,26 +4,147 @@ import { useNavigate } from 'react-router-dom';
 import '../../App.css';
 import Background from '../../components/D-Background';
 import { useAuth } from '../../context/AuthContext';
-import { 
-  FirstYearFirstSemesterGPA,
-  FirstYearSecondSemesterGPA,
-  SecondYearFirstSemesterGPA,
-  SecondYearSecondSemesterGPA,
-  ThirdYearFirstSemesterGPA,
-  ThirdYearSecondSemesterGPA,
-  FourthYearFirstSemesterGPA,
-  FourthYearSecondSemesterGPA
-} from '../All Result Pages/FirstYearFirstGPA';    
 
-const GPAComponents = {
-  'getfirstyearfirstGPA': FirstYearFirstSemesterGPA,
-  'getfirstyearsecondGPA': FirstYearSecondSemesterGPA,
-  'getsecondyearfirstGPA': SecondYearFirstSemesterGPA,
-  'getsecondyearsecondGPA': SecondYearSecondSemesterGPA,
-  'getthirdyearfirstGPA': ThirdYearFirstSemesterGPA,
-  'getthirdyearsecondGPA': ThirdYearSecondSemesterGPA,
-  'getfourthyearfirstGPA': FourthYearFirstSemesterGPA,
-  'getfourthyearsecondGPA': FourthYearSecondSemesterGPA
+const FirstYearFirstSemesterGPA = () => {
+  const { user } = useAuth();
+
+  if (!user) {
+    return <div>Loading...</div>;
+  }
+
+  return (
+    <div className="container-Add-result">
+      <h1 className='title-all-result'>Welcome, {user.name}</h1>
+      <p>Register Number: {user.id}</p>
+      <div>
+        <p>First Year First Semester GPA: {user.firstyearfirstGPA}</p>
+      </div>
+    </div>
+  );
+};
+
+const FirstYearSecondSemesterGPA = () => {
+  const { user } = useAuth();
+
+  if (!user) {
+    return <div>Loading...</div>;
+  }
+
+  return (
+    <div className="container-Add-result">
+      <h1 className='title-all-result'>Welcome, {user.name}</h1>
+      <p>Register Number: {user.id}</p>
+      <div>
+        <p>First Year Second Semester GPA: {user.firstyearsecondGPA}</p>
+      </div>
+    </div>
+  );
+};
+
+const SecondYearFirstSemesterGPA = () => {
+  const { user } = useAuth();
+
+  if (!user) {
+    return <div>Loading...</div>;
+  }
+
+  return (
+    <div className="container-Add-result">
+      <h1 className='title-all-result'>Welcome, {user.name}</h1>
+      <p>Register Number: {user.id}</p>
+      <div>
+        <p>Second Year First Semester GPA: {user.secondyearfirstGPA}</p>
+      </div>
+    </div>
+  );
+};
+const SecondYearSecondSemesterGPA = () => {
+  const { user } = useAuth();
+
+  if (!user) {
+    return <div>Loading...</div>;
+  }
+
+  return (
+    <div className="container-Add-result">
+      <h1 className='title-all-result'>Welcome, {user.name}</h1>
+      <p>Register Number: {user.id}</p>
+      <div>
+        <p>Second Year Second Semester GPA: {user.secondyearsecondGPA}</p>
+      </div>
+    </div>
+  );
+};
+const ThirdYearFirstSemesterGPA = () => {
+  const { user } = useAuth();
+
+  if (!user) {
+    return <div>Loading...</div>;
+  }
+
+  return (
+    <div className="container-Add-result">
+      <h1 className='title-all-result'>Welcome, {user.name}</h1>
+      <p>Register Number: {user.id}</p>
+      <div>
+        <p>Third Year First Semester GPA: {user.thirdyearfirstGPA}</p>
+      </div>
+    </div>
+  );
+};
+
+// Third Year Second Semester GPA
+const ThirdYearSecondSemesterGPA = () => {
+  const { user } = useAuth();
+
+  if (!user) {
+    return <div>Loading...</div>;
+  }
+
+  return (
+    <div className="container-Add-result">
+      <h1 className='title-all-result'>Welcome, {user.name}</h1>
+      <p>Register Number: {user.id}</p>
+      <div>
+        <p>Third Year Second Semester GPA: {user.thirdyearsecondGPA}</p>
+      </div>
+    </div>
+  );
+};
+
+// Fourth Year First Semester GPA
+const FourthYearFirstSemesterGPA = () => {
+  const { user } = useAuth();
+
+  if (!user) {
+    return <div>Loading...</div>;
+  }
+
+  return (
+    <div className="container-Add-result">
+      <h1 className='title-all-result'>Welcome, {user.name}</h1>
+      <p>Register Number: {user.id}</p>
+      <div>
+        <p>Fourth Year First Semester GPA: {user.fourthyearfirstGPA}</p>
+      </div>
+    </div>
+  );
+};
+
+const FourthYearSecondSemesterGPA = () => {
+  const { user } = useAuth();
+
+  if (!user) {
+    return <div>Loading...</div>;
+  }
+
+  return (
+    <div className="container-Add-result">
+      <div>
+        <p>Fourth Year Second Semester GPA: {user.fourthyearsecondGPA}</p>
+      </div>
+    </div>
+  );
 };
 
 const FirstYearFirst = () => {
@@ -41,6 +162,7 @@ const FirstYearFirst = () => {
     { name: 'Third Year Second Semester GPA', url: 'getthirdyearsecondGPA' },
     { name: 'Fourth Year First Semester GPA', url: 'getfourthyearfirstGPA' },
     { name: 'Fourth Year Second Semester GPA', url: 'getfourthyearsecondGPA' }
+    
   ];
 
   const handleSubmit = (url) => (e) => {
@@ -52,8 +174,9 @@ const FirstYearFirst = () => {
 
     Axios.post(`http://localhost:3001/api/${url}`, { email: user.email })
       .then(() => {
-        console.log("Great job!");
+        console.log("Successfully fetched GPA data for", url);
         setSelectedGPA(url); // Set the selected GPA to show the correct component
+        setError(null); // Reset any previous errors
       })
       .catch((error) => {
         if (error.response && error.response.status === 400) {
@@ -64,24 +187,31 @@ const FirstYearFirst = () => {
       });
   };
 
-  const GPAComponent = selectedGPA ? GPAComponents[selectedGPA] : null;
-
   return (
     <>
       <Background />
-      <div>
-        <div className="container-Add">
-          {endpoints.map((endpoint, index) => (
-            <form key={index} onSubmit={handleSubmit(endpoint.url)}>
-              <div className="form-group">
-                <button type="submit">{endpoint.name}</button>
-              </div>
-            </form>
-          ))}
-          {error && <p>{error}</p>}
-          {GPAComponent && <GPAComponent />}
+      <div className="container-Add-div">
+        <div className="form-group">
+          <label htmlFor="grade-div">Select Semester</label>
+          <div className="grade-selection-div">
+            {endpoints.map((endpoint, index) => (
+              <form key={index} onSubmit={handleSubmit(endpoint.url)}>
+                <button type="submit" className='grade-button-div'>{endpoint.name}</button>
+              </form>
+            ))}
+          </div>
         </div>
-        </div>
+        {error && <p>{error}</p>}
+        {selectedGPA && <FirstYearFirstSemesterGPA />}
+        {selectedGPA && <FirstYearSecondSemesterGPA />}
+        {selectedGPA && <SecondYearFirstSemesterGPA />}
+        {selectedGPA && <SecondYearSecondSemesterGPA />} 
+        {selectedGPA && <ThirdYearFirstSemesterGPA />}
+        {selectedGPA && <ThirdYearSecondSemesterGPA />}
+        {selectedGPA && <FourthYearFirstSemesterGPA />}
+        {selectedGPA && <FourthYearSecondSemesterGPA />}
+
+      </div>
     </>
   );
 };
