@@ -4,6 +4,37 @@ import { useNavigate } from 'react-router-dom';
 import '../../App.css';
 import Background from '../../components/D-Background';
 import { useAuth } from '../../context/AuthContext';
+import { 
+  FirstYearFirstSemesterGPA,
+  FirstYearSecondSemesterGPA,
+  SecondYearFirstSemesterGPA,
+  SecondYearSecondSemesterGPA,
+  ThirdYearFirstSemesterGPA,
+  ThirdYearSecondSemesterGPA,
+  FourthYearFirstSemesterGPA,
+  FourthYearSecondSemesterGPA
+} from '../All Result Pages/FirstYearFirstGPA';    
+
+const GPAComponents = {
+  'getfirstyearfirstGPA': FirstYearFirstSemesterGPA,
+  'getfirstyearsecondGPA': FirstYearSecondSemesterGPA,
+  'getsecondyearfirstGPA': SecondYearFirstSemesterGPA,
+  'getsecondyearsecondGPA': SecondYearSecondSemesterGPA,
+  'getthirdyearfirstGPA': ThirdYearFirstSemesterGPA,
+  'getthirdyearsecondGPA': ThirdYearSecondSemesterGPA,
+  'getfourthyearfirstGPA': FourthYearFirstSemesterGPA,
+  'getfourthyearsecondGPA': FourthYearSecondSemesterGPA
+};
+const endpoints = [
+  { name: 'First Year First Semester GPA', url: 'getfirstyearfirstGPA' },
+  { name: 'First Year Second Semester GPA', url: 'getfirstyearsecondGPA' },
+  { name: 'Second Year First Semester GPA', url: 'getsecondyearfirstGPA' },
+  { name: 'Second Year Second Semester GPA', url: 'getsecondyearsecondGPA' },
+  { name: 'Third Year First Semester GPA', url: 'getthirdyearfirstGPA' },
+  { name: 'Third Year Second Semester GPA', url: 'getthirdyearsecondGPA' },
+  { name: 'Fourth Year First Semester GPA', url: 'getfourthyearfirstGPA' },
+  { name: 'Fourth Year Second Semester GPA', url: 'getfourthyearsecondGPA' }
+];
 const grades = ['A+', 'A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+', 'D', 'D-', 'E', 'Skip'];
 
 const courses = [
@@ -66,14 +97,38 @@ const FirstYearFirst = () => {
       });
   };
 
+  const [selectedGPA, setSelectedGPA] = useState(null);
+
+  const handleSubmitGpa = (url, key) => (e) => {
+    e.preventDefault();
+    if (!user) {
+      setError('User is not authenticated');
+      return;
+    }
+
+    Axios.post(`http://localhost:3001/api/${url}`, { email: user.email })
+      .then(() => {
+        console.log('Successfully fetched GPA data for', url);
+        setSelectedGPA(key);
+        setError(null);
+      })
+      .catch((error) => {
+        if (error.response && error.response.status === 400) {
+          setError(error.response.data.error);
+        } else {
+          setError('An unexpected error occurred');
+        }
+      });
+  };
+
   const resetForm = () => {
     setCourseData((prevData) => [
       ...prevData.slice(0, -1),
-      { 
-        subjectname: courses[submissionCount + 1]?.name || '', 
-        subjectcode: courses[submissionCount + 1]?.code || '', 
-        subjectcredit: courses[submissionCount + 1]?.credit || '', 
-        grade: '' 
+      {
+        subjectname: courses[submissionCount + 1]?.name || '',
+        subjectcode: courses[submissionCount + 1]?.code || '',
+        subjectcredit: courses[submissionCount + 1]?.credit || '',
+        grade: '',
       },
     ]);
   };
@@ -145,8 +200,20 @@ const FirstYearFirst = () => {
            
           </form>
            )}
-            {submissionCount >= courses.length && <div className='p-last'><p >All courses submitted! 👏</p></div>}
-        </div>
+ {submissionCount >= courses.length && (
+            <div className="container-Add">
+              {endpoints.map((endpoint, index) => (
+                <form key={index} onSubmit={handleSubmitGpa(endpoint.url, endpoint.key)}>
+                  <div className="form-group">
+                    <button type="submit">{endpoint.name}</button>
+                  </div>
+                </form>
+              ))}
+              {error && <p>{error}</p>}
+              {GPAComponent && <GPAComponent />}
+            <p>Dilini</p>
+            </div>
+          )}        </div>
       </div>
     </>
   );
