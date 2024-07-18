@@ -197,12 +197,12 @@ const FourthYearSecond = () => {
     {endpoints.map((endpoint, index) => (
       <form key={index} onSubmit={handleSubmitGpa(endpoint.url, endpoint.key)}>
         <div className="form-group">
-          <button type="submit" className=' grade-selection-buttons-all-semester-end'><Link to={'/login'}> {endpoint.name}</Link></button>
+          <button type="submit" className=' grade-selection-buttons-all-semester-end'><Link to={'/getGPA'} className='link-dec'> {endpoint.name}</Link></button>
         </div>
       </form>
     ))}
     {error && <p>{error}</p>}
-  <p>Dilini</p>
+  <p>See Your GPA ✨</p>
   </div>
 )}     
     </>

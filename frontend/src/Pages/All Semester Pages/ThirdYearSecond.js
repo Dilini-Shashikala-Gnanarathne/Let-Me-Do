@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../../App.css';
 import Background from '../../components/D-Background';
 import { useAuth } from '../../context/AuthContext';
@@ -174,22 +174,20 @@ const ThirdYearSecond = () => {
                 <button type="submit">Add</button>
               </div>
             </form>
-          )}
-
-          {submissionCount >= courses.length && (
-            <div className="container-Add">
-              {endpoints.map((endpoint, index) => (
-                <form key={index} onSubmit={handleSubmitGpa(endpoint.url, endpoint.key)}>
-                  <div className="form-group">
-                    <button type="submit">{endpoint.name}</button>
-                  </div>
-                </form>
-              ))}
-              {error && <p>{error}</p>}
-              {selectedGPA && GPAComponent[selectedGPA] && React.createElement(GPAComponent[selectedGPA])}
-              <p>Dilini</p>
-            </div>
-          )}
+           )}
+       {submissionCount >= courses.length && (
+  <div className="container-Add-gpa">
+    {endpoints.map((endpoint, index) => (
+      <form key={index} onSubmit={handleSubmitGpa(endpoint.url, endpoint.key)}>
+        <div className="form-group">
+          <button type="submit" className=' grade-selection-buttons-all-semester-end'><Link to={'/getGPA'} className='link-dec'> {endpoint.name}</Link></button>
+        </div>
+      </form>
+    ))}
+    {error && <p>{error}</p>}
+  <p>See Your GPA ✨</p>
+  </div>
+)}     
         </div>
       </div>
     </>
