@@ -26,6 +26,8 @@ const endpoints = [
   { name: 'First Year First Semester GPA', url: 'getfirstyearfirstGPA', key: 'firstyearfirstGPA' },
 ];
 
+
+
 const grades = ['A+', 'A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+', 'D', 'D-', 'E', 'Skip'];
 
 const FirstYearFirst = () => {
@@ -33,7 +35,6 @@ const FirstYearFirst = () => {
   const [submissionCount, setSubmissionCount] = useState(0);
   const [error, setError] = useState(null);
   const { user } = useAuth();
-  const [selectedGPA, setSelectedGPA] = useState(null);
 
   useEffect(() => {
     if (submissionCount < courses.length) {
@@ -82,6 +83,7 @@ const FirstYearFirst = () => {
         }
       });
   };
+  const [selectedGPA, setSelectedGPA] = useState(null);
 
   const handleSubmitGpa = (url, key) => (e) => {
     e.preventDefault();
@@ -185,20 +187,7 @@ const FirstYearFirst = () => {
               </>
             </form>
           )}
-          {submissionCount >= courses.length && (
-            <div className="container-Add">
-              {endpoints.map((endpoint, index) => (
-                <form key={index} onSubmit={handleSubmitGpa(endpoint.url, endpoint.key)}>
-                  <div className="form-group">
-                    <button type="submit">{endpoint.name}</button>
-                  </div>
-                </form>
-              ))}
-              {error && <p>{error}</p>}
-              {GPAComponent && <GPAComponent />}
-            <p>Dilini</p>
-            </div>
-          )}
+          
         </div>
       </div>
     </>
