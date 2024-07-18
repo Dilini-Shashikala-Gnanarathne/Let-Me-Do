@@ -180,7 +180,7 @@ button {
 }
 
 button:hover {
-  background-color: #303f9f;
+  color: #e70909;
 }
 
 .app-name {
@@ -428,7 +428,7 @@ button:hover {
 }
 .container-Add-home h1{
   font-size: 50px;
-  text-shadow: 2px 2px 2px rgb(245, 240, 240);
+  text-shadow: 2px 2px 2px rgb(11, 15, 252);
   padding-left: 200px;
 }
 .container-Add-home p {
@@ -456,7 +456,7 @@ button:hover {
   display: flex;
   justify-content: left;
   align-items: left;
-  width: 500px;
+  width: 200px;
   height: 50px;
   background-color: transparent;
   margin: 1px;
@@ -479,4 +479,17 @@ button:hover {
     border: none;
     font-size: 20px;
 
+  }
+
+  .container-Add-gpa:hover {
+    box-shadow: 0 0 10px #0066ff;
+    color: #0066ff;
+    background: #000000;
+  }
+
+  .login-span{
+    color: #0066ff;
+    font-size: 20px;
+    text-decoration: none;
+    cursor: pointer;
   }

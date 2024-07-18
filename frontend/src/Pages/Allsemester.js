@@ -42,7 +42,7 @@ const SemesterGPAForm = ({ semesterName, pageName }) => {
 };
 
 const Allsemester = () => {
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
 
   return (
     <>
