@@ -482,7 +482,6 @@ button:hover {
   }
 
   .container-Add-gpa:hover {
-    box-shadow: 0 0 10px #0066ff;
     color: #0066ff;
     background: #000000;
   }
@@ -492,4 +491,29 @@ button:hover {
     font-size: 20px;
     text-decoration: none;
     cursor: pointer;
+  }
+
+  .grade-selection-buttons-all-semester {
+    width: 50%;
+    padding: 10px;
+    background-color: transparent; 
+    margin-top: 10px;
+    box-shadow: 2px 2px 2px 2px#0066ff;
+  }
+  .grade-selection-buttons-all-semester-end {
+    width: 50%;
+    padding: 10px;
+    background-color: transparent; 
+    margin-top: 120px;
+    box-shadow: 2px 2px 2px 2px#0066ff;
+  }
+  .container-Add-gpa{
+    height: 700px;
+  border-radius: 20px;
+ width: 500px;
+ text-align: center;
+ color: white;
+ margin: 0 auto;
+ margin-top: 5vh;
+
   }

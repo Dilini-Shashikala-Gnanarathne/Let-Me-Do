@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'; 
 import './Allsemester.css';
 import { useAuth } from '../context/AuthContext';
+
 const SemesterGPAForm = ({ semesterName, pageName }) => {
   const getLinkPath = () => {
     switch (pageName) {
@@ -27,32 +28,38 @@ const SemesterGPAForm = ({ semesterName, pageName }) => {
   };
 
   return (
-    <>
     <div className="container-all-sem">
       <p className="title-all">Calculate {semesterName} Semester GPA</p>
       <form className="form-group">
         <label htmlFor="numCourses">Add Your Results</label>
         <Link to={getLinkPath()}>
-          <button type="button" className='add-result'>Add</button>
+          <button type="button" className='grade-selection-buttons-all-semester'>Add</button>
         </Link>
       </form>
     </div>
-    </>
   );
 };
 
 const Allsemester = () => {
   const { user, loading } = useAuth();
 
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (!user) {
+    return <div>User not found</div>;
+  }
+
   return (
     <>
-    <div className='container-Add-home'>
-    <h1 className='title-all-result'>Welcome, {user.name}</h1>
-    <p>Register Number: {user.id}</p>
-    <p>Department of Computing and Information System</p>
-    <p>Faculty of Computing</p>
-    <p>Sabaragamuwa University of Sri Lanka </p>
-    </div>
+      <div className='container-Add-home'>
+        <h1 className='title-all-result'>Welcome, {user.name}</h1>
+        <p>Register Number: {user.id}</p>
+        <p>Department of Computing and Information System</p>
+        <p>Faculty of Computing</p>
+        <p>Sabaragamuwa University of Sri Lanka </p>
+      </div>
       <h3 className='first'>First Year</h3>
       <div className="container-all-sem-wrapper">
         <SemesterGPAForm semesterName="1st" pageName="1" />
@@ -79,4 +86,5 @@ const Allsemester = () => {
     </>
   );
 };
+
 export default Allsemester;
