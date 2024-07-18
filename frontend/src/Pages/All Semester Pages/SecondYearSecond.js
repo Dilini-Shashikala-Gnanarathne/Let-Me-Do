@@ -34,7 +34,7 @@ const courses = [
 ];
 
 
-const FirstYearFirst = () => {
+const SecondYearSecond = () => {
   const [courseData, setCourseData] = useState([]);
   const [submissionCount, setSubmissionCount] = useState(0);
   const [error, setError] = useState(null);
@@ -202,7 +202,7 @@ const FirstYearFirst = () => {
                 </form>
               ))}
               {error && <p>{error}</p>}
-              {GPAComponent && <GPAComponent />}
+{selectedGPA && GPAComponent[selectedGPA] && React.createElement(GPAComponent[selectedGPA])}
             <p>Dilini</p>
             </div>
           )}        </div>
@@ -211,4 +211,4 @@ const FirstYearFirst = () => {
   );
 };
 
-export default FirstYearFirst;
+export default SecondYearSecond;

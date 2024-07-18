@@ -197,7 +197,7 @@ const FirstYearFirst = () => {
                 </form>
               ))}
               {error && <p>{error}</p>}
-              {GPAComponent && <GPAComponent />}
+{selectedGPA && GPAComponent[selectedGPA] && React.createElement(GPAComponent[selectedGPA])}
             <p>Dilini</p>
             </div>
           )}
