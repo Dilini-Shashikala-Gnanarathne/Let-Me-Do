@@ -13,6 +13,7 @@ const userSchema = new Schema({
   name: { type: String, required: true },
   role: { type: String },
   id: { type: String, required: true, unique: true },
+
   firstyearfirst: [semesterSchema],
   firstyearsecond: [semesterSchema],
   secondyearfirst: [semesterSchema],
@@ -30,6 +31,7 @@ const userSchema = new Schema({
   thirdyearsecondGPA: { type: Number },
   fourthyearfirstGPA: { type: Number },
   fourthyearsecondGPA: { type: Number },
+  finalGPA: { type: Number },
 });
 
 const User = mongoose.model('User', userSchema);
