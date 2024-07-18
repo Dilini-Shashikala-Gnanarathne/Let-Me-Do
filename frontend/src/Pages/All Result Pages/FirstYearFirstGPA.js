@@ -145,6 +145,22 @@ const FourthYearSecondSemesterGPA = () => {
     </div>
   );
 };
+const FinalGPA = () => {
+  const { user } = useAuth();
+
+  if (!user) {
+    return <div>Loading...</div>;
+  }
+
+  return (
+    <div className="grade-button-div">
+      
+      <div className='semester-selection'>
+        <p>Fourth Year Second Semester GPA: {user.fourthyearsecondGPA}</p>
+      </div>
+    </div>
+  );
+};
 
 export {
   FirstYearFirstSemesterGPA,
@@ -154,5 +170,6 @@ export {
   ThirdYearFirstSemesterGPA,
   ThirdYearSecondSemesterGPA,
   FourthYearFirstSemesterGPA,
-  FourthYearSecondSemesterGPA
+  FourthYearSecondSemesterGPA,
+  FinalGPA,
 };
