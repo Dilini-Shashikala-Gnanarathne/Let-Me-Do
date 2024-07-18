@@ -86,7 +86,7 @@ const FirstYearFirst = () => {
     <div className="grade-selection-buttons">
       {endpoints.map((endpoint, index) => (
         <form key={index} onSubmit={handleSubmit(endpoint.url)}>
-          <button type="submit" className="container-Add-gpa-result">{endpoint.name}</button>
+          <button type="submit" className="container-Add-gpa-result-final">{endpoint.name}</button>
         </form>
       ))}
     </div>
