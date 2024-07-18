@@ -11,10 +11,9 @@ const FirstYearFirstSemesterGPA = () => {
   }
 
   return (
-    <div className="container-Add-result">
-      <h1 className='title-all-result'>Welcome, {user.name}</h1>
-      <p>Register Number: {user.id}</p>
-      <div>
+    <div className="grade-button-div">
+      
+      <div className='semester-selection'>
         <p>First Year First Semester GPA: {user.firstyearfirstGPA}</p>
       </div>
     </div>
@@ -30,10 +29,9 @@ const FirstYearSecondSemesterGPA = () => {
   }
 
   return (
-    <div className="container-Add-result">
-      <h1 className='title-all-result'>Welcome, {user.name}</h1>
-      <p>Register Number: {user.id}</p>
-      <div>
+    <div className="grade-button-div">
+      
+      <div className='semester-selection'>
         <p>First Year Second Semester GPA: {user.firstyearsecondGPA}</p>
       </div>
     </div>
@@ -49,10 +47,9 @@ const SecondYearFirstSemesterGPA = () => {
   }
 
   return (
-    <div className="container-Add-result">
-      <h1 className='title-all-result'>Welcome, {user.name}</h1>
-      <p>Register Number: {user.id}</p>
-      <div>
+    <div className="grade-button-div">
+      
+      <div className='semester-selection'>
         <p>Second Year First Semester GPA: {user.secondyearfirstGPA}</p>
       </div>
     </div>
@@ -68,10 +65,9 @@ const SecondYearSecondSemesterGPA = () => {
   }
 
   return (
-    <div className="container-Add-result">
-      <h1 className='title-all-result'>Welcome, {user.name}</h1>
-      <p>Register Number: {user.id}</p>
-      <div>
+    <div className="grade-button-div">
+      
+      <div className='semester-selection'>
         <p>Second Year Second Semester GPA: {user.secondyearsecondGPA}</p>
       </div>
     </div>
@@ -87,10 +83,9 @@ const ThirdYearFirstSemesterGPA = () => {
   }
 
   return (
-    <div className="container-Add-result">
-      <h1 className='title-all-result'>Welcome, {user.name}</h1>
-      <p>Register Number: {user.id}</p>
-      <div>
+    <div className="grade-button-div">
+      
+      <div className='semester-selection'>
         <p>Third Year First Semester GPA: {user.thirdyearfirstGPA}</p>
       </div>
     </div>
@@ -106,10 +101,9 @@ const ThirdYearSecondSemesterGPA = () => {
   }
 
   return (
-    <div className="container-Add-result">
-      <h1 className='title-all-result'>Welcome, {user.name}</h1>
-      <p>Register Number: {user.id}</p>
-      <div>
+    <div className="grade-button-div">
+      
+      <div className='semester-selection'>
         <p>Third Year Second Semester GPA: {user.thirdyearsecondGPA}</p>
       </div>
     </div>
@@ -125,10 +119,9 @@ const FourthYearFirstSemesterGPA = () => {
   }
 
   return (
-    <div className="container-Add-result">
-      <h1 className='title-all-result'>Welcome, {user.name}</h1>
-      <p>Register Number: {user.id}</p>
-      <div>
+    <div className="grade-button-div">
+      
+      <div className='semester-selection'>
         <p>Fourth Year First Semester GPA: {user.fourthyearfirstGPA}</p>
       </div>
     </div>
@@ -144,10 +137,9 @@ const FourthYearSecondSemesterGPA = () => {
   }
 
   return (
-    <div className="container-Add-result">
-      <h1 className='title-all-result'>Welcome, {user.name}</h1>
-      <p>Register Number: {user.id}</p>
-      <div>
+    <div className="grade-button-div">
+      
+      <div className='semester-selection'>
         <p>Fourth Year Second Semester GPA: {user.fourthyearsecondGPA}</p>
       </div>
     </div>

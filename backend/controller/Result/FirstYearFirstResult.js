@@ -60,7 +60,7 @@ const getSemester = async (req, res) => {
       const firstyearfirstGPA = totalCredits ? (totalWeightedGrades / totalCredits) : 0;
       console.log(firstyearfirstGPA);
       
-      record.firstyearfirstGPA = firstyearfirstGPA;
+      record.firstyearfirstGPA = firstyearfirstGPA.toFixed(2);
       await record.save();
 
       return res.status(200).json({
