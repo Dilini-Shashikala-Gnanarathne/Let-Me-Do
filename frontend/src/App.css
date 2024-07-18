@@ -530,3 +530,12 @@ button:hover {
   border: none;
   font-size: 20px;
   box-shadow: 2px 4px 4px 4px rgb(245, 240, 240);}
+
+  .link-dec{
+    text-decoration: none;
+    color: rgb(245, 240, 240);
+    font-size: 20px;
+  }
+  .link-dec:hover{
+    color: red;
+  }
