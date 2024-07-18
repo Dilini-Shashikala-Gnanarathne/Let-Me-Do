@@ -5,35 +5,17 @@ import '../../App.css';
 import Background from '../../components/D-Background';
 import { useAuth } from '../../context/AuthContext';
 import { 
-  FirstYearFirstSemesterGPA,
-  FirstYearSecondSemesterGPA,
-  SecondYearFirstSemesterGPA,
-  SecondYearSecondSemesterGPA,
-  ThirdYearFirstSemesterGPA,
   ThirdYearSecondSemesterGPA,
-  FourthYearFirstSemesterGPA,
-  FourthYearSecondSemesterGPA
+
 } from '../All Result Pages/FirstYearFirstGPA';    
 
-const GPAComponents = {
-  'getfirstyearfirstGPA': FirstYearFirstSemesterGPA,
-  'getfirstyearsecondGPA': FirstYearSecondSemesterGPA,
-  'getsecondyearfirstGPA': SecondYearFirstSemesterGPA,
-  'getsecondyearsecondGPA': SecondYearSecondSemesterGPA,
-  'getthirdyearfirstGPA': ThirdYearFirstSemesterGPA,
+const GPAComponent = {
   'getthirdyearsecondGPA': ThirdYearSecondSemesterGPA,
-  'getfourthyearfirstGPA': FourthYearFirstSemesterGPA,
-  'getfourthyearsecondGPA': FourthYearSecondSemesterGPA
+
 };
 const endpoints = [
-  { name: 'First Year First Semester GPA', url: 'getfirstyearfirstGPA' },
-  { name: 'First Year Second Semester GPA', url: 'getfirstyearsecondGPA' },
-  { name: 'Second Year First Semester GPA', url: 'getsecondyearfirstGPA' },
-  { name: 'Second Year Second Semester GPA', url: 'getsecondyearsecondGPA' },
-  { name: 'Third Year First Semester GPA', url: 'getthirdyearfirstGPA' },
   { name: 'Third Year Second Semester GPA', url: 'getthirdyearsecondGPA' },
-  { name: 'Fourth Year First Semester GPA', url: 'getfourthyearfirstGPA' },
-  { name: 'Fourth Year Second Semester GPA', url: 'getfourthyearsecondGPA' }
+
 ];
 const grades = ['A+', 'A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+', 'D', 'D-', 'E', 'Skip'];
 

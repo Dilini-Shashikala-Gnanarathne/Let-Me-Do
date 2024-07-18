@@ -187,7 +187,20 @@ const FirstYearFirst = () => {
               </>
             </form>
           )}
-          
+          {submissionCount >= courses.length && (
+            <div className="container-Add">
+              {endpoints.map((endpoint, index) => (
+                <form key={index} onSubmit={handleSubmitGpa(endpoint.url, endpoint.key)}>
+                  <div className="form-group">
+                    <button type="submit">{endpoint.name}</button>
+                  </div>
+                </form>
+              ))}
+              {error && <p>{error}</p>}
+              {GPAComponent && <GPAComponent />}
+            <p>Dilini</p>
+            </div>
+          )}
         </div>
       </div>
     </>
