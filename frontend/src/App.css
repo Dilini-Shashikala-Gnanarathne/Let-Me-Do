@@ -410,7 +410,6 @@ button:hover {
   width: 500px;
   height: 50px;
   background-color: transparent;
-  border: 2px solid #060d17; 
   margin: 1px;
   cursor: pointer;
   margin-top: 0px;
@@ -437,3 +436,47 @@ button:hover {
   padding-left: 200px;
 
 }
+.container-Add-gpa{
+ width: 200px;
+ text-align: center;
+ color: white;
+ margin: 0 auto;
+ border: none; 
+ background: transparent;
+
+
+}
+.grade-selection-container {
+  display: flex;
+  align-items: center;
+  width: 500px;
+}
+
+.grade-selection-buttons {
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  width: 500px;
+  height: 50px;
+  background-color: transparent;
+  margin: 1px;
+  cursor: pointer;
+  margin-top: 0px;
+  border: none;
+  font-size: 20px;
+  box-shadow: 2px 4px 4px 4px rgb(245, 240, 240);}
+
+  .semester-selection_final{
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    width: 500px;
+    height: 50px;
+    background-color: transparent;
+    margin: 1px;
+    cursor: pointer;
+    margin-top: 0px;
+    border: none;
+    font-size: 20px;
+
+  }
