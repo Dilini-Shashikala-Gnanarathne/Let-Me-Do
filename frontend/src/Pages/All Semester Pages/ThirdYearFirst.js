@@ -130,9 +130,9 @@ const ThirdYearFirst = () => {
   return (
     <>
       <Background />
+      {submissionCount < courses.length && (
       <div>
         <div className="container-Add">
-        {submissionCount < courses.length && (
 
           <form onSubmit={handleSubmit}>
             <h3 className="title">Add Course Details</h3>
@@ -194,22 +194,23 @@ const ThirdYearFirst = () => {
               </>
            
           </form>
-           )}
-           {submissionCount >= courses.length && (
-            <div className="container-Add">
-              {endpoints.map((endpoint, index) => (
-                <form key={index} onSubmit={handleSubmitGpa(endpoint.url, endpoint.key)}>
-                  <div className="form-group">
-                    <button type="submit">{endpoint.name}</button>
-                  </div>
-                </form>
-              ))}
-              {error && <p>{error}</p>}
-{selectedGPA && GPAComponent[selectedGPA] && React.createElement(GPAComponent[selectedGPA])}
-            <p>Dilini</p>
-            </div>
-          )}        </div>
+          </div>
       </div>
+      )}
+      {submissionCount >= courses.length && (
+<div className="container-Add-gpa">
+  {endpoints.map((endpoint, index) => (
+    <form key={index} onSubmit={handleSubmitGpa(endpoint.url, endpoint.key)}>
+      <div className="form-group">
+        <button type="submit" className=' grade-selection-buttons-all-semester-end'>{endpoint.name}</button>
+      </div>
+    </form>
+  ))}
+  {error && <p>{error}</p>}
+  <p>First Year First Semester GPA: {user.firstyearfirstGPA}</p>
+<p>Dilini</p>
+</div>
+)} 
     </>
   );
 };
