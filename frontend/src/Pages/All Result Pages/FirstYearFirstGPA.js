@@ -32,7 +32,7 @@ const FirstYearSecondSemesterGPA = () => {
     <div className="grade-button-div">
       
       <div className='semester-selection'>
-        <p>First Year Second Semester GPA: {user.firstyearsecondGPA}</p>
+        <p>First Year Second Semester GPA      : {user.firstyearsecondGPA}</p>
       </div>
     </div>
   );

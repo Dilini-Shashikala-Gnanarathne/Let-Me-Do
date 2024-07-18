@@ -418,3 +418,22 @@ button:hover {
   font-size: 20px;
 }
 
+.container-Add-home{
+  width: 800px;
+ text-align: center;
+ color: white;
+ margin: 0 auto;
+ margin-top: 5vh;
+ border: none;
+
+}
+.container-Add-home h1{
+  font-size: 50px;
+  text-shadow: 2px 2px 2px rgb(245, 240, 240);
+  padding-left: 200px;
+}
+.container-Add-home p {
+  font-size: 20px;
+  padding-left: 200px;
+
+}

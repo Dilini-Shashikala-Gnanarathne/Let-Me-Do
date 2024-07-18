@@ -12,6 +12,7 @@ const getSem5= require('./controller/Result/ThirdYearFirstResult ');
 const getSem6= require('./controller/Result/ThirdYearSecondResult');
 const getSem7= require('./controller/Result/FourthYearFirstResult');
 const getSem8= require('./controller/Result/FourthYearSecondResult');
+const finalgpa= require('./controller/Result/FinalGPA');
 const getTry= require('./controller/TryEmailResult')
 router.get('/users', controller.getAllUsers);
 router.post('/create', controller.addUser);
@@ -41,6 +42,7 @@ router.post('/getthirdyearsecondGPA', getSem6.getThirdYearSecondSemesterGPA);
 router.post('/getfourthyearfirstGPA', getSem7.getFourthYearFirstSemesterGPA);
 router.post('/getfourthyearsecondGPA', getSem8.getFourthYearSecondSemesterGPA);
 
+router.post('/finalgpa', finalgpa.finalGPACal);
 
 
 router.get('/gettryfirstyearfirst',getTry.gettryfirstyearfirst );
