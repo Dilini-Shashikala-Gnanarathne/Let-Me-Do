@@ -16,7 +16,7 @@ import ThirdYearFirst from './Pages/All Semester Pages/ThirdYearFirst';
 import ThirdYearSecond from './Pages/All Semester Pages/ThirdYearSecond';
 import FourthYearFirst from './Pages/All Semester Pages/FourthYearFirst';
 import FourthYearSecond from './Pages/All Semester Pages/FourthYearSecond'; 
-import GetFirstYearFirst from './Pages/All Result Pages/FirstYearFirstResult';
+import GetGPA from './Pages/All Result Pages/FirstYearFirstResult';
 import TryEmail from './Pages/All Result Pages/TryEmail';
 import { AuthProvider } from './context/AuthContext';
 
@@ -76,8 +76,8 @@ const router = createBrowserRouter([
         element: <FourthYearSecond />,
       },
       {
-        path: 'getfirstfirst',
-        element: <GetFirstYearFirst />,
+        path: 'getGPA',
+        element: <GetGPA />,
       },
       {
         path: 'tryemail',
