@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import '../../App.css';
-import Background from '../../components/D-Background';
 import { useAuth } from '../../context/AuthContext';
 
 const SemesterGPA = ({ semesterGPA, semester }) => (

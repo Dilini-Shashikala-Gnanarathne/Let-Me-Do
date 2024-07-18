@@ -106,7 +106,7 @@ const Signup = () => {
           <button type="submit" className='regi-button'>Add</button><br />
           {error && <p className="error">{error}</p>}
           <p>
-            Already have an account? <span><Link to="/login">Login</Link></span>
+            Already have an account? <span className='login-span'><Link to="/login">Login</Link></span>
           </p>
         </form>
       </div>
