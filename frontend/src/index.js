@@ -44,14 +44,6 @@ const router = createBrowserRouter([
         element: <Allsemester />,
       },
       {
-        path: 'result',
-        element: <Result />,
-      },
-      {
-        path: 'report',
-        element: <Reports />,
-      },
-      {
         path: 'firstfirst',
         element: <FirstYearFirst />,
       },
