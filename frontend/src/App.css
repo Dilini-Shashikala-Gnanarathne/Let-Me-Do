@@ -393,8 +393,8 @@ button:hover {
 }
 
 .container-Add-div{
-  height: 700px;
-  border-radius: 20px;
+ height: 700px;
+ border-radius: 20px;
  width: 500px;
  text-align: center;
  color: white;
@@ -405,5 +405,26 @@ button:hover {
 }
 
 .semester-selection{
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  height: 50px;
+  background-color: transparent;
+  border: 2px solid #0066ff; 
+  margin: 10px;
+  cursor: pointer;
+  margin-top: 50px;
+}
+
+.semester-selection-component{
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  height: 50px;
+  background-color: transparent;
+  border: 2px solid #0066ff; 
+  margin: 10px;
+  cursor: pointer;
+  margin-top: 0px;
 }
