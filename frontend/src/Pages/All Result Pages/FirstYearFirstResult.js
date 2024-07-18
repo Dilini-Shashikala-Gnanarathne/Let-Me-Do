@@ -60,13 +60,14 @@ const FirstYearFirst = () => {
         {user && <p>Register Number: {user.id}</p>}
         <div>
           <h2>Your Semester GPA</h2>
-          <div className="semester-selection">
+          <div className="semester-selection-">
             {endpoints.map((endpoint, index) => (
               <div key={index}>
                 <form onSubmit={handleSubmit(endpoint.url, endpoint.key)}>
-                  <button type="submit" className='grade-button-div-'>{endpoint.name}</button>
+                  <button type="submit" className="semester-selection">{endpoint.name}</button>
                 </form>
-                {selectedGPA === endpoint.key && <GPAComponent user={user} semesterGPA={`${endpoint.name}: ${user[endpoint.key]}`} />}
+                {selectedGPA === endpoint.key && <p user={user} semesterGPA={`${endpoint.name}: ${user[endpoint.key]}`} />}
+                <p>{selectedGPA}</p>
               </div>
             ))}
           </div>
@@ -79,16 +80,4 @@ const FirstYearFirst = () => {
 
 export default FirstYearFirst;
 
-const GPAComponent = ({ user, semesterGPA }) => {
-  if (!user) {
-    return <div>Loading...</div>; 
-  }
 
-  return (
-    <div className="grade-button-div-">
-      <div>
-        <p>{semesterGPA}</p>
-      </div>
-    </div>
-  );
-};
