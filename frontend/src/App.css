@@ -281,14 +281,15 @@ button:hover {
   transform: rotate(180deg);
 }
 .container-Add{
-  background-color: rgba(24, 24, 24, 0.85);
-  height: 580px;
+  height: 700px;
   border-radius: 20px;
  width: 500px;
  text-align: center;
  color: white;
  margin: 0 auto;
- margin-top: 18vh;
+ margin-top: 5vh;
+ box-shadow: 0 0 10px #0066ff;
+
 
 }
 
@@ -318,5 +319,87 @@ button:hover {
  color: white;
  margin: 0 auto;
  margin-top: 18vh;
+
+}
+
+.grade-selection {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.grade-selection > * {
+}
+
+.grade-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%; 
+  background-color: transparent;
+  border: 2px solid #0066ff; 
+  margin: 10px;
+  cursor: pointer;
+}
+
+.grade-button.selected {
+  background-color: transparent;
+  color: #e70909;
+}
+
+.p-last {
+  margin-top: 500px;
+  padding-top: 100px;
+  font-size: 50px;
+  font-weight: bold;
+  text-align: center;
+  background-color:transparent;
+  color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(223, 11, 11, 0.1);
+  max-width: 300px;
+  margin: 0 auto;
+}
+.grade-selection-div {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.grade-selection-div > * {
+}
+
+.grade-button-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 150px;
+  background-color: transparent;
+  border: 2px solid #0066ff; 
+  margin: 10px;
+  cursor: pointer;
+}
+
+.grade-button.selected-div {
+  background-color: transparent;
+  color: #e70909;
+}
+
+.container-Add-div{
+  height: 700px;
+  border-radius: 20px;
+ width: 500px;
+ text-align: center;
+ color: white;
+ margin: 0 auto;
+ margin-top: 5vh;
+
 
 }

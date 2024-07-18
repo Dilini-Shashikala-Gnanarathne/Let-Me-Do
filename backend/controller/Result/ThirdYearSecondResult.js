@@ -1,4 +1,4 @@
-const User = require('../models/UserSchema');
+const User = require('../../models/UserSchema');
 
 const getSemester = async (req, res) => {
   const { email } = req.body;
@@ -11,9 +11,9 @@ const getSemester = async (req, res) => {
       let totalWeightedGrades = 0;
       let totalCredits = 0;
 
-      for (let i = 0; i < record.firstyearfirst.length; i++) {
-        let user = record.firstyearfirst[i].grade; 
-        let credit = record.firstyearfirst[i].subjectcredit;
+      for (let i = 0; i < record.thirdyearsecond.length; i++) {
+        let user = record.thirdyearsecond[i].grade; 
+        let credit = record.thirdyearsecond[i].subjectcredit;
         console.log(user);
 
         let grade = 0;
@@ -57,16 +57,16 @@ const getSemester = async (req, res) => {
         }
       }
 
-      const firstyearfirstGPA = totalCredits ? (totalWeightedGrades / totalCredits) : 0;
-      console.log(firstyearfirstGPA);
+      const thirdyearsecondGPA = totalCredits ? (totalWeightedGrades / totalCredits) : 0;
+      console.log(thirdyearsecondGPA);
       
-      record.firstyearfirstGPA = firstyearfirstGPA;
+      record.thirdyearsecondGPA = thirdyearsecondGPA;
       await record.save();
 
       return res.status(200).json({
         success: true,
         message: 'Successfully retrieved record',
-        data: firstyearfirstGPA,
+        data: thirdyearsecondGPA,
       });
     } else {
       return res.status(404).json({
@@ -81,8 +81,8 @@ const getSemester = async (req, res) => {
   }
 };
 
-const getfirstyearfirst = (req, res) => getSemester(req, res);
+const getThirdYearSecondSemesterGPA = (req, res) => getSemester(req, res);
 
 module.exports = {
-  getfirstyearfirst,
+  getThirdYearSecondSemesterGPA,
 };

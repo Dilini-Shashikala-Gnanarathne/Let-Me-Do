@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const semesterSchema = new Schema({
   subject: { type: String },
   grade: { type: String },
-  subjectcredit: { type: Number, min: 0, max: 7 }
+  subjectcredit: { type: Number, min: 0, max: 10 }
 });
 
 const userSchema = new Schema({
@@ -21,6 +21,7 @@ const userSchema = new Schema({
   thirdyearsecond: [semesterSchema],
   fourthyearfirst: [semesterSchema],
   fourthyearsecond: [semesterSchema],
+  
   firstyearfirstGPA: { type: Number },
   firstyearsecondGPA: { type: Number },
   secondyearfirstGPA: { type: Number },

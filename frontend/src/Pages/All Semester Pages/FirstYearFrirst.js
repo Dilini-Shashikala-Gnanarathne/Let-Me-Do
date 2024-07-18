@@ -7,15 +7,17 @@ import { useAuth } from '../../context/AuthContext';
 
 const courses = [
   { code: 'IS1101', name: 'Fundamentals of Information Systems', credit: 2 },
-  { code: 'IS1102', name: 'Structured Programming Techniques', credit: 2 },
-  { code: 'IS1103', name: 'Structured Programming Practicum', credit: 1 },
-  { code: 'IS1104', name: 'Theories of Information Systems', credit: 2 },
-  { code: 'IS1105', name: 'Computer System Organization', credit: 2 },
-  { code: 'IS1106', name: 'Foundations of Web Technologies', credit: 2 },
-  { code: 'IS1107', name: 'Personal Productivity with Information Technology', credit: 1 },
-  { code: 'IS1108', name: 'Fundamentals of Mathematics', credit: 2 },
-  { code: 'IS1109', name: 'Statistics & Probability Theory', credit: 2 },
+  // { code: 'IS1102', name: 'Structured Programming Techniques', credit: 2 },
+  // { code: 'IS1103', name: 'Structured Programming Practicum', credit: 1 },
+  // { code: 'IS1104', name: 'Theories of Information Systems', credit: 2 },
+  // { code: 'IS1105', name: 'Computer System Organization', credit: 2 },
+  // { code: 'IS1106', name: 'Foundations of Web Technologies', credit: 2 },
+  // { code: 'IS1107', name: 'Personal Productivity with Information Technology', credit: 1 },
+  // { code: 'IS1108', name: 'Fundamentals of Mathematics', credit: 2 },
+  // { code: 'IS1109', name: 'Statistics & Probability Theory', credit: 2 },
 ];
+
+const grades = ['A+', 'A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+', 'D', 'D-', 'E', 'Skip'];
 
 const FirstYearFirst = () => {
   const [courseData, setCourseData] = useState([]);
@@ -38,10 +40,9 @@ const FirstYearFirst = () => {
     }
   }, [submissionCount]);
 
-  const handleInputChange = (e, index) => {
-    const { name, value } = e.target;
+  const handleGradeSelection = (grade, index) => {
     const updatedData = [...courseData];
-    updatedData[index][name] = value;
+    updatedData[index].grade = grade;
     setCourseData(updatedData);
   };
 
@@ -90,9 +91,10 @@ const FirstYearFirst = () => {
       <Background />
       <div>
         <div className="container-Add">
+        {submissionCount < courses.length && (
+
           <form onSubmit={handleSubmit}>
             <h3 className="title">Add Course Details</h3>
-            {submissionCount < courses.length && (
               <>
                 <div className="form-group">
                   <label htmlFor="subjectname">Subject Name</label>
@@ -132,38 +134,27 @@ const FirstYearFirst = () => {
                 </div>
                 <div className="form-group">
                   <label htmlFor="grade">Enter Subject Grade</label>
-                  <select
-                    id="grade"
-                    name="grade"
-                    required
-                    className="form-control"
-                    value={courseData[submissionCount]?.grade || ''}
-                    onChange={(e) => handleInputChange(e, submissionCount)}
-                  >
-                    <option value="">Select Grade</option>
-                    <option value="A+">A+</option>
-                    <option value="A">A</option>
-                    <option value="A-">A-</option>
-                    <option value="B+">B+</option>
-                    <option value="B">B</option>
-                    <option value="B-">B-</option>
-                    <option value="C+">C+</option>
-                    <option value="C">C</option>
-                    <option value="C-">C-</option>
-                    <option value="D+">D+</option>
-                    <option value="D">D</option>
-                    <option value="D-">D-</option>
-                    <option value="E">E</option>
-                    <option value="Absent">Absent</option> 
-                  </select>
+                  <div className="grade-selection">
+                    {grades.map((grade) => (
+                      <button
+                        type="button"
+                        key={grade}
+                        className={`grade-button ${courseData[submissionCount]?.grade === grade ? 'selected' : ''}`}
+                        onClick={() => handleGradeSelection(grade, submissionCount)}
+                      >
+                        {grade}
+                      </button>
+                    ))}
+                  </div>
                 </div>
                 <div className="form-group">
                   <button type="submit">Add</button>
                 </div>
               </>
-            )}
-            {submissionCount >= courses.length && <p>All courses submitted!</p>}
+           
           </form>
+           )}
+            {submissionCount >= courses.length && <div className='p-last'><p >All courses submitted! 👏</p></div>}
         </div>
       </div>
     </>
