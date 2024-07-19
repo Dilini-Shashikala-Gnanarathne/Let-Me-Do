@@ -517,7 +517,7 @@ button:hover {
  margin-top: 5vh;
 
   }
-  .container-Add-gpa-result{
+  .container-Add-gpa-result-final{
     display: flex;
   justify-content: left;
   align-items: left;
@@ -539,3 +539,14 @@ button:hover {
   .link-dec:hover{
     color: red;
   }
+  .container-Add-gpa-result{
+ 
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  margin: 1px;
+  cursor: pointer;
+  margin-top: 0px;
+  border: none;
+  font-size: 20px;
+  box-shadow: 1px 1px 1px 1px #0066ff;}

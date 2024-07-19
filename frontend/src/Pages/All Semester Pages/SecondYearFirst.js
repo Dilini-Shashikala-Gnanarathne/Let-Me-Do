@@ -184,7 +184,8 @@ const SecondYearFirst = () => {
                   </div>
                 </div>
                 <div className="form-group">
-                  <button type="submit">Add</button>
+                  <button type="submit" className="container-Add-gpa-result">Add</button>
+
                 </div>
               </>
            

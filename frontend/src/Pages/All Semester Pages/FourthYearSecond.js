@@ -20,15 +20,15 @@ const grades = ['A+', 'A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+', 'D', 'D
 const courses = [
   { code: 'IS8101', name: 'Research Project in IS', credit: 8 },
   { code: 'IS8102', name: 'Business/IT Alignment', credit: 2 },
-  // { code: 'IS8103', name: 'Human Resource Management', credit: 2 },
-  // { code: 'IS8104', name: 'Scientific Communication', credit: 1 },
-  // { code: 'IS8105', name: 'IS Economics', credit: 2 },
-  // { code: 'IS8106', name: 'Computer System Security', credit: 2 },
-  // { code: 'IS8107', name: 'Supply Chain Management', credit: 2 },
-  // { code: 'IS8108', name: 'Advanced Computer Networks', credit: 2 },
-  // { code: 'IS8109', name: 'Process Mining', credit: 2 },
-  // { code: 'IS8110', name: 'Digital Business Model', credit: 1 },
-  // { code: 'IS8111', name: 'Game Development', credit: 2 }
+  { code: 'IS8103', name: 'Human Resource Management', credit: 2 },
+  { code: 'IS8104', name: 'Scientific Communication', credit: 1 },
+  { code: 'IS8105', name: 'IS Economics', credit: 2 },
+  { code: 'IS8106', name: 'Computer System Security', credit: 2 },
+  { code: 'IS8107', name: 'Supply Chain Management', credit: 2 },
+  { code: 'IS8108', name: 'Advanced Computer Networks', credit: 2 },
+  { code: 'IS8109', name: 'Process Mining', credit: 2 },
+  { code: 'IS8110', name: 'Digital Business Model', credit: 1 },
+  { code: 'IS8111', name: 'Game Development', credit: 2 }
 ];
 
 
@@ -184,7 +184,8 @@ const FourthYearSecond = () => {
                   </div>
                 </div>
                 <div className="form-group">
-                  <button type="submit">Add</button>
+                  <button type="submit" className="container-Add-gpa-result">Add</button>
+
                 </div>
               </>
            
