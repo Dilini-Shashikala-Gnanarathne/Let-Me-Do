@@ -14,6 +14,7 @@ app.use(express.json());
 
 // Check if the environment variable is loaded correctly
 console.log('MongoDB URI:', process.env.Mongo_URL);
+console.log(1);
 
 const connectDB = async () => {
     try {
