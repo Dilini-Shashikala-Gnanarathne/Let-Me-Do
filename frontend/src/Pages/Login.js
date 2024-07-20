@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,Link } from 'react-router-dom';
 import Background from '../components/Backgrount'; 
 import Axios from 'axios';
 import './Login.css';
@@ -80,6 +80,7 @@ const Login = () => {
                     {error && <p className='error-message'>{error}</p>}
                     <button type="submit" className='login-button'>Login</button>
                 </form>
+              <p ><br/>Don&apos;t have an account?<Link  to='/register' className='login-span' > Register</Link></p>  
             </div>
         </>
     );

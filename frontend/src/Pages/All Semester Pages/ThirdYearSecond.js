@@ -26,7 +26,7 @@ const ThirdYearSecond = () => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
   const { user } = useAuth();
-
+  const [showGpaLink, setShowGpaLink] = useState(false);
   useEffect(() => {
     if (submissionCount < courses.length) {
       setCourseData((prevData) => [
@@ -53,7 +53,9 @@ const ThirdYearSecond = () => {
       addUser(courseData[submissionCount]);
     }
   };
-
+const handleClick = () => {
+    setShowGpaLink(true);
+  };
   const addUser = (data) => {
     if (!user) {
       setError('User is not authenticated');
@@ -181,12 +183,22 @@ const ThirdYearSecond = () => {
     {endpoints.map((endpoint, index) => (
       <form key={index} onSubmit={handleSubmitGpa(endpoint.url, endpoint.key)}>
         <div className="form-group">
-          <button type="submit" className=' grade-selection-buttons-all-semester-end'><Link to={'/getGPA'} className='link-dec'> {endpoint.name}</Link></button>
+        <button 
+        type="submit" 
+        className='grade-selection-buttons-all-semester-end'
+        onClick={handleClick}
+      > 
+        {endpoint.name}
+      </button>
+      {showGpaLink && (
+        <Link to={'/getGPA'} className='link-dec'>
+          <p>See Your GPA ✨</p>
+        </Link>
+      )}
         </div>
       </form>
     ))}
     {error && <p>{error}</p>}
-  <p>See Your GPA ✨</p>
   </div>
 )}     
         </div>
