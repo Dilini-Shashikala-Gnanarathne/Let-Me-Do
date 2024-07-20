@@ -8,10 +8,21 @@ const finalGPA = async (req, res) => {
 
     let record = await User.findOne({ email });
     if (record) {
-    const totalValue=record.firstyearfirstGPA+record.firstyearsecondGPA +record.secondyearfirstGPA +record.secondyearsecondGPA+record.thirdyearfirstGPA+record.thirdyearsecondGPA +record.fourthyearfirstGPA +record.fourthyearsecondGPA;
-    const finalgpa=totalValue/8;
-     record.finalGPA = finalgpa.toFixed(2);
+      const totalValue = parseFloat(record.firstyearfirstGPA || 0)
+      + parseFloat(record.firstyearsecondGPA || 0)
+      + parseFloat(record.secondyearfirstGPA || 0)
+      + parseFloat(record.secondyearsecondGPA || 0)
+      + parseFloat(record.thirdyearfirstGPA || 0)
+      + parseFloat(record.thirdyearsecondGPA || 0)
+      + parseFloat(record.fourthyearfirstGPA || 0)
+      + parseFloat(record.fourthyearsecondGPA || 0);
+                        
+      const finalgpa = totalValue / 8;
+
+      record.finalGPA = parseFloat(finalgpa.toFixed(2));
+
       await record.save();
+
       return res.status(200).json({
         success: true,
         message: 'Successfully retrieved record',
@@ -33,5 +44,5 @@ const finalGPA = async (req, res) => {
 const finalGPACal = (req, res) => finalGPA(req, res);
 
 module.exports = {
-    finalGPACal,
+  finalGPACal,
 };

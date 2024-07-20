@@ -31,8 +31,7 @@ const userSchema = new Schema({
   thirdyearsecondGPA: { type: Number },
   fourthyearfirstGPA: { type: Number },
   fourthyearsecondGPA: { type: Number },
-  finalGPA: { type: Number },
-});
+  finalGPA: { type: Number} });
 
 const User = mongoose.model('User', userSchema);
 

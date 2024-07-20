@@ -43,22 +43,22 @@ const ThirdYearFirst = () => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
   const { user } = useAuth();
-
+  const [showGpaLink, setShowGpaLink] = useState(false);
   useEffect(() => {
     if (submissionCount < courses.length) {
       setCourseData((prevData) => [
         ...prevData,
-        { 
-          subjectcode: courses[submissionCount].code, 
-          subjectname: courses[submissionCount].name, 
-          subjectcredit: courses[submissionCount].credit, 
-          grade: '' 
+        {
+          subjectcode: courses[submissionCount].code,
+          subjectname: courses[submissionCount].name,
+          subjectcredit: courses[submissionCount].credit,
+          grade: '',
         },
       ]);
     }
   }, [submissionCount]);
 
- const handleGradeSelection = (grade, index) => {
+  const handleGradeSelection = (grade, index) => {
     const updatedData = [...courseData];
     updatedData[index].grade = grade;
     setCourseData(updatedData);
@@ -70,7 +70,9 @@ const ThirdYearFirst = () => {
       addUser(courseData[submissionCount]);
     }
   };
-
+const handleClick = () => {
+    setShowGpaLink(true);
+  };
   const addUser = (data) => {
     if (!user) {
       setError('User is not authenticated');
@@ -127,92 +129,98 @@ const ThirdYearFirst = () => {
       },
     ]);
   };
+
   return (
     <>
       <Background />
-      {submissionCount < courses.length && (
       <div>
         <div className="container-Add">
+          {submissionCount < courses.length && (
+            <form onSubmit={handleSubmit}>
+              <h3 className="title">Add Course Details</h3>
+              <div className="form-group">
+                <label htmlFor="subjectname">Subject Name</label>
+                <input
+                  type="text"
+                  id="subjectname"
+                  name="subjectname"
+                  required
+                  className="form-control"
+                  value={courseData[submissionCount]?.subjectname || ''}
+                  readOnly
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="subjectname">Subject Code</label>
+                <input
+                  type="text"
+                  id="subjectcode"
+                  name="subjectcode"
+                  required
+                  className="form-control"
+                  value={courseData[submissionCount]?.subjectcode || ''}
+                  readOnly
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="subjectcredit">Subject Credit</label>
+                <input
+                  type="number"
+                  id="subjectcredit"
+                  name="subjectcredit"
+                  required
+                  className="form-control"
+                  value={courseData[submissionCount]?.subjectcredit || ''}
+                  readOnly
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="grade">Enter Subject Grade</label>
+                <div className="grade-selection">
+                  {grades.map((grade) => (
+                    <button
+                      type="button"
+                      key={grade}
+                      className={`grade-button ${courseData[submissionCount]?.grade === grade ? 'selected' : ''}`}
+                      onClick={() => handleGradeSelection(grade, submissionCount)}
+                    >
+                      {grade}
+                    </button>
+                  ))}
+                </div>
+              </div>
+              <div className="form-group">
+                <button type="submit" className="container-Add-gpa-result">Add</button>
 
-          <form onSubmit={handleSubmit}>
-            <h3 className="title">Add Course Details</h3>
-              <>
-                <div className="form-group">
-                  <label htmlFor="subjectname">Subject Name</label>
-                  <input
-                    type="text"
-                    id="subjectname"
-                    name="subjectname"
-                    required
-                    className="form-control"
-                    value={courseData[submissionCount]?.subjectname || ''}
-                    readOnly
-                  />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="subjectname">Subject Code</label>
-                  <input
-                    type="text"
-                    id="subjectcode"
-                    name="subjectcode"
-                    required
-                    className="form-control"
-                    value={courseData[submissionCount]?.subjectcode || ''}
-                    readOnly
-                  />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="subjectcredit">Subject Credit</label>
-                  <input
-                    type="number"
-                    id="subjectcredit"
-                    name="subjectcredit"
-                    required
-                    className="form-control"
-                    value={courseData[submissionCount]?.subjectcredit || ''}
-                    readOnly
-                  />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="grade">Enter Subject Grade</label>
-                  <div className="grade-selection">
-                    {grades.map((grade) => (
-                      <button
-                        type="button"
-                        key={grade}
-                        className={`grade-button ${courseData[submissionCount]?.grade === grade ? 'selected' : ''}`}
-                        onClick={() => handleGradeSelection(grade, submissionCount)}
-                      >
-                        {grade}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-                <div className="form-group">
-                  <button type="submit" className="container-Add-gpa-result">Add</button>
-
-                </div>
-              </>
-           
-          </form>
-          </div>
-      </div>
-       )}
+              </div>
+            </form>
+           )}
        {submissionCount >= courses.length && (
   <div className="container-Add-gpa">
     {endpoints.map((endpoint, index) => (
       <form key={index} onSubmit={handleSubmitGpa(endpoint.url, endpoint.key)}>
         <div className="form-group">
-          <button type="submit" className=' grade-selection-buttons-all-semester-end'><Link to={'/getGPA'} className='link-dec'> {endpoint.name}</Link></button>
+        <button 
+        type="submit" 
+        className='grade-selection-buttons-all-semester-end'
+        onClick={handleClick}
+      > 
+        {endpoint.name}
+      </button>
+      {showGpaLink && (
+        <Link to={'/getGPA'} className='link-dec'>
+          <p>See Your GPA ✨</p>
+        </Link>
+      )}
         </div>
       </form>
     ))}
     {error && <p>{error}</p>}
-  <p>See Your GPA ✨</p>
   </div>
 )}     
+        </div>
+      </div>
     </>
   );
 };
-
 export default ThirdYearFirst;
