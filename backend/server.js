@@ -12,6 +12,9 @@ const port = process.env.PORT || 3001;
 app.use(cors());
 app.use(express.json());
 
+// Check if the environment variable is loaded correctly
+console.log('MongoDB URI:', process.env.Mongo_URL);
+
 const connectDB = async () => {
     try {
         await mongoose.connect(process.env.Mongo_URL, {

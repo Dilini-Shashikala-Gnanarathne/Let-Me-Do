@@ -1,6 +1,5 @@
 const express = require('express');
 const { authenticateToken, verifyUser } = require('./auth/verifyToken');
-const controller = require('./controller');
 const routers = require('./controller/auth');
 const yearSem= require('./controller/YearAndSemester');
 const router = express.Router();
@@ -14,11 +13,7 @@ const getSem7= require('./controller/Result/FourthYearFirstResult');
 const getSem8= require('./controller/Result/FourthYearSecondResult');
 const finalgpa= require('./controller/Result/FinalGPA');
 const getTry= require('./controller/TryEmailResult')
-router.get('/users', controller.getAllUsers);
-router.post('/create', controller.addUser);
-router.post('/deleteUser', controller.deleteUser);
-router.put('/usersupdate', controller.updateOneUser);
-router.get('/getUser', controller.calculateGPA);
+
 
 router.post('/createUser', routers.register);
 router.post('/login', routers.login);
