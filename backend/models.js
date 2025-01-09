@@ -3,9 +3,11 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema(
     {
-        id:Number,
-        name:String,
-        
+  id: { type: String, required: true, unique: true },
+  name: { type: String, required: true },
+  credit:{type:Number},
+  semester:{type: String} ,
+  numofcourses: {type:Number},   
     }
 )
 
