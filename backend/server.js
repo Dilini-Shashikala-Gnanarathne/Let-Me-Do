@@ -40,7 +40,7 @@ app.use("/api", router);
 
 app.use(express.static("./backend/build"));
 app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "backend", "build", "index.html"));
+  res.sendFile(path.resolve(__dirname, "backend", "build", "server.html"));
 });
 
 startServer();
