@@ -45,7 +45,7 @@ const Dashboard = ({ data, updateUser }) => {
   };
 
   const addUser = (data) => {
-    Axios.post('https://letmedo-hqeveqd7b9anh5bv.southeastasia-01.azurewebsites.net/api/create', data)
+    Axios.post('http://localhost:3000/api/create', data)
       .then(() => {
         setSubmissionCount((prevCount) => prevCount + 1);
         resetForm();

@@ -60,7 +60,7 @@ const FirstYearFirst = () => {
       return;
     }
 
-    Axios.post(`https://letmedo-hqeveqd7b9anh5bv.southeastasia-01.azurewebsites.net/api/${url}`, { email: user.email })
+    Axios.post(`http://localhost:3000/api/${url}`, { email: user.email })
       .then(() => {
         console.log("Great job!");
         setSelectedGPA(url); // Set the selected GPA to show the correct component
