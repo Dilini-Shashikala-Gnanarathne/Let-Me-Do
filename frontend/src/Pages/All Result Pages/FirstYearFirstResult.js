@@ -41,11 +41,11 @@ const FirstYearFirst = () => {
       return;
     }
 
-    Axios.post(`http://localhost:3001/api/${url}`, { email: user.email })
+    Axios.post(`https://letmedo-hqeveqd7b9anh5bv.southeastasia-01.azurewebsites.net/api/${url}`, { email: user.email })
       .then(() => {
         console.log("Successfully fetched GPA data for", url);
-        setSelectedGPA(url); 
-        setError(null); 
+        setSelectedGPA(url);
+        setError(null);
       })
       .catch((error) => {
         if (error.response && error.response.status === 400) {
@@ -69,7 +69,7 @@ const FirstYearFirst = () => {
       <div className="container-Add-div">
         <div className="form-group">
           <h1 className='title-all-result'>Welcome, {user.name}</h1>
-          <h2>Your GPA Results:</h2>          
+          <h2>Your GPA Results:</h2>
           {error && <p>{error}</p>}
           <SemesterGPA semesterGPA={user.firstyearfirstGPA} semester="First Year First Semester GPA" />
           <SemesterGPA semesterGPA={user.firstyearsecondGPA} semester="First Year Second Semester GPA" />
@@ -81,17 +81,17 @@ const FirstYearFirst = () => {
           <SemesterGPA semesterGPA={user.fourthyearsecondGPA} semester="Fourth Year Second Semester GPA" />
         </div>
         <div className="form-group">
-  <div className="grade-selection-container">
-    {selectedGPA && <FinalGPA />}
-    <div className="grade-selection-buttons">
-      {endpoints.map((endpoint, index) => (
-        <form key={index} onSubmit={handleSubmit(endpoint.url)}>
-          <button type="submit" className="container-Add-gpa-result-final">{endpoint.name}</button>
-        </form>
-      ))}
-    </div>
-  </div>
-</div>
+          <div className="grade-selection-container">
+            {selectedGPA && <FinalGPA />}
+            <div className="grade-selection-buttons">
+              {endpoints.map((endpoint, index) => (
+                <form key={index} onSubmit={handleSubmit(endpoint.url)}>
+                  <button type="submit" className="container-Add-gpa-result-final">{endpoint.name}</button>
+                </form>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );

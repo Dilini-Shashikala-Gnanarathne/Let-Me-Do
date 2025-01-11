@@ -4,32 +4,32 @@ import { Link, useNavigate } from 'react-router-dom';
 import '../../App.css';
 import Background from '../../components/D-Background';
 import { useAuth } from '../../context/AuthContext';
-import { 
+import {
   SecondYearFirstSemesterGPA,
-} from '../All Result Pages/FirstYearFirstGPA';    
+} from '../All Result Pages/FirstYearFirstGPA';
 
 const GPAComponent = {
- 
+
   'getsecondyearfirstGPA': SecondYearFirstSemesterGPA,
- 
+
 };
 const endpoints = [
- 
+
   { name: 'Second Year First Semester GPA', url: 'getsecondyearfirstGPA' },
- 
+
 ];
 const grades = ['A+', 'A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+', 'D', 'D-', 'E', 'Skip'];
 
-  const courses = [
-    { code: 'IS3101', name: 'Object Oriented Analysis & Design', credit: 2 },
-    { code: 'IS3102', name: 'Data Structures & Algorithms', credit: 2 },
-    { code: 'IS3103', name: 'IT Governance', credit: 2 },
-    { code: 'IS3104', name: 'Software Engineering', credit: 2 },
-    { code: 'IS3105', name: 'IS Risk Management', credit: 2 },
-    { code: 'IS3106', name: 'IS Sustainability', credit: 1 },
-    { code: 'IS3107', name: 'Management Information Systems', credit: 2 },
-    { code: 'IS3108', name: 'E-Business', credit: 1 },
-    { code: 'IS3109', name: 'Digital Innovation', credit: 2 }  
+const courses = [
+  { code: 'IS3101', name: 'Object Oriented Analysis & Design', credit: 2 },
+  { code: 'IS3102', name: 'Data Structures & Algorithms', credit: 2 },
+  { code: 'IS3103', name: 'IT Governance', credit: 2 },
+  { code: 'IS3104', name: 'Software Engineering', credit: 2 },
+  { code: 'IS3105', name: 'IS Risk Management', credit: 2 },
+  { code: 'IS3106', name: 'IS Sustainability', credit: 1 },
+  { code: 'IS3107', name: 'Management Information Systems', credit: 2 },
+  { code: 'IS3108', name: 'E-Business', credit: 1 },
+  { code: 'IS3109', name: 'Digital Innovation', credit: 2 }
 ];
 
 const SecondYearFirst = () => {
@@ -65,7 +65,7 @@ const SecondYearFirst = () => {
       addUser(courseData[submissionCount]);
     }
   };
-const handleClick = () => {
+  const handleClick = () => {
     setShowGpaLink(true);
   };
   const addUser = (data) => {
@@ -74,7 +74,7 @@ const handleClick = () => {
       return;
     }
 
-    Axios.put('http://localhost:3001/api/secondyearfirst', { email: user.email, updates: [data] })
+    Axios.put('https://letmedo-hqeveqd7b9anh5bv.southeastasia-01.azurewebsites.net/api/secondyearfirst', { email: user.email, updates: [data] })
       .then(() => {
         setSubmissionCount((prevCount) => prevCount + 1);
         resetForm();
@@ -98,7 +98,7 @@ const handleClick = () => {
       return;
     }
 
-    Axios.post(`http://localhost:3001/api/${url}`, { email: user.email })
+    Axios.post(`https://letmedo-hqeveqd7b9anh5bv.southeastasia-01.azurewebsites.net/api/${url}`, { email: user.email })
       .then(() => {
         console.log('Successfully fetched GPA data for', url);
         setSelectedGPA(key);
@@ -189,47 +189,47 @@ const handleClick = () => {
 
               </div>
             </form>
-           )}
-       {submissionCount >= courses.length && (
-  <div className="container-Add-gpa">
-    {endpoints.map((endpoint, index) => (
-      <form key={index} onSubmit={handleSubmitGpa(endpoint.url, endpoint.key)}>
-        <div className="form-group">
-        <button 
-        type="submit" 
-        className='grade-selection-buttons-all-semester-end'
-        onClick={handleClick}
-      > 
-        {endpoint.name}
-      </button>
-      {showGpaLink && (
-        <Link to={'/getGPA'} className='link-dec'>
- <div className='new-final'>
-          <Link to={'/getGPA'} className='link-dec'>
-          <p>See Your GPA ✨</p>
-          <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="44"
-      height="44"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <line x1="12" y1="5" x2="12" y2="19" />
-      <polyline points="19 12 12 19 5 12" />
-    </svg>
-        </Link>
-        </div>        </Link>
-      )}
-        </div>
-      </form>
-    ))}
-    {error && <p>{error}</p>}
-  </div>
-)}     
+          )}
+          {submissionCount >= courses.length && (
+            <div className="container-Add-gpa">
+              {endpoints.map((endpoint, index) => (
+                <form key={index} onSubmit={handleSubmitGpa(endpoint.url, endpoint.key)}>
+                  <div className="form-group">
+                    <button
+                      type="submit"
+                      className='grade-selection-buttons-all-semester-end'
+                      onClick={handleClick}
+                    >
+                      {endpoint.name}
+                    </button>
+                    {showGpaLink && (
+                      <Link to={'/getGPA'} className='link-dec'>
+                        <div className='new-final'>
+                          <Link to={'/getGPA'} className='link-dec'>
+                            <p>See Your GPA ✨</p>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="44"
+                              height="44"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            >
+                              <line x1="12" y1="5" x2="12" y2="19" />
+                              <polyline points="19 12 12 19 5 12" />
+                            </svg>
+                          </Link>
+                        </div>        </Link>
+                    )}
+                  </div>
+                </form>
+              ))}
+              {error && <p>{error}</p>}
+            </div>
+          )}
         </div>
       </div>
     </>

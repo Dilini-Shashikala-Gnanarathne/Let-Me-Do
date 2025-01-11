@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Backgrount from '../components/Backgrount'; 
-import { Link } from 'react-router-dom'; 
+import Backgrount from '../components/Backgrount';
+import { Link } from 'react-router-dom';
 import Axios from 'axios';
 import './Register.css';
 
@@ -10,7 +10,7 @@ const Signup = () => {
     name: '',
     password: '',
     email: '',
-    role:'viewer',
+    role: 'viewer',
   });
   const [error, setError] = useState(null);
 
@@ -32,12 +32,12 @@ const Signup = () => {
       id: '',
       name: '',
       password: '',
-      email: '',  
+      email: '',
     });
   };
 
   const addUser = (data) => {
-    Axios.post('http://localhost:3001/api/createUser', data)
+    Axios.post('https://letmedo-hqeveqd7b9anh5bv.southeastasia-01.azurewebsites.net/api/createUser', data)
       .then(() => {
         resetForm();
         setError(null);
@@ -52,7 +52,7 @@ const Signup = () => {
   };
 
   return (
-    <>    
+    <>
       <Backgrount />
       <div className="container-regi">
         <h2>
@@ -106,7 +106,7 @@ const Signup = () => {
           <button type="submit" className='regi-button'>Add</button><br />
           {error && <p className="error">{error}</p>}
           <p>
-           <br/> Already have an account?<Link to="/"> <span className='login-span'>Login</span></Link>
+            <br /> Already have an account?<Link to="/"> <span className='login-span'>Login</span></Link>
           </p>
         </form>
       </div>

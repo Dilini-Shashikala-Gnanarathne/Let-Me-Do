@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { useNavigate,Link } from 'react-router-dom';
-import Background from '../components/Backgrount'; 
+import { useNavigate, Link } from 'react-router-dom';
+import Background from '../components/Backgrount';
 import Axios from 'axios';
 import './Login.css';
 
@@ -26,7 +26,7 @@ const Login = () => {
     };
 
     const loging = (data) => {
-        Axios.post('http://localhost:3001/api/login', data)
+        Axios.post('https://letmedo-hqeveqd7b9anh5bv.southeastasia-01.azurewebsites.net/api/login', data)
             .then((response) => {
                 const { token, email } = response.data;
                 console.log(`Login:${token}`);
@@ -80,7 +80,7 @@ const Login = () => {
                     {error && <p className='error-message'>{error}</p>}
                     <button type="submit" className='login-button'>Login</button>
                 </form>
-              <p ><br/>Don&apos;t have an account?<Link  to='/register' className='login-span' > Register</Link></p>  
+                <p ><br />Don&apos;t have an account?<Link to='/register' className='login-span' > Register</Link></p>
             </div>
         </>
     );

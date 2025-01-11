@@ -2,22 +2,22 @@ import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
 import DeleteIcon from '../assets/delete.png'
 const Reports = ({ rows, deleteUser }) => {
-  const [gpa, setGPA] = useState(0);
-  const [error, setError] = useState('');
+    const [gpa, setGPA] = useState(0);
+    const [error, setError] = useState('');
 
-  useEffect(() => {
-    getGPAData();
-  }, []);
+    useEffect(() => {
+        getGPAData();
+    }, []);
 
-  const getGPAData = () => {
-    Axios.get('http://localhost:3001/api/getUser')
-      .then(response => {
-        setGPA(response.data.gpa);
-      })
-      .catch(error => {
-        setError(error.message);
-      });
-  };
+    const getGPAData = () => {
+        Axios.get('https://letmedo-hqeveqd7b9anh5bv.southeastasia-01.azurewebsites.net/api/getUser')
+            .then(response => {
+                setGPA(response.data.gpa);
+            })
+            .catch(error => {
+                setError(error.message);
+            });
+    };
     return (
         <div className="container-userTable">
             <h3 className="title">Your Results</h3>
@@ -41,7 +41,7 @@ const Reports = ({ rows, deleteUser }) => {
                                     <button className="action-button" onClick={() => selectedUser({ id: row.id, name: row.name })}>Update</button>
                                 </td> */}
                                 <td>
-                                <button className="action-button" onClick={() => deleteUser({ id: row.id })}> <img src={DeleteIcon} alt="Delete" className="delete-icon" style={{ textAlign: 'center', verticalAlign: 'middle', width:'20px',height:'20px' }}/></button>
+                                    <button className="action-button" onClick={() => deleteUser({ id: row.id })}> <img src={DeleteIcon} alt="Delete" className="delete-icon" style={{ textAlign: 'center', verticalAlign: 'middle', width: '20px', height: '20px' }} /></button>
                                 </td>
                             </tr>
                         ))
@@ -53,10 +53,10 @@ const Reports = ({ rows, deleteUser }) => {
                 </tbody>
                 <tfoot>
                     <tr>
-                    <td colSpan={4} style={{ textAlign: 'center', verticalAlign: 'middle', fontSize:'14px' }}>
-                        {error && <p style={{ color: 'red' }}>Error: {error}</p>}
-                        <h2>Semester GPA: {gpa.toFixed(2)}</h2>
-                    </td>
+                        <td colSpan={4} style={{ textAlign: 'center', verticalAlign: 'middle', fontSize: '14px' }}>
+                            {error && <p style={{ color: 'red' }}>Error: {error}</p>}
+                            <h2>Semester GPA: {gpa.toFixed(2)}</h2>
+                        </td>
                     </tr>
 
                 </tfoot>

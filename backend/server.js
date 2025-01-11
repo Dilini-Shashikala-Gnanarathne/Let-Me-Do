@@ -3,7 +3,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const router = require("./router");
-
+const path = require("path");
 dotenv.config();
 
 const app = express();
@@ -38,9 +38,9 @@ const startServer = async () => {
 
 app.use("/api", router);
 
-app.use(express.static("./frontend/build"));
+app.use(express.static("./backend/build"));
 app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
+  res.sendFile(path.resolve(__dirname, "backend", "build", "index.html"));
 });
 
 startServer();

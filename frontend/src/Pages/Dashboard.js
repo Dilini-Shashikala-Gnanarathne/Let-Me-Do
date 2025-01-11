@@ -45,7 +45,7 @@ const Dashboard = ({ data, updateUser }) => {
   };
 
   const addUser = (data) => {
-    Axios.post('http://localhost:3001/api/create', data)
+    Axios.post('https://letmedo-hqeveqd7b9anh5bv.southeastasia-01.azurewebsites.net/api/create', data)
       .then(() => {
         setSubmissionCount((prevCount) => prevCount + 1);
         resetForm();
@@ -74,104 +74,104 @@ const Dashboard = ({ data, updateUser }) => {
 
   return (
     <>
-    <Background/>
-    <div >
-      {!formVisible ? (
-        <div className="container">
-          <h3 className="title">Calculate Semester GPA</h3>
-          <div className="form-group">
-            <label htmlFor="numCourses">Number of Courses</label>
-            <input
-              type="number"
-              id="numCourses"
-              name="numCourses"
-              value={numCourses}
-              onChange={(e) => setNumCourses(e.target.value)}
-              required
-            />
-          </div>
-          <button className='login-button'onClick={handleStart}>Enter</button>
-        </div>
-      ) : (
-        <div className="container-Add">
-         
-          {submissionCount < numCourses ? (
-            
-            <form onSubmit={handleSubmit}>
-               <h3 className="title"> <div className="form-group">
-                <p>Enter subject: {submissionCount+1}</p>
-              </div></h3>
-              <div className="form-group">
-                <label htmlFor="id">Enter Course Code</label>
-                <input
-                  type="text"
-                  id="id"
-                  name="id"
-                  value={courseData.id}
-                  onChange={handleInputChange}
-                  required
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="name">Enter Subject Grade</label>
-                <select
-                  id="name"
-                  name="name"
-                  value={courseData.name}
-                  onChange={handleInputChange}
-                  required
-                  className="form-group"
-                >
-                  <option value="">Select Grade</option>
-                  <option>A+</option>
-                  <option>A</option>
-                  <option>A-</option>
-                  <option>B+</option>
-                  <option>B</option>
-                  <option>B-</option>
-                  <option>C+</option>
-                  <option>C</option>
-                  <option>C-</option>
-                  <option>D+</option>
-                  <option>D</option>
-                  <option>D-</option>
-                  <option>E</option>
-                </select>
-              </div>
-              <div className="form-group">
-                <label htmlFor="credit">Enter Number of Credits</label>
-                <select
-                  id="credit"
-                  name="credit"
-                  value={courseData.credit}
-                  onChange={handleInputChange}
-                  required
-                  className="form-group"
-                >
-                  <option value="">Select Credits</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                </select>
-              </div>
-              {error && <div className="error-message">{error}</div>}
-              <div className="form-group">
-                <button type="submit">Add</button>
-              </div>
-            </form>
-          ) : (
-            <div>
-              <h3 className="title"> 
-                <div className="form-end">
-                  You successfully added {submissionCount} courses 
-                  <p className='checkmark'>✨</p>         
-                </div>
-              </h3>
+      <Background />
+      <div >
+        {!formVisible ? (
+          <div className="container">
+            <h3 className="title">Calculate Semester GPA</h3>
+            <div className="form-group">
+              <label htmlFor="numCourses">Number of Courses</label>
+              <input
+                type="number"
+                id="numCourses"
+                name="numCourses"
+                value={numCourses}
+                onChange={(e) => setNumCourses(e.target.value)}
+                required
+              />
             </div>
-          )}
-        </div>
-      )}
-    </div></>
+            <button className='login-button' onClick={handleStart}>Enter</button>
+          </div>
+        ) : (
+          <div className="container-Add">
+
+            {submissionCount < numCourses ? (
+
+              <form onSubmit={handleSubmit}>
+                <h3 className="title"> <div className="form-group">
+                  <p>Enter subject: {submissionCount + 1}</p>
+                </div></h3>
+                <div className="form-group">
+                  <label htmlFor="id">Enter Course Code</label>
+                  <input
+                    type="text"
+                    id="id"
+                    name="id"
+                    value={courseData.id}
+                    onChange={handleInputChange}
+                    required
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="name">Enter Subject Grade</label>
+                  <select
+                    id="name"
+                    name="name"
+                    value={courseData.name}
+                    onChange={handleInputChange}
+                    required
+                    className="form-group"
+                  >
+                    <option value="">Select Grade</option>
+                    <option>A+</option>
+                    <option>A</option>
+                    <option>A-</option>
+                    <option>B+</option>
+                    <option>B</option>
+                    <option>B-</option>
+                    <option>C+</option>
+                    <option>C</option>
+                    <option>C-</option>
+                    <option>D+</option>
+                    <option>D</option>
+                    <option>D-</option>
+                    <option>E</option>
+                  </select>
+                </div>
+                <div className="form-group">
+                  <label htmlFor="credit">Enter Number of Credits</label>
+                  <select
+                    id="credit"
+                    name="credit"
+                    value={courseData.credit}
+                    onChange={handleInputChange}
+                    required
+                    className="form-group"
+                  >
+                    <option value="">Select Credits</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                  </select>
+                </div>
+                {error && <div className="error-message">{error}</div>}
+                <div className="form-group">
+                  <button type="submit">Add</button>
+                </div>
+              </form>
+            ) : (
+              <div>
+                <h3 className="title">
+                  <div className="form-end">
+                    You successfully added {submissionCount} courses
+                    <p className='checkmark'>✨</p>
+                  </div>
+                </h3>
+              </div>
+            )}
+          </div>
+        )}
+      </div></>
   );
 };
 

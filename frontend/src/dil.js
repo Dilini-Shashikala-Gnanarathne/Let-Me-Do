@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import '../../App.css';
 import Background from '../../components/D-Background';
 import { useAuth } from '../../context/AuthContext';
-import { 
+import {
   FirstYearFirstSemesterGPA,
   FirstYearSecondSemesterGPA,
   SecondYearFirstSemesterGPA,
@@ -13,7 +13,7 @@ import {
   ThirdYearSecondSemesterGPA,
   FourthYearFirstSemesterGPA,
   FourthYearSecondSemesterGPA
-} from '../All Result Pages/FirstYearFirstGPA';    
+} from '../All Result Pages/FirstYearFirstGPA';
 
 const GPAComponents = {
   'getfirstyearfirstGPA': FirstYearFirstSemesterGPA,
@@ -60,36 +60,36 @@ const FirstYearFirst = () => {
       return;
     }
 
-    Axios.post(`http://localhost:3001/api/${url}`, { email: user.email })
+    Axios.post(`https://letmedo-hqeveqd7b9anh5bv.southeastasia-01.azurewebsites.net/api/${url}`, { email: user.email })
       .then(() => {
         console.log("Great job!");
         setSelectedGPA(url); // Set the selected GPA to show the correct component
       })
       .catch((error) => {
         if (error.response && error.response.status === 400) {
-      });
+        });
   };
   const FirstYearFirst = () => {
 
-  const GPAComponent = selectedGPA ? GPAComponents[selectedGPA] : null;
+    const GPAComponent = selectedGPA ? GPAComponents[selectedGPA] : null;
 
-  return (
-    <>
-      <Background />
-      <div>
-        <div className="container-Add">
-          {endpoints.map((endpoint, index) => (
-            <form key={index} onSubmit={handleSubmit(endpoint.url)}>
-              <div className="form-group">
-                <button type="submit">{endpoint.name}</button>
-              </div>
-            </form>
-          ))}
-          {error && <p>{error}</p>}
-          {GPAComponent && <GPAComponent />}
+    return (
+      <>
+        <Background />
+        <div>
+          <div className="container-Add">
+            {endpoints.map((endpoint, index) => (
+              <form key={index} onSubmit={handleSubmit(endpoint.url)}>
+                <div className="form-group">
+                  <button type="submit">{endpoint.name}</button>
+                </div>
+              </form>
+            ))}
+            {error && <p>{error}</p>}
+            {GPAComponent && <GPAComponent />}
+          </div>
         </div>
-        </div>
-    </>
-  );
-};
-export default FirstYearFirst;
+      </>
+    );
+  };
+  export default FirstYearFirst;
