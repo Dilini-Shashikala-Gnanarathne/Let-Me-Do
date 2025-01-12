@@ -26,7 +26,7 @@ const Login = () => {
     };
 
     const loging = (data) => {
-        Axios.post('https://letmedo-hqeveqd7b9anh5bv.southeastasia-01.azurewebsites.net/api/login', data)
+        Axios.post('http://localhost:3000/api/login', data)
             .then((response) => {
                 const { token, email } = response.data;
                 console.log(`Login:${token}`);

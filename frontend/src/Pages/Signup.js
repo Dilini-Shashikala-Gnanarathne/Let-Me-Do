@@ -37,7 +37,7 @@ const Signup = () => {
   };
 
   const addUser = (data) => {
-    Axios.post('https://letmedo-hqeveqd7b9anh5bv.southeastasia-01.azurewebsites.net/api/createUser', data)
+    Axios.post('http://localhost:3000/api/createUser', data)
       .then(() => {
         resetForm();
         setError(null);

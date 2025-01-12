@@ -79,7 +79,7 @@ const ThirdYearFirst = () => {
       return;
     }
 
-    Axios.put('https://letmedo-hqeveqd7b9anh5bv.southeastasia-01.azurewebsites.net/api/thirdyearfirst', { email: user.email, updates: [data] })
+    Axios.put('http://localhost:3000/api/thirdyearfirst', { email: user.email, updates: [data] })
       .then(() => {
         setSubmissionCount((prevCount) => prevCount + 1);
         resetForm();
@@ -103,7 +103,7 @@ const ThirdYearFirst = () => {
       return;
     }
 
-    Axios.post(`https://letmedo-hqeveqd7b9anh5bv.southeastasia-01.azurewebsites.net/api/${url}`, { email: user.email })
+    Axios.post(`http://localhost:3000/api/${url}`, { email: user.email })
       .then(() => {
         console.log('Successfully fetched GPA data for', url);
         setSelectedGPA(key);

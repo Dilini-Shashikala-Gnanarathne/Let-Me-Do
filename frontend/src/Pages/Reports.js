@@ -10,7 +10,7 @@ const Reports = ({ rows, deleteUser }) => {
     }, []);
 
     const getGPAData = () => {
-        Axios.get('https://letmedo-hqeveqd7b9anh5bv.southeastasia-01.azurewebsites.net/api/getUser')
+        Axios.get('http://localhost:3000/api/getUser')
             .then(response => {
                 setGPA(response.data.gpa);
             })

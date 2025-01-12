@@ -10,7 +10,7 @@ const Result = () => {
   }, []);
 
   const getUsers = () => {
-    Axios.get('https://letmedo-hqeveqd7b9anh5bv.southeastasia-01.azurewebsites.net/api/users')
+    Axios.get('http://localhost:3000/api/users')
       .then(response => {
         setUsers(response.data?.response || []);
       })
@@ -19,7 +19,7 @@ const Result = () => {
       })
   }
   const deleteUser = (data) => {
-    Axios.post('https://letmedo-hqeveqd7b9anh5bv.southeastasia-01.azurewebsites.net/api/deleteUser', data)
+    Axios.post('http://localhost:3000/api/deleteUser', data)
       .then(() => {
         getUsers();
         console.log(1);
